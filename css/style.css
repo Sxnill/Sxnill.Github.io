@@ -1,22 +1,51 @@
-.newsletter p {
-  font-size: 1.5em;
-  margin-bottom: 15px;
-}
+/* Basic reset and styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #262126;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    img {
+      margin-bottom: 20px;
+    }
+    .newsletter {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .newsletter p {
+      font-size: 1.5em;
+      margin-bottom: 15px;
+    }
+    .newsletter input[type="email"] {
+      padding: 10px;
+      width: 80%;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
 
-.newsletter input[type="email"],
-.newsletter input[type="text"] {
-  padding: 10px;
-  width: 80%;
-  border: none;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
+    .newsletter input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
 
-.newsletter input[type="submit"] {
-  padding: 10px 20px;
-  border: none;
-  background-color: #555;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 5px;
-}
+    .newsletter input[type="submit"] {
+      padding: 10px 20px;
+      border: none;
+      background-color: #555;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+    }
