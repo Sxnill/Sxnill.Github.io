@@ -105,6 +105,25 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
+    const whoSection = document.querySelector(".who-am-i");
+
+    function handleScroll() {
+      const sectionPosition = whoSection.getBoundingClientRect().top;
+      const screenHeight = window.innerHeight;
+
+      if (sectionPosition < screenHeight * 0.75) {
+        whoSection.classList.add("visible");
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Run on load in case it's already in view
+  });
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
     const logo = document.querySelector(".logo");
     const aboutSection = document.querySelector("#about-section");
 

@@ -135,6 +135,20 @@ body {
 }
 
 
+/* Initial Hidden State */
+.who-am-i {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* When the section becomes visible */
+.who-am-i.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 /* Who Am I Section */
 .who-am-i {
   display: flex;
@@ -143,6 +157,7 @@ body {
   background-color: #1C1C1E; /* Dark background for contrast */
   padding: 60px 20px;
   text-align: left;
+  transition: opacity **1.2s** ease-out, transform **1.2s** ease-out;
 }
 
 .who-container {
