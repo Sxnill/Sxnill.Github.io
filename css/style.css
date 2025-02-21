@@ -118,6 +118,57 @@ body {
   background: #CDE4FF;
 }
 
+
+/* Who Am I Section */
+.who-am-i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1C1C1E; /* Dark background for contrast */
+  padding: 60px 20px;
+  text-align: left;
+}
+
+.who-container {
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+  width: 100%;
+  gap: 30px;
+}
+
+.profile-pic {
+  width: 200px; /* Adjust size as needed */
+  height: 200px;
+  border-radius: 50%; /* Circular image */
+  object-fit: cover;
+  border: 3px solid #A0C4FF;
+
+  
+}
+
+.who-text {
+  color: #A0C4FF;
+  max-width: 650px;
+  text-align: justify;
+  scroll-margin-top: 100px; /* Adjust based on navbar height */
+}
+
+.who-text h2 {
+  font-size: 2em;
+  color: #CDE4FF;
+  margin-bottom: 10px;
+}
+
+.who-text p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #B0D0FF;
+}
+
+
+
+
 /* About Section */
 .about {
   padding: 50px 20px;
@@ -131,7 +182,6 @@ body {
   color: #CDE4FF; /* Brighter headings */
   margin-bottom: 10px;
 
-  scroll-margin-top: 80px; /* Adjust based on navbar height */
 }
 
 .about p {
