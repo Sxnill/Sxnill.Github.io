@@ -194,8 +194,8 @@ body {
 }
 
 .who-text p {
-  font-size: 1.1em;
-  line-height: 1.6;
+  font-size: 1.3em;
+  line-height: 1.2;
   color: #B0D0FF;
 }
 
@@ -207,7 +207,7 @@ body {
   padding: 50px 20px;
   max-width: 800px;
   margin: 0 auto;
-  text-align: left;
+  text-align: justify;
 }
 
 .about h2 {
@@ -220,6 +220,7 @@ body {
 .about p {
   color: #A0C4FF; /* Slightly softer for readability */
   text-align: justify;
+  font-size: 1.3em;
 }
 
 .about ul {
@@ -228,7 +229,7 @@ body {
 }
 
 .about ul li {
-  font-size: 1.1em;
+  font-size: 1.2em;
   margin-bottom: 10px;
   color: #B0D0FF; /* Slightly lighter */
 }
