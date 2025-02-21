@@ -1,3 +1,16 @@
+@media (max-width: 768px) {
+  .who-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+
 /* Reset and General Styles */
 * {
   margin: 0;
@@ -147,17 +160,6 @@ body {
   
 }
 
-@media (max-width: 768px) {
-  .who-container {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .profile-pic {
-    width: 120px;
-    height: 120px;
-  }
-}
 
 .who-text {
   color: #A0C4FF;
