@@ -43,8 +43,13 @@
 
     .hero {
       text-align: center;
-      padding: 60px 20px;
+      padding: 100px 20px;
       background-color: #0c1220;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .hero img.hero-image {
@@ -57,20 +62,39 @@
     }
 
     .services, .how-it-works, .contact {
-      padding: 60px 20px;
+      padding: 100px 5%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       text-align: center;
     }
 
+    .columns {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+      text-align: left;
+    }
+
     h2 {
-      font-size: 2em;
+      font-size: 2.5em;
       color: #6aa7ff;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
 
     ul, ol {
       list-style: none;
       padding: 0;
-      max-width: 700px;
       margin: 0 auto;
       font-size: 1.1em;
     }
@@ -147,21 +171,38 @@
 
   <section class="services" id="services">
     <h2>What We Offer</h2>
-    <ul>
-      <li>Custom-built Windows Services (C#)</li>
-      <li>Dedicated on-site microservers</li>
-      <li>Remote diagnostics & updates</li>
-      <li>File automation, system monitoring, PDF handling</li>
-    </ul>
+    <div class="columns">
+      <div class="column">
+        <h3>Local Automation</h3>
+        <p>We provide microservers tailored for small business automation — no cloud dependency, full control.</p>
+      </div>
+      <div class="column">
+        <h3>Custom Services</h3>
+        <p>Our C# Windows services handle file monitoring, task execution, system workflows, and more.</p>
+      </div>
+      <div class="column">
+        <h3>Ongoing Support</h3>
+        <p>Monthly check-ins, log analysis, and updates ensure your automation stays aligned with your needs.</p>
+      </div>
+    </div>
   </section>
 
   <section class="how-it-works" id="how-it-works">
     <h2>How It Works</h2>
-    <ol>
-      <li><strong>Consult:</strong> We learn your workflow and pain points</li>
-      <li><strong>Deploy:</strong> We install and configure your automation node</li>
-      <li><strong>Maintain:</strong> We monitor and adapt as your needs evolve</li>
-    </ol>
+    <div class="columns">
+      <div class="column">
+        <h3>1. Consult</h3>
+        <p>We meet to understand your business processes and pain points.</p>
+      </div>
+      <div class="column">
+        <h3>2. Deploy</h3>
+        <p>We set up your local Bytecelium automation node and install all necessary scripts and services.</p>
+      </div>
+      <div class="column">
+        <h3>3. Maintain</h3>
+        <p>We provide scheduled updates, monitor logs remotely, and assist as needs evolve.</p>
+      </div>
+    </div>
   </section>
 
   <section class="contact" id="contact">
