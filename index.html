@@ -4,123 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bytecelium | Automation Services</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0c1220;
-      color: #a3c9f9;
+    html {
+      scroll-behavior: smooth;
     }
-
-    header.navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background-color: #0f1b33;
-    }
-
-    .logo {
-      height: 50px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #a3c9f9;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #6aa7ff;
-    }
-
     .hero {
       text-align: center;
       padding: 100px 20px;
-      background-color: #0c1220;
+      background: linear-gradient(to bottom, #0c1220, #131e36);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      position: relative;
     }
-
-    .hero img.hero-image {
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      color: #d0dfff;
+      margin: 0 auto 30px;
+    }
+    .hero-image {
       width: 400px;
       max-width: 90%;
       height: auto;
       border-radius: 12px;
       box-shadow: 0 0 40px rgba(52, 125, 255, 0.4);
-      background-color: #0c1220;
     }
-
-    .services, .how-it-works, .contact {
-      padding: 100px 5%;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .columns {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .column {
-      flex: 1;
-      min-width: 250px;
-      max-width: 300px;
-      text-align: left;
-    }
-
-    h2 {
-      font-size: 2.5em;
-      color: #6aa7ff;
-      margin-bottom: 40px;
-    }
-
-    ul, ol {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto;
-      font-size: 1.1em;
-    }
-
-    ul li, ol li {
-      margin-bottom: 10px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
-    input, textarea {
-      padding: 12px;
-      border: none;
-      border-radius: 5px;
-      background-color: #1c2741;
-      color: #ffffff;
-    }
-
-    button.btn.primary {
-      padding: 12px;
+    .btn.primary {
+      padding: 12px 24px;
       background: linear-gradient(to right, #3f8efc, #57c0ff);
       border: none;
       border-radius: 30px;
@@ -131,12 +50,29 @@
       box-shadow: 0 4px 20px rgba(64, 145, 255, 0.5);
       transition: all 0.3s ease-in-out;
     }
-
-    button.btn.primary:hover {
+    .btn.primary:hover {
       background: linear-gradient(to right, #57c0ff, #3f8efc);
       box-shadow: 0 6px 25px rgba(64, 145, 255, 0.7);
     }
-
+    .columns {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    .column {
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+      text-align: left;
+    }
+    section {
+      padding: 100px 20px;
+      min-height: 100vh;
+    }
     footer {
       text-align: center;
       padding: 30px;
@@ -146,7 +82,6 @@
   </style>
 </head>
 <body>
-
   <header class="navbar">
     <img src="ByteceliumLogo.png" alt="Bytecelium Logo" class="logo" />
     <nav>
@@ -159,30 +94,28 @@
   </header>
 
   <section class="hero">
-    <div class="hero-content">
-      <img src="byteceliumLanding.png" alt="Bytecelium Automation Banner" class="hero-image" />
-      <div style="margin-top: -70px;">
-        <a href="#contact">
-          <button class="btn primary">GET STARTED</button>
-        </a>
-      </div>
-    </div>
+    <img src="byteceliumLanding.png" alt="Bytecelium Automation Banner" class="hero-image" />
+    <h1>On-Premises Automation, Tailored for You</h1>
+    <p>We help small businesses automate tasks locally with secure, custom-built microservers—no cloud dependency, just results.</p>
+    <a href="#contact">
+      <button class="btn primary">GET STARTED</button>
+    </a>
   </section>
 
   <section class="services" id="services">
     <h2>What We Offer</h2>
     <div class="columns">
       <div class="column">
-        <h3>Local Automation</h3>
-        <p>We provide microservers tailored for small business automation — no cloud dependency, full control.</p>
+        <h3>Tailored Microservers</h3>
+        <p>Each client receives a dedicated automation node built to run critical workflows within your local environment.</p>
       </div>
       <div class="column">
-        <h3>Custom Services</h3>
-        <p>Our C# Windows services handle file monitoring, task execution, system workflows, and more.</p>
+        <h3>C# Automation Services</h3>
+        <p>File handling, event triggers, reporting, task execution—our custom scripts run 24/7 to keep you ahead.</p>
       </div>
       <div class="column">
-        <h3>Ongoing Support</h3>
-        <p>Monthly check-ins, log analysis, and updates ensure your automation stays aligned with your needs.</p>
+        <h3>Ongoing Optimization</h3>
+        <p>We monitor, update, and adapt your system as your needs evolve. Monthly maintenance and support included.</p>
       </div>
     </div>
   </section>
@@ -192,32 +125,32 @@
     <div class="columns">
       <div class="column">
         <h3>1. Consult</h3>
-        <p>We meet to understand your business processes and pain points.</p>
+        <p>We evaluate your current processes, pain points, and identify automation opportunities.</p>
       </div>
       <div class="column">
         <h3>2. Deploy</h3>
-        <p>We set up your local Bytecelium automation node and install all necessary scripts and services.</p>
+        <p>We install your Bytecelium server with all automation logic pre-configured to your operations.</p>
       </div>
       <div class="column">
         <h3>3. Maintain</h3>
-        <p>We provide scheduled updates, monitor logs remotely, and assist as needs evolve.</p>
+        <p>Our support team monitors and adjusts your automation engine for reliability and growth.</p>
       </div>
     </div>
   </section>
 
   <section class="contact" id="contact">
-    <h2>Get In Touch</h2>
+    <h2>Let’s Build Something Automated</h2>
+    <p style="text-align: center; max-width: 500px; margin: 0 auto 30px;">Have a process you want to streamline? Reach out and let’s talk about what Bytecelium can build for your team.</p>
     <form action="https://formspree.io/f/mvgzwweo" method="POST">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="How can we help you?" required></textarea>
+      <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit" class="btn primary">Send Message</button>
     </form>
   </section>
 
   <footer>
-    <p>&copy; 2025 Bytecelium. All rights reserved.</p>
+    <p>&copy; 2025 Bytecelium — www.bytecelium.com</p>
   </footer>
-
 </body>
 </html>
