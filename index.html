@@ -48,8 +48,12 @@
     }
 
     .hero img.hero-image {
-      max-width: 100%;
+      width: 400px;
+      max-width: 90%;
       height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 40px rgba(52, 125, 255, 0.4);
+      background-color: #0c1220;
     }
 
     .services, .how-it-works, .contact {
@@ -93,17 +97,20 @@
 
     button.btn.primary {
       padding: 12px;
-      background-color: #3399ff;
+      background: linear-gradient(to right, #3f8efc, #57c0ff);
       border: none;
-      border-radius: 5px;
+      border-radius: 30px;
       font-weight: bold;
       color: #fff;
+      font-size: 1em;
       cursor: pointer;
-      transition: background-color 0.3s;
+      box-shadow: 0 4px 20px rgba(64, 145, 255, 0.5);
+      transition: all 0.3s ease-in-out;
     }
 
     button.btn.primary:hover {
-      background-color: #6aa7ff;
+      background: linear-gradient(to right, #57c0ff, #3f8efc);
+      box-shadow: 0 6px 25px rgba(64, 145, 255, 0.7);
     }
 
     footer {
