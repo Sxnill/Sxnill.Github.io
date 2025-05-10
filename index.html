@@ -1,60 +1,68 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Bytecelium | Automation-as-a-Service</title>
-<link href="css/style.css" rel="stylesheet"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bytecelium | Automation Services</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<!-- Hero Section -->
-<section class="hero">
-<div class="container"><img alt="Bytecelium Logo" src="ByteceliumLogo.png" style="height: 100px; margin-bottom: 20px;"/>
-<h1>Automate Your Business with Bytecelium</h1>
-<p>Tailored on-premises automation solutions for small businesses.</p>
-<a class="cta-button" href="#contact">Get Started</a>
-</div>
-</section>
-<!-- About Section -->
-<section class="about"><div class="container">
-<h2>About Bytecelium</h2>
-<p>Bytecelium delivers personalized automation for small businesses through dedicated on-site microservers running stable C#-based services. We solve repetitive problems and streamline operations so you can focus on your business, not your systems.</p>
-</div></section>
-<!-- Services Section -->
-<section class="services"><div class="container">
-<h2>Services</h2>
-<ul>
-<li>On-site automation server (Dell micro desktop)</li>
-<li>Custom C# Windows Services for business processes</li>
-<li>Remote support and diagnostics</li>
-<li>File system monitoring, PDF generation, data syncing</li>
-<li>Monthly maintenance and log reviews</li>
-</ul>
-</div></section>
-<!-- How It Works Section -->
-<section class="how-it-works"><div class="container">
-<h2>How It Works</h2>
-<ol>
-<li><strong>Consultation:</strong> We discuss your workflow and automation needs.</li>
-<li><strong>Deployment:</strong> A microserver is installed on-site with custom scripts.</li>
-<li><strong>Support:</strong> Bytecelium monitors, updates, and maintains your automation setup.</li>
-</ol>
-</div></section>
-<!-- Contact Section -->
-<section class="contact" id="contact"><div class="container">
-<h2>Contact</h2>
-<p>Have a question or want to request a consultation? Reach out below.</p>
-<form action="https://formspree.io/f/mvgzwweo" method="POST">
-<input name="name" placeholder="Your Name" required="" type="text"/>
-<input name="email" placeholder="Your Email" required="" type="email"/>
-<textarea name="message" placeholder="Your Message" required=""></textarea>
-<button type="submit">Send</button>
-</form>
-</div></section>
-<!-- Footer -->
-<footer>
-<p>© 2025 Bytecelium | Automation-as-a-Service</p>
-</footer>
+
+  <header class="navbar">
+    <img src="ByteceliumLogo.png" alt="Bytecelium Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <img src="0d3a71e3-3b1a-4dce-a52f-13724e643cf5.png" alt="Automation Illustration" class="hero-image" />
+      <h1>Automation Built for the Real World</h1>
+      <p>Deployable local servers. Remote management. Scalable C# automation built for your small business.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn primary">Get Started</a>
+        <a href="#services" class="btn secondary">Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <h2>What We Offer</h2>
+    <ul>
+      <li>Custom-built Windows Services (C#)</li>
+      <li>Dedicated on-site microservers</li>
+      <li>Remote diagnostics & updates</li>
+      <li>File automation, system monitoring, PDF handling</li>
+    </ul>
+  </section>
+
+  <section class="how-it-works" id="how-it-works">
+    <h2>How It Works</h2>
+    <ol>
+      <li><strong>Consult:</strong> We learn your workflow and pain points</li>
+      <li><strong>Deploy:</strong> We install and configure your automation node</li>
+      <li><strong>Maintain:</strong> We monitor and adapt as your needs evolve</li>
+    </ol>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Get In Touch</h2>
+    <form action="https://formspree.io/f/mvgzwweo" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="How can we help you?" required></textarea>
+      <button type="submit" class="btn primary">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Bytecelium. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
