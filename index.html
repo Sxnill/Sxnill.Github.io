@@ -4,10 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bytecelium | Automation Services</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="style.css" />
   <style>
     html {
       scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0c1220;
+      color: #a3c9f9;
+    }
+    header.navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #0f1b33;
+    }
+    .logo {
+      height: 50px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #a3c9f9;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #6aa7ff;
     }
     .hero {
       text-align: center;
@@ -18,7 +48,6 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      position: relative;
     }
     .hero h1 {
       font-size: 2.5rem;
@@ -54,6 +83,14 @@
       background: linear-gradient(to right, #57c0ff, #3f8efc);
       box-shadow: 0 6px 25px rgba(64, 145, 255, 0.7);
     }
+    section {
+      padding: 100px 5%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
     .columns {
       display: flex;
       justify-content: center;
@@ -61,17 +98,12 @@
       flex-wrap: wrap;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 60px 20px;
     }
     .column {
       flex: 1;
       min-width: 250px;
       max-width: 300px;
       text-align: left;
-    }
-    section {
-      padding: 100px 20px;
-      min-height: 100vh;
     }
     footer {
       text-align: center;
