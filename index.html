@@ -22,14 +22,30 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px 20px 20px;
+      padding: 0px 40px 20px 20px;
       background-color: #ffffff;
-      border-bottom: 1px solid #ccc;
+      position: relative;
+      z-index: 1; /* Bring it in front of .fullNav */
     }
 
+    .fullNav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 80px; /* Adjust to match header height */
+      width: 100vw;
+      border-bottom: 1px solid #ccc;
+      background-color: #ffffff;
+      z-index: 0; /* Ensure it's behind the main nav */
+    }
     header .logo {
       font-weight: bold;
       font-size: 1.5em;
+    }
+
+    .logo img {
+      height: 50px;
+      top: -50px;
     }
 
     nav a {
@@ -67,7 +83,7 @@
     }
 
     .services, .how-it-works, .contact-form {
-      padding: 60px 0;
+      padding: 60px 60px;
     }
 
     .services h2, .how-it-works h2, .contact-form h2 {
@@ -130,10 +146,12 @@
 </head>
 <body>
   
-
+<div class="fullNav">
+    &nbsp;
+  </div>
   <div class="container">
     <header>
-    <div class="logo">Bytecelium</div>
+    <div class="logo"><img src="ByteceliumLogo.png"></div>
     <nav>
       <a href="#services">Services</a>
       <a href="#how-it-works">How it Works</a>
@@ -186,7 +204,7 @@
     </section>
 
     <section class="contact-form" id="contact">
-      <h2>Let’s Build Something Automated</h2>
+      <h2 style="text-align: center;">Let’s Build Something Automated</h2>
       <p style="text-align: center; max-width: 500px; margin: 0 auto 30px;">
         Have a process you want to streamline? Reach out and let’s talk about what Bytecelium can build for your team.
       </p>
