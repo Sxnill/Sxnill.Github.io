@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bytecelium | Local Automation & Quick Business Fixes</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bytecelium | In-Home Tech & Home Office Setup</title>
   <style>
+    /* --- base and layout (yours) --- */
     body { font-family: Arial, sans-serif; margin: 0; background-color: #fff; color: #1a1a1a; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     header { display: flex; justify-content: space-between; align-items: center; padding: 0px 40px 10px 20px; background-color: #ffffff; position: relative; z-index: 1; }
@@ -13,9 +14,8 @@
     .logo img { height: 50px; margin-top:20px; }
     nav a { margin-left: 20px; text-decoration: none; color: #1a1a1a; font-weight: 500; }
     .hero { display: flex; align-items: center; justify-content: space-between; padding: 60px; background-color: #f5f5f5; }
-    .hero h1 { font-size: 2.5em; }
-    .hero p { font-size: 1.2em; margin-top: 10px; }
-    .hero button { margin-top: 20px; padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; font-size: 1em; }
+    .hero h1 { font-size: 2.5em; margin: 0 0 8px; }
+    .hero p { font-size: 1.2em; margin: 10px 0 18px; }
     .services, .how-it-works, .contact-form { padding: 60px 60px; }
     .services h2, .how-it-works h2, .contact-form h2 { font-size: 2em; margin-bottom: 20px; }
     .card-grid { display: flex; gap: 30px; flex-wrap: wrap; }
@@ -26,92 +26,120 @@
     .contact-form button { padding: 10px; background-color: #007bff; color: white; border: none; cursor: pointer; font-size: 1em; }
     footer { background-color: #002f5f; color: white; padding: 20px 40px; display: flex; justify-content: space-between; flex-wrap: wrap; }
     footer a { color: white; text-decoration: none; margin-right: 20px; }
+
+    /* --- sticky footer (minimal) --- */
+    html, body { height: 100%; }
+    body { display: flex; min-height: 100vh; flex-direction: column; }
+    .container { flex: 1 0 auto; }
+    footer { margin-top: auto; }
+
+    /* --- hero buttons on same level --- */
+    .hero-actions{ display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 20px; line-height:1; font-size:1em; font-weight:700;
+      border-radius:6px; box-sizing:border-box; text-decoration:none; margin:0; cursor:pointer;
+    }
+    .btn-primary{ background:#007bff; color:#fff; border:2px solid #007bff; }
+    .btn-primary:hover{ background:#0069d9; border-color:#0069d9; }
+    .btn-secondary{ background:#fff; color:#007bff; border:2px solid #007bff; }
+    .btn-secondary:hover{ background:#eaf2ff; }
   </style>
 </head>
 <body>
-<div class="fullNav">&nbsp;</div>
-<div class="container">
-  <header>
-    <div class="logo"><img src="ByteceliumLogo.png" alt="Bytecelium Logo"></div>
-    <nav>
+  <div class="fullNav" aria-hidden="true">&nbsp;</div>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="logo"><img src="ByteceliumLogo.png" alt="Bytecelium Logo"></div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#how-it-works">How it Works</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <h1>Home Tech Setup Made Simple</h1>
+        <p>Wi-Fi and mesh, PC/Mac, printers, webcams, dual monitors, and basic cybersecurity — set up the right way.</p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView()">Get a Quote</button>
+          <a class="btn btn-secondary" href="pricing.html">See full pricing</a>
+        </div>
+      </div>
+      <!-- Optional hero image -->
+      <!-- <img src="automation.png" alt="Home Office Setup" style="max-width:300px;"> -->
+    </section>
+
+    <!-- Services (no prices here) -->
+    <section class="services" id="services">
+      <h2>Our Services</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Connectivity & Networking</h3>
+          <p>Setup and troubleshooting for Wi-Fi routers, mesh systems, and fixing slow connections or dead zones.</p>
+        </div>
+        <div class="card">
+          <h3>Computer & Device Setup</h3>
+          <p>PC/Mac installs, Microsoft 365 Family setup, printers, scanners, webcams, and dual monitors.</p>
+        </div>
+        <div class="card">
+          <h3>Workspace Optimization</h3>
+          <p>Docking stations, headsets, webcams, and clean cable management for a professional desk setup.</p>
+        </div>
+        <div class="card">
+          <h3>Cybersecurity Basics</h3>
+          <p>Antivirus, firewall, parental controls, and data protection recommendations to help keep your family safe.</p>
+        </div>
+        <div class="card">
+          <h3>Home Office Starter Package</h3>
+          <p>Bundle: Wi-Fi setup, printer install, and PC setup in a single visit.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+      <h2>How It Works</h2>
+      <div class="card-grid">
+        <div class="card"><h3>Step 1: Contact</h3><p>Tell us your setup needs or tech frustrations.</p></div>
+        <div class="card"><h3>Step 2: Fixed Quote</h3><p>Get a clear, upfront price before any work begins.</p></div>
+        <div class="card"><h3>Step 3: Delivery</h3><p>Most in-home jobs are completed in a single visit.</p></div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-form" id="contact">
+      <h2 style="text-align:center;">Get Started</h2>
+      <p style="text-align:center; max-width:500px; margin:0 auto 30px;">
+        Need help with your home office setup? Send a message and I’ll reply quickly.
+      </p>
+      <form action="https://formspree.io/f/mvgzwweo" method="POST" style="display:flex; flex-direction:column; gap:15px; max-width:500px; margin:0 auto;">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="phone" name="phone" placeholder="Phone" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="What do you need help with?" required></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div>
       <a href="#services">Services</a>
       <a href="#how-it-works">How it Works</a>
+      <a href="pricing.html">Pricing</a>
       <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
+    </div>
     <div>
-      <h1>Quick Fixes + Local Automation</h1>
-      <p>Bytecelium helps small businesses cut admin time with branded PDFs, Outlook signatures, and local automation—fast, secure, and cloud-free.</p>
-      <button onclick="document.getElementById('contact').scrollIntoView()">Get a Quote</button>
+      <p>info@bytecelium.com</p>
     </div>
-    <!-- <img src="automation.png" alt="Automation" style="max-width: 300px;"> -->
-  </section>
-
-  <section class="services" id="services">
-    <h2>Our Services</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Fillable E-Sign PDFs</h3>
-        <p>Turn paper or Word forms into branded, validated, fillable PDFs with required fields and signature blocks.</p>
-        <p><b>As low as $25 per page</b></p>
-      </div>
-      <div class="card">
-        <h3>Outlook Signatures</h3>
-        <p>Professional, mobile-friendly signatures deployed across your whole team.</p>
-        <p><b>$149 for up to 5 users</b> (+$15 each extra)</p>
-      </div>
-      <div class="card">
-        <h3>Quick Design Edits</h3>
-        <p>Logo clean-ups, simple banners, and Photoshop fixes delivered fast.</p>
-        <p><b>From $50</b></p>
-      </div>
-      <div class="card">
-        <h3>Automation Scripts</h3>
-        <p>Custom PowerShell or C# utilities to save hours of repetitive work. Perfect for reports, inventory, and bulk updates.</p>
-        <p><b>From $299</b></p>
-      </div>
-      <div class="card">
-        <h3>Local Automation Nodes</h3>
-        <p>Dedicated Bytecelium microservers that run your automation securely on-site, no cloud required.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="how-it-works" id="how-it-works">
-    <h2>How It Works</h2>
-    <div class="card-grid">
-      <div class="card"><h3>Step 1: Contact</h3><p>Send us your form, branding needs, or process pain point.</p></div>
-      <div class="card"><h3>Step 2: Fixed Quote</h3><p>You’ll get a clear price up front (no hourly guessing).</p></div>
-      <div class="card"><h3>Step 3: Delivery</h3><p>Most quick jobs done in 24–48 h; automation nodes in days.</p></div>
-    </div>
-  </section>
-
-  <section class="contact-form" id="contact">
-    <h2 style="text-align: center;">Get Started</h2>
-    <p style="text-align: center; max-width: 500px; margin: 0 auto 30px;">
-      Ready for a fillable PDF, Outlook signature, or custom automation? Let’s talk.
-    </p>
-    <form action="https://formspree.io/f/mvgzwweo" method="POST" style="display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 0 auto;">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="phone" name="phone" placeholder="Phone" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="What do you need help with?" required></textarea>
-      <button type="submit" class="btn primary">Send Message</button>
-    </form>
-  </section>
-</div>
-
-<footer>
-  <div>
-    <a href="#services">Services</a>
-    <a href="#how-it-works">How it Works</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div>
-    <p>info@bytecelium.com</p>
-  </div>
-</footer>
+  </footer>
 </body>
 </html>
