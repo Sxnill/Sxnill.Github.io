@@ -20,6 +20,52 @@
   z-index: 0;                  /* stays behind the header */
 }
 
+/* Base nav */
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+/* Hide hamburger by default */
+.nav-toggle {
+  display: none;
+  font-size: 1.8em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 90px;   /* below header */
+    right: 0;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}
+
+
 
 html, body { overflow-x: hidden; }
 
@@ -58,14 +104,22 @@ html, body { overflow-x: hidden; }
   <div class="container">
     <!-- Header -->
     <header>
-      <div class="logo"><img src="ByteceliumLogo.png" alt="Bytecelium Logo"></div>
-      <nav>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#how-it-works">How it Works</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="index.html#contact">Contact</a>
-      </nav>
-    </header>
+  <div class="logo">
+    <img src="ByteceliumLogo.png" alt="Bytecelium Logo">
+  </div>
+  
+  <!-- Hamburger button -->
+  <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+  
+  <!-- Nav links -->
+  <nav class="nav-links">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#how-it-works">How it Works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
 
     <!-- Hero -->
     <section class="hero">
@@ -138,5 +192,13 @@ html, body { overflow-x: hidden; }
       <p>info@bytecelium.com</p>
     </div>
   </footer>
+  <script>
+  const toggleBtn = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  toggleBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>
+
 </body>
 </html>
