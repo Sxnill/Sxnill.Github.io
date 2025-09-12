@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bytecelium | In-Home Tech & Small Business IT</title>
+  <title>Bytecelium | Small Business IT Services</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; background-color: #fff; color: #1a1a1a; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     header { display: flex; justify-content: space-between; align-items: center; padding: 0px 40px 10px 20px; background-color: #ffffff; position: relative; z-index: 1; }
     .fullNav { position: absolute; top: 0; left: 0; height: 90px; width: 99vw; border-bottom: 1px solid #ccc; background-color: #ffffff; z-index: 0; }
-    header .logo { font-weight: bold; font-size: 1.5em; }
     .logo img { height: 50px; margin-top:20px; }
     nav a { margin-left: 20px; text-decoration: none; color: #1a1a1a; font-weight: 500; }
 
-    /* hero */
     .hero { display: flex; align-items: center; justify-content: space-between; padding: 60px; background-color: #f5f5f5; }
     .hero h1 { font-size: 2.5em; margin: 0 0 8px; }
     .hero p { font-size: 1.2em; margin: 10px 0 18px; }
+
     .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; margin-top:20px; }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
@@ -28,29 +27,24 @@
     .btn-secondary{ background:#fff; color:#007bff; border:2px solid #007bff; }
     .btn-secondary:hover{ background:#eaf2ff; }
 
-    /* sections + cards */
     .services, .how-it-works, .contact-form { padding: 60px 60px; }
     .services h2, .how-it-works h2, .contact-form h2 { font-size: 2em; margin-bottom: 20px; }
     .card-grid { display: flex; gap: 30px; flex-wrap: wrap; }
     .card { flex: 1; background-color: #f9f9f9; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; min-width: 250px; }
     .card h3 { margin-top: 0; }
 
-    /* form */
     .contact-form form { display: grid; gap: 15px; max-width: 600px; }
     .contact-form input, .contact-form textarea { padding: 10px; font-size: 1em; border: 1px solid #ccc; border-radius: 4px; }
     .contact-form button { padding: 10px; background-color: #007bff; color: white; border: none; cursor: pointer; font-size: 1em; }
 
-    /* footer */
     footer { background-color: #002f5f; color: white; padding: 20px 40px; display: flex; justify-content: space-between; flex-wrap: wrap; }
     footer a { color: white; text-decoration: none; margin-right: 20px; }
 
-    /* sticky footer */
     html, body { height: 100%; }
     body { display: flex; min-height: 100vh; flex-direction: column; }
     .container { flex: 1 0 auto; }
     footer { margin-top: auto; }
 
-    /* mobile nav */
     .nav-toggle { display: none; font-size: 1.8em; background: none; border: none; cursor: pointer; }
     @media screen and (max-width: 768px) {
       .nav-toggle { display: block; }
@@ -62,16 +56,13 @@
 </head>
 <body>
   <div class="fullNav" aria-hidden="true">&nbsp;</div>
-
   <div class="container">
-    <!-- Header -->
     <header>
       <div class="logo"><img src="ByteceliumLogo.png" alt="Bytecelium Logo"></div>
       <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
       <nav class="nav-links">
-        <a href="#services">Home Services</a>
-        <a href="#business-services">Business Services</a>
-        <a href="#how-it-works">How it Works</a>
+        <a href="index.html">Home</a>
+        <a href="business.html">Business Services</a>
         <a href="pricing.html">Pricing</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -80,33 +71,18 @@
     <!-- Hero -->
     <section class="hero">
       <div>
-        <h1>Home Tech Setup Made Simple</h1>
-        <p>Brand new PC or working from home? Let's get your home office going and set you up for success - the right way!</p>
+        <h1>Small Business IT Services</h1>
+        <p>Reliable, on-site IT help for small teams — workstations, networking, Microsoft 365 Business, backups, and quick troubleshooting.</p>
         <div class="hero-actions">
-          <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView()">Get a Quote</button>
-          <a class="btn btn-secondary" href="pricing.html">See full pricing</a>
+          <a class="btn btn-primary" href="#contact">Get a Quote</a>
+          <a class="btn btn-secondary" href="pricing.html">See Pricing</a>
         </div>
       </div>
     </section>
 
-    <!-- In-Home Services -->
-    <section class="services" id="services">
-      <h2>In-Home & Home Office Services</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Computer & Device Setup</h3>
-          <p>We’ll get your computer, Microsoft 365, printers, and accessories set up and ready to use — no hassle, no confusion.</p>
-        </div>
-        <div class="card">
-          <h3>Workspace Optimization</h3>
-          <p>Docking stations, headsets, webcams, and cable management for a professional desk setup. <strong>Includes ergonomic assessment to reduce back and neck strain.</strong></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Business Services -->
-    <section class="services" id="business-services">
-      <h2>Small Business IT Services</h2>
+    <!-- Services -->
+    <section class="services">
+      <h2>What We Do</h2>
       <div class="card-grid">
         <div class="card"><h3>Workstation & Device Setup</h3><p>PCs, printers, scanners, dual monitors, and Microsoft 365 Business setup and onboarding for your team.</p></div>
         <div class="card"><h3>Shared Storage & Backup</h3><p>NAS setup, OneDrive/SharePoint configuration, and sensible backup planning so files stay safe and accessible.</p></div>
@@ -115,38 +91,27 @@
       </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works" id="how-it-works">
-      <h2>How It Works</h2>
-      <div class="card-grid">
-        <div class="card"><h3>Step 1: Contact</h3><p>Tell us your setup needs or tech frustrations.</p></div>
-        <div class="card"><h3>Step 2: Fixed Quote</h3><p>Get a clear, upfront price before any work begins.</p></div>
-        <div class="card"><h3>Step 3: Delivery</h3><p>Most in-home or business jobs are completed in a single visit.</p></div>
-      </div>
-    </section>
-
     <!-- Contact -->
     <section class="contact-form" id="contact">
       <h2 style="text-align:center;">Get Started</h2>
-      <p style="text-align:center; max-width:500px; margin:0 auto 30px;">
-        Need help with your home office or business IT setup? Send a message and I’ll reply quickly.
+      <p style="text-align:center; max-width:600px; margin:0 auto 30px;">
+        Share a bit about your business environment and what you need help with.
       </p>
-      <form action="https://formspree.io/f/mvgzwweo" method="POST" style="display:flex; flex-direction:column; gap:15px; max-width:500px; margin:0 auto;">
+      <form action="https://formspree.io/f/mvgzwweo" method="POST" style="margin:0 auto;">
         <input type="text" name="name" placeholder="Your Name" required />
-        <input type="phone" name="phone" placeholder="Phone" required />
+        <input type="text" name="company" placeholder="Company (optional)" />
         <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="What do you need help with?" required></textarea>
+        <input type="phone" name="phone" placeholder="Phone" />
+        <textarea name="message" placeholder="Workstations? Networking? 365 Business? Backups? Tell me what you need." required></textarea>
         <button type="submit" class="btn btn-primary">Send Message</button>
       </form>
     </section>
   </div>
 
-  <!-- Footer -->
   <footer>
     <div>
-      <a href="#services">Home Services</a>
-      <a href="#business-services">Business Services</a>
-      <a href="#how-it-works">How it Works</a>
+      <a href="index.html">Home</a>
+      <a href="business.html">Business Services</a>
       <a href="pricing.html">Pricing</a>
       <a href="#contact">Contact</a>
     </div>
