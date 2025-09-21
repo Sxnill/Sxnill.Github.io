@@ -54,7 +54,18 @@
     .nav-toggle { display: none; font-size: 1.8em; background: none; border: none; cursor: pointer; }
     @media screen and (max-width: 768px) {
       .nav-toggle { display: block; }
-      .nav-links { display: none; flex-direction: column; background: #fff; position: absolute; top: 90px; right: 0; width: 200px; border: 1px solid #ccc; border-radius: 4px; padding: 10px; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 90px;
+        right: 0;
+        width: 200px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+      }
       .nav-links a { margin: 10px 0; }
       .nav-links.show { display: flex; }
     }
