@@ -1,0 +1,113 @@
+﻿:root{
+  --primary:#FFD700; --accent:#F59E0B;
+  --ink:#111827; --muted:#6B7280; --bg:#FFFFFF; --tone:#F3F4F6;
+  --radius:12px; --shadow:0 8px 24px rgba(0,0,0,.08);
+}
+
+/* Base reset */
+*{box-sizing:border-box}
+html,body{margin:0;padding:10px}
+img,svg,video{max-width:100%;height:auto;display:block}
+a{color:inherit}
+
+/* Type scale (fluid) */
+body{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--ink); background:var(--bg); line-height:1.6;
+  font-size:clamp(15px, 3.7vw, 17px);
+}
+h1{font-size:clamp(20px, 5.8vw, 28px); margin:0}
+h2{font-size:clamp(18px, 5.0vw, 24px); margin:0 0 1rem}
+h3{font-size:clamp(16px, 4.6vw, 20px); margin:.25rem 0 .5rem}
+p{margin:.4rem 0}
+
+/* Layout helpers */
+.container{max-width:1100px;margin:0 auto;padding:0 1rem}
+.pad{padding:2rem 0}
+.tone{background:var(--tone)}
+:target{scroll-margin-top:72px}
+
+/* Header */
+.site-header{
+  position:sticky; top:0; background:#fff; border-bottom:1px solid #e5e7eb; z-index:50;
+}
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between; gap:.75rem;
+  padding:.6rem 0; flex-wrap:wrap;
+}
+.branding{display:flex; align-items:center; gap:.5rem; min-width:0}
+.logo{font-size:1.25rem; line-height:1}
+@media (max-width:400px){ .logo{font-size:1rem} }
+
+/* Logo image sizing */
+.branding .logo-img{
+  display:block;
+  max-height:70px;
+  width:auto;
+}
+@media (min-width:640px){
+  .branding .logo-img{ max-height:70px }
+}
+
+/* Buttons */
+.btn{display:inline-block; padding:.6rem 1rem; border-radius:999px; text-decoration:none; border:1px solid var(--primary)}
+.btn.primary{background:var(--primary); color:#fff}
+.btn.outline{color:var(--primary); background:#fff}
+.btn:hover{filter:brightness(.95)}
+
+/* Hero */
+.hero{display:grid; place-items:center; min-height:40vh; padding:1.5rem 0}
+.hero-text{max-width:720px; text-align:center}
+.hero .btn{margin:.25rem}
+
+/* Cards grid (mobile-first) */
+.grid.cards{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:1rem;
+}
+.card{
+  background:#fff; border-radius:var(--radius); padding:1rem; box-shadow:var(--shadow);
+}
+
+/* Step up at tablet and desktop */
+@media (min-width:640px){ .grid.cards{ grid-template-columns: repeat(2, 1fr) } }
+@media (min-width:960px){ .grid.cards{ grid-template-columns: repeat(3, 1fr) } }
+
+/* Testimonials */
+.testimonials{display:grid; gap:1rem}
+.testimonial{background:#fff; border-left:4px solid var(--primary); padding:1rem; border-radius:var(--radius); box-shadow:var(--shadow)}
+.testimonial p{margin:0 0 .5rem}
+
+/* Contact area */
+.contact-wrap{display:grid; gap:1.25rem}
+@media (min-width:900px){ .contact-wrap{grid-template-columns:1fr 1fr} }
+.contact-info p, .hours{margin:.25rem 0}
+ul.hours{margin:.5rem 0 0; padding-left:1.1rem}
+.socials{display:flex; gap:.75rem; flex-wrap:wrap; margin-top:.5rem}
+.socials .social{text-decoration:none; border-bottom:1px dotted #d1d5db}
+
+.contact-form{display:grid; gap:.75rem}
+label{display:grid; gap:.25rem; font-weight:600}
+input,select,textarea{width:100%; padding:.7rem; border:1px solid #d1d5db; border-radius:10px; font:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--primary); border-color:transparent}
+.form-note{color:var(--muted); font-size:.9rem}
+
+/* Footer */
+.site-footer{border-top:1px solid #e5e7eb; background:#fff;}
+.footer-inner{display:flex; align-items:center; justify-content:space-between; padding:1rem 0; gap:.5rem; flex-wrap:wrap; margin-bottom:50px;}
+.footer-nav a{margin-right:1rem; color:var(--muted); text-decoration:none }
+.footer-nav a:hover{color:var(--ink)}
+
+/* Mobile sticky call bar */
+.mobile-callbar{
+  position:fixed; left:1rem; right:1rem; bottom:1rem;
+  background:var(--primary); color:#fff; text-align:center;
+  padding:.9rem; border-radius:999px; box-shadow:var(--shadow);
+  z-index:60; display:none; text-decoration:none; font-weight:700
+}
+@media (max-width:640px){ .mobile-callbar{display:block} }
+
+/* Prevent sideways scroll */
+html, body { overflow-x:hidden }
+.container, .card, .testimonial, .contact-wrap { min-width:0 }
