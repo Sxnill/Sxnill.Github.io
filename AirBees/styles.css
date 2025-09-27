@@ -51,14 +51,49 @@ p{margin:.4rem 0}
 
 /* Buttons */
 .btn{display:inline-block; padding:.6rem 1rem; border-radius:999px; text-decoration:none; border:1px solid var(--primary)}
-.btn.primary{background:var(--primary); color:#fff}
+.btn.primary{background:var(--primary); color:#000}
 .btn.outline{color:var(--primary); background:#fff}
 .btn:hover{filter:brightness(.95)}
 
-/* Hero */
-.hero{display:grid; place-items:center; min-height:40vh; padding:1.5rem 0}
-.hero-text{max-width:720px; text-align:center}
+/* HERO (with R.png background + overlay) */
+.hero{
+  position:relative;
+  display:grid; place-items:center;
+  min-height:56vh;
+  padding:3rem 0;
+
+  /* image + overlay */
+  background:
+    linear-gradient(to right, rgba(0,0,0,.55), rgba(0,0,0,.25)),
+    url('R.png') center / cover no-repeat;
+  color:#fff;
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+
+/* keep text centered and readable */
+.hero-inner{width:100%;}
+.hero-text{max-width:720px; text-align:center; margin:0 auto}
 .hero .btn{margin:.25rem}
+
+/* Buttons on dark photo */
+.hero .btn.outline{
+  border:2px solid rgba(255,255,255,.9);
+  color:#fff; background:transparent;
+}
+.hero .btn.outline:hover{background:rgba(255,255,255,.1)}
+
+/* Mobile: shift gradient vertical and tighten spacing */
+@media (max-width:640px){
+  .hero{
+    min-height:46vh;
+    padding:2rem 0;
+    background:
+      linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.15)),
+      url('R.png') center / cover no-repeat;
+    border-radius:10px;
+  }
+}
 
 /* Cards grid (mobile-first) */
 .grid.cards{
@@ -102,7 +137,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--primary); border
 /* Mobile sticky call bar */
 .mobile-callbar{
   position:fixed; left:1rem; right:1rem; bottom:1rem;
-  background:var(--primary); color:#fff; text-align:center;
+  background:var(--primary); color:#000; text-align:center;
   padding:.9rem; border-radius:999px; box-shadow:var(--shadow);
   z-index:60; display:none; text-decoration:none; font-weight:700
 }
