@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tradition Heating & Cooling</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0e3750;           /* Deep blue */
+    --ink-2:#143f5b;         /* Dark navy */
+    --cta:#1d4e89;           /* CTA blue */
+    --cta-hover:#163a66;     /* Darker hover */
+    --bg:#f7fafc;
+    --card:#ffffff;
+    --muted:#6b7280;
+    --radius:12px;
+    --shadow:0 10px 25px rgba(0,0,0,.08);
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Raleway',sans-serif;
+    color:var(--ink); background:var(--bg); line-height:1.65;
+  }
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%;height:auto}
+
+  /* ===== Top Info Bar ===== */
+  .topbar{
+    background:var(--ink); color:#fff; font-weight:700; font-size:.95rem;
+  }
+  .topbar .row{
+    max-width:1200px; margin:0 auto; padding:.5rem 1rem;
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;
+  }
+  .pill{
+    background:rgba(255,255,255,.1); padding:.35rem .75rem; border-radius:999px;
+  }
+  .pill:hover{background:rgba(255,255,255,.25)}
+
+  /* ===== Nav ===== */
+  .nav{
+    background:var(--ink-2); color:#fff; position:sticky; top:0; z-index:100;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+  }
+  .nav .row{
+    max-width:1200px; margin:0 auto; padding:.6rem 1rem;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .menu{display:flex; gap:1rem; flex-wrap:wrap}
+  .btn{
+    display:inline-block; padding:.7rem 1.2rem; border-radius:8px; font-weight:800;
+    background:var(--cta); color:#fff; text-transform:uppercase;
+    box-shadow:0 6px 14px rgba(0,0,0,.2);
+  }
+  .btn:hover{background:var(--cta-hover)}
+  .btn--ghost{
+    background:transparent; color:#fff; border:2px solid rgba(255,255,255,.4);
+  }
+  .btn--ghost:hover{border-color:#fff}
+
+  /* ===== Hamburger Menu ===== */
+  .hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+  }
+  .hamburger span{
+    width:25px; height:3px; background:white; border-radius:3px;
+  }
+  .mobile-nav{
+    display:none;
+    position:absolute; top:100%; left:0; right:0;
+    background:var(--ink-2); padding:1rem;
+    flex-direction:column; gap:1rem;
+  }
+  .mobile-nav a{
+    color:white; font-weight:700; text-transform:uppercase;
+  }
+  .mobile-nav.show{display:flex;}
+
+  @media (max-width:768px){
+    .menu.desktop{display:none;}
+    .hamburger{display:flex;}
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative; text-align:center;
+    background:url('hero-bg.png') center/cover no-repeat, var(--ink);
+    min-height:70vh; display:flex; align-items:center; justify-content:center; flex-direction:column;
+    color:#fff;
+  }
+  .hero::after{
+    content:""; position:absolute; inset:0;
+    background:rgba(14,55,80,0.75); /* semi-transparent overlay */
+    z-index:0;
+  }
+  .hero > *{position:relative; z-index:1;}
+  .hero .logo{
+    width:min(360px,60vw); margin-bottom:1.5rem;
+    filter:drop-shadow(0 8px 20px rgba(0,0,0,.5));
+  }
+  .headline{
+    font-size:clamp(28px,6vw,50px); margin:0; font-weight:900;
+    text-transform:uppercase; letter-spacing:.05em;
+  }
+  .sub{font-size:1.2rem; margin:.75rem auto 1.5rem; max-width:700px; font-weight:500; color:#e5ecf2;}
+  .hero-ctas{display:flex; gap:1rem; justify-content:center; flex-wrap:wrap}
+
+  /* ===== Announcement Bar ===== */
+  .announce{
+    background:var(--ink-2); color:#fff; padding:.9rem 1rem; text-align:center;
+    font-weight:700; text-transform:uppercase; letter-spacing:.03em;
+  }
+
+  /* ===== Sections ===== */
+  .section{padding:3rem 1rem}
+  .container{max-width:1100px; margin:0 auto}
+  .card{
+    background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
+    padding:1.5rem;
+  }
+  .h2{
+    text-transform:uppercase; font-weight:900; text-align:center;
+    margin:0 0 1.5rem; font-size:1.8rem; color:var(--ink);
+  }
+
+  /* Services grid */
+  .services{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1rem;
+  }
+  .svc{
+    background:#fff; border-radius:var(--radius); box-shadow:var(--shadow);
+    padding:1.25rem; text-align:center; font-weight:700; text-transform:uppercase;
+  }
+
+  /* Testimonials */
+  .testimonials{
+    background:#fff; padding:3rem 1rem;
+  }
+  .testimonials .grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem;
+  }
+  .testimonial{
+    background:#f0f6fa; border-left:6px solid var(--cta);
+    padding:1.5rem; border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+  .testimonial p{margin:0 0 1rem;}
+  .testimonial strong{color:var(--ink-2)}
+
+  /* Contact */
+  .contact .grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:1rem;
+  }
+  @media (max-width:800px){ .contact .grid{grid-template-columns:1fr} }
+  input,textarea{
+    width:100%; padding:.9rem 1rem; border-radius:8px; border:1px solid #ccc; font:inherit;
+    background:#fff;
+  }
+  textarea{min-height:140px; resize:vertical}
+
+  /* Footer */
+  footer{background:var(--ink-2); color:#cfe3ef; padding:2rem 1rem; text-align:center; margin-top:2rem}
+
+  /* ===== Sticky Mobile Call Button ===== */
+  .mobile-cta{
+    display:none;
+  }
+  @media (max-width:768px){
+    .mobile-cta{
+      display:block;
+      position:fixed;
+      bottom:15px; left:15px; right:15px;
+      background:var(--cta);
+      color:#fff;
+      text-align:center;
+      font-weight:800;
+      padding:1rem;
+      font-size:1.1rem;
+      border-radius:12px;
+      z-index:1000;
+      box-shadow:0 -4px 10px rgba(0,0,0,.25);
+    }
+    .mobile-cta:hover{background:var(--cta-hover)}
+  }
+</style>
+</head>
+<body>
+
+  <!-- Top info bar -->
+  <div class="topbar">
+    <div class="row">
+      <span>Serving Greater Kentuckiana</span>
+      <div>
+        <a class="pill" href="tel:15025551234">(502) 555-1234</a>
+        <a class="pill" href="mailto:info@traditionhvac.com">info@traditionhvac.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <div class="nav">
+    <div class="row">
+      <div class="menu desktop">
+        <a class="btn--ghost btn" href="#services">Services</a>
+        <a class="btn--ghost btn" href="#about">About</a>
+        <a class="btn--ghost btn" href="#testimonials">Testimonials</a>
+        <a class="btn--ghost btn" href="#contact">Contact</a>
+      </div>
+      <div class="menu">
+        <a class="btn" href="#contact">Schedule Now</a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <img class="logo" src="logo.png" alt="Tradition Heating & Cooling Logo" />
+    <h1 class="headline">Tradition Heating & Cooling</h1>
+    <p class="sub">Your comfort, our commitment — expert HVAC installation, service, and care.</p>
+    <div class="hero-ctas">
+      <a class="btn" href="#contact">Request Service</a>
+      <a class="btn btn--ghost" href="tel:15025551234">Call Now</a>
+    </div>
+  </header>
+
+  <!-- Announcement -->
+  <div class="announce">
+    Now booking seasonal maintenance — contact us today
+  </div>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container two">
+      <div class="card">
+        <h2 class="h2">Heating, Cooling & Air Quality</h2>
+        <p>
+          <strong>Tradition Heating & Cooling</strong> provides trusted HVAC services across Kentuckiana. 
+          From repairs and replacements to preventive maintenance, we’re here to keep your home comfortable all year long.
+        </p>
+        <p>
+          Our technicians are highly trained and customer-focused. Whether you need a quick repair, 
+          a new system, or an air quality upgrade, we bring reliable solutions with a personal touch.
+        </p>
+      </div>
+      <div class="card">
+        <img src="tech-truck.jpg" alt="Technician beside service vehicle">
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="h2">What We Do</h2>
+      <div class="services">
+        <div class="svc">Heating Repair & Install</div>
+        <div class="svc">Air Conditioning</div>
+        <div class="svc">System Replacement</div>
+        <div class="svc">Preventive Maintenance</div>
+        <div class="svc">Indoor Air Quality</div>
+        <div class="svc">Smart Thermostats</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="section testimonials">
+    <div class="container">
+      <h2 class="h2">What Our Customers Say</h2>
+      <div class="grid">
+        <div class="testimonial">
+          <p>"Tradition Heating & Cooling saved us in the middle of winter. Quick service and professional team!"</p>
+          <strong>- Sarah L.</strong>
+        </div>
+        <div class="testimonial">
+          <p>"Excellent communication and honest pricing. I wouldn’t call anyone else for HVAC work."</p>
+          <strong>- James R.</strong>
+        </div>
+        <div class="testimonial">
+          <p>"Our new AC system runs perfectly thanks to their expert installation. Highly recommend!"</p>
+          <strong>- Maria K.</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2 class="h2">Request Service</h2>
+      <div class="grid">
+        <form class="card" onsubmit="event.preventDefault(); alert('Thanks! We’ll reach out shortly.');">
+          <div style="display:grid; gap:.75rem;">
+            <input type="text" name="name" placeholder="Full Name" required />
+            <input type="tel" name="phone" placeholder="Phone" required />
+            <input type="email" name="email" placeholder="Email (optional)" />
+            <textarea name="message" placeholder="How can we help?" required></textarea>
+            <button class="btn" type="submit">Send Request</button>
+          </div>
+        </form>
+        <div class="card">
+          <p><strong>Phone:</strong> <a href="tel:15025551234">(502) 555-1234</a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@traditionhvac.com">info@traditionhvac.com</a></p>
+          <p><strong>Hours:</strong> Mon–Sat, 8am–6pm</p>
+          <p><strong>Service Area:</strong> Greater Kentuckiana</p>
+          <p style="color:var(--muted)">Follow us: 
+            <a href="#" style="color:var(--cta);font-weight:800">Facebook</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> Tradition Heating & Cooling — All rights reserved
+  </footer>
+
+  <!-- Sticky Mobile CTA -->
+  <a href="tel:15025551234" class="mobile-cta">(502) 555-1234</a>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.toggle('show');
+  });
+</script>
+</body>
+</html>

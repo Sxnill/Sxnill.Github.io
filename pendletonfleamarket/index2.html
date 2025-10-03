@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tradition Heating and Cooling</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2d2d2d;
+      --accent: #d97706;
+      --bg: #f9fafb;
+      --ink: #1a202c;
+      --radius: 10px;
+      --shadow: 0 4px 12px rgba(0,0,0,.12);
+    }
+    body {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    header.hero {
+      background: url('hvacHeader.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem;
+      position: relative;
+    }
+    header.hero::after {
+      content: "";
+      position: absolute;
+      top:0;left:0;right:0;bottom:0;
+      background: rgba(0,0,0,.55);
+    }
+    header.hero > * { position: relative; z-index: 1; }
+    header.hero h1 {
+      font-size: 3rem;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    header.hero p {
+      font-size: 1.2rem;
+      margin-top: .5rem;
+      font-weight: 500;
+    }
+    nav {
+      background: var(--primary);
+      padding: 0.8rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--accent); }
+    .section {
+      padding: 3rem 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .card {
+      background: white;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--accent);
+      font-size: 1.8rem;
+      text-transform: uppercase;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .service-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      font-weight: 600;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .gallery-grid img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .news-list {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .news-post {
+      display: flex;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .news-post img {
+      width: 180px;
+      object-fit: cover;
+    }
+    .news-content {
+      padding: 1.2rem;
+      flex: 1;
+    }
+    .news-post h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+    .news-post p {
+      margin: 0.5rem 0 0;
+    }
+    .cta {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .cta a {
+      display: inline-block;
+      padding: 0.9rem 1.8rem;
+      background: var(--accent);
+      color: white;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      transition: background .2s;
+    }
+    .cta a:hover { background: #b45309; }
+    footer {
+      background: #111;
+      color: #ddd;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+    .social {
+      margin-top: 1rem;
+    }
+    .social a {
+      color: var(--accent);
+      margin: 0 .5rem;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* Popup styles */
+    #popupOverlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    #popupBox {
+      background: #fff;
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      max-width: 400px;
+      text-align: center;
+      animation: fadeIn 0.4s ease;
+    }
+    #popupBox h2 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+    #popupBox button {
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    #popupBox button:hover {
+      background: #b45309;
+    }
+    #closePopup {
+      display: block;
+      margin-top: 1rem;
+      background: none;
+      color: var(--primary);
+      border: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>Tradition Heating and Cooling</h1>
+    <p>Your Comfort, Our Commitment</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#news">News</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <div class="card">
+      <p>
+        <strong>Tradition Heating and Cooling</strong> is your trusted local HVAC partner. 
+        From installing energy-efficient systems to providing reliable maintenance and emergency repairs, 
+        our team is dedicated to keeping your home or business comfortable year-round.
+      </p>
+    </div>
+  </section>
+
+  <section id="news" class="section">
+    <h2>News & Updates</h2>
+    <div class="news-list">
+      <div class="news-post">
+        <img src="technician.jpg" alt="HVAC tech on job">
+        <div class="news-content">
+          <h3>❄️ Seasonal Maintenance</h3>
+          <p>Make sure your system is ready for changing weather. Regular check-ups extend the life of your equipment and keep you comfortable.</p>
+        </div>
+      </div>
+      <div class="news-post">
+        <img src="acUnit.jpg" alt="New AC unit">
+        <div class="news-content">
+          <h3>⚙️ System Upgrades</h3>
+          <p>We offer the latest in high-efficiency HVAC systems to keep your home or business running smoothly and reliably.</p>
+        </div>
+      </div>
+      <div class="news-post">
+        <img src="familyComfort.jpg" alt="Family at home">
+        <div class="news-content">
+          <h3>🏡 Comfort Guarantee</h3>
+          <p>Your comfort is our top priority. We stand behind every installation and repair with our 100% satisfaction guarantee.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section">
+    <h2>Our Services</h2>
+    <div class="service-grid">
+      <div class="service-card">Heating Installation & Repair</div>
+      <div class="service-card">Air Conditioning Installation & Repair</div>
+      <div class="service-card">Indoor Air Quality Solutions</div>
+      <div class="service-card">Preventive Maintenance</div>
+      <div class="service-card">Emergency HVAC Services</div>
+    </div>
+    <div class="cta">
+      <a href="#contact">Schedule Service</a>
+    </div>
+  </section>
+
+  <section id="gallery" class="section">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="hvacInstall.jpg" alt="Technician installing HVAC system">
+      <img src="ductwork.jpg" alt="HVAC ductwork installation">
+      <img src="thermostat.jpg" alt="Smart thermostat setup">
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <div class="card">
+      <p><strong>Phone:</strong> (502) 555-1234</p>
+      <p><strong>Email:</strong> info@traditionhvac.com</p>
+      <div class="social">
+        <p>Follow Us:</p>
+        <a href="https://www.facebook.com/traditionhvac" target="_blank">Facebook</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Tradition Heating and Cooling — All rights reserved</p>
+  </footer>
+
+  <!-- ✅ Popup -->
+  <div id="popupOverlay">
+    <div id="popupBox">
+      <h2>Stay Comfortable Year-Round</h2>
+      <p>Follow us on Facebook for tips, updates, and reminders!</p>
+      <a href="https://www.facebook.com/traditionhvac" target="_blank">
+        <button>Follow on Facebook</button>
+      </a>
+      <center><button id="closePopup">No Thanks</button></center>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', function() {
+      const overlay = document.getElementById('popupOverlay');
+      const closeBtn = document.getElementById('closePopup');
+
+      if (!localStorage.getItem('popupClosed')) {
+        setTimeout(() => {
+          overlay.style.display = 'flex';
+        }, 500);
+      }
+
+      closeBtn.addEventListener('click', () => {
+        overlay.style.display = 'none';
+        localStorage.setItem('popupClosed', 'true');
+      });
+
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          overlay.style.display = 'none';
+          localStorage.setItem('popupClosed', 'true');
+        }
+      });
+
+      localStorage.clear();
+    });
+  </script>
+</body>
+</html>

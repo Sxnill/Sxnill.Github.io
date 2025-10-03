@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pendleton Flea Market</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2d2d2d;
+      --accent: #d97706;
+      --bg: #f9fafb;
+      --ink: #1a202c;
+      --radius: 10px;
+      --shadow: 0 4px 12px rgba(0,0,0,.12);
+    }
+    body {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    header.hero {
+      background: url('grandOpening.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem;
+      position: relative;
+    }
+    header.hero::after {
+      content: "";
+      position: absolute;
+      top:0;left:0;right:0;bottom:0;
+      background: rgba(0,0,0,.55);
+    }
+    header.hero > * { position: relative; z-index: 1; }
+    header.hero h1 {
+      font-size: 3rem;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    header.hero p {
+      font-size: 1.2rem;
+      margin-top: .5rem;
+      font-weight: 500;
+    }
+    nav {
+      background: var(--primary);
+      padding: 0.8rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--accent); }
+    .section {
+      padding: 3rem 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .card {
+      background: white;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--accent);
+      font-size: 1.8rem;
+      text-transform: uppercase;
+    }
+    .vendor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .vendor-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      font-weight: 600;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .gallery-grid img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .events-list {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .event-item {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .event-item h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+    .event-item img {
+      width: 100%;
+      border-radius: var(--radius);
+      margin: 1rem 0;
+      box-shadow: var(--shadow);
+    }
+    /* News section */
+    .news-list {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .news-post {
+      display: flex;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .news-post img {
+      width: 180px;
+      object-fit: cover;
+    }
+    .news-content {
+      padding: 1.2rem;
+      flex: 1;
+    }
+    .news-post h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+    .news-post p {
+      margin: 0.5rem 0 0;
+    }
+    .cta {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .cta a {
+      display: inline-block;
+      padding: 0.9rem 1.8rem;
+      background: var(--accent);
+      color: white;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      transition: background .2s;
+    }
+    .cta a:hover { background: #b45309; }
+    footer {
+      background: #111;
+      color: #ddd;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+    .social {
+      margin-top: 1rem;
+    }
+    .social a {
+      color: var(--accent);
+      margin: 0 .5rem;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* Popup styles */
+    #popupOverlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    #popupBox {
+      background: #fff;
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      max-width: 400px;
+      text-align: center;
+      animation: fadeIn 0.4s ease;
+    }
+    #popupBox h2 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+    #popupBox button {
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    #popupBox button:hover {
+      background: #b45309;
+    }
+    #closePopup {
+      display: block;
+      margin-top: 1rem;
+      background: none;
+      color: var(--primary);
+      border: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>Pendleton Flea Market</h1>
+    <p>Outdoor Bargains • Community • Hidden Treasures</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#news">News</a>
+    <a href="#vendors">What You’ll Find</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#events">Events</a>
+    <a href="#visit">Visit</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <div class="card">
+      <p>
+        The <strong>Pendleton Flea Market</strong> is an open-air market where local vendors bring an ever-changing mix of goods each weekend. 
+        From antiques and collectibles to clothing, tools, and quirky finds, no two visits are ever the same.  
+        Come see our selection, meet friendly vendors, and discover something new in the fresh Kentucky air.
+      </p>
+    </div>
+  </section>
+
+  <section id="news" class="section">
+    <h2>News & Updates</h2>
+    <div class="news-list">
+      <div class="news-post">
+        <img src="nicknacks.jpg" alt="Vendor spotlight">
+        <div class="news-content">
+          <h3>🎉 Vendor Spotlight: Smith’s Antiques</h3>
+          <p>This weekend we’re featuring Smith’s Antiques with a wide collection of farmhouse furniture and rare collectibles. Stop by Booth #12!</p>
+        </div>
+      </div>
+      <div class="news-post">
+        <img src="toolboxTruck.jpg" alt="Toolbox Truck vendor">
+        <div class="news-content">
+          <h3>🛠 Toolbox Truck Returns!</h3>
+          <p>The popular Toolbox Truck vendor is back this Sunday with new tools, hardware, and unique finds for DIY enthusiasts.</p>
+        </div>
+      </div>
+      <div class="news-post">
+        <img src="fleaMarket.jpg" alt="Extended hours">
+        <div class="news-content">
+          <h3>🕰 Extended Hours Trial</h3>
+          <p>We’re testing extended hours on Saturdays this month — open until 6 PM! Come enjoy late-afternoon browsing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vendors" class="section">
+    <h2>What You’ll Find</h2>
+    <div class="vendor-grid">
+      <div class="vendor-card">Antiques & Furniture</div>
+      <div class="vendor-card">Home Décor</div>
+      <div class="vendor-card">Tools & Hardware</div>
+      <div class="vendor-card">Records & Media</div>
+      <div class="vendor-card">Clothing & Accessories</div>
+      <div class="vendor-card">Memorabilia & Oddities</div>
+    </div>
+    <div class="cta">
+      <a href="#">Become a Vendor</a>
+    </div>
+  </section>
+
+  <section id="gallery" class="section">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="fleaMarket.jpg" alt="Shoppers browsing booths at Pendleton Flea Market">
+      <img src="nicknacks.jpg" alt="Table of collectibles and nicknacks">
+      <img src="toolboxTruck.jpg" alt="Toolbox truck vendor display">
+    </div>
+  </section>
+
+  <section id="events" class="section">
+    <h2>Seasonal Events</h2>
+    <div class="events-list">
+      <div class="event-item">
+        <h3>Grand Opening Weekend</h3>
+        <img src="grandOpening.jpg" alt="Grand Opening event photo">
+        <p>Our kickoff weekend was a huge success — thanks to all the vendors and visitors who joined us!</p>
+      </div>
+      <div class="event-item">
+        <h3>Fall & Halloween Market</h3>
+        <img src="halloween.jpg" alt="Halloween flea market photo">
+        <p>Seasonal décor, costumes, and spooky bargains! Always one of the most popular weekends of the year.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" class="section">
+    <h2>Visit Us</h2>
+    <div class="card">
+      <p><strong>Address: </strong>7696 La Grange Rd Smithfield Ky 40068</p>
+      <p><strong>Hours: </strong> Saturdays & Sundays, 8 AM – 4 PM <!-- adjust if different --> </p>
+      <p>
+        Free entry, plenty of parking, and friendly faces at every booth.  
+        Bring cash, enjoy the outdoors, and spend some time treasure hunting with the community.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Email: [confirm email]</p>
+      <div class="social">
+        <p>Follow Us:</p>
+        <a href="https://www.facebook.com/61580265342650/" target="_blank">Facebook Page</a>
+        <a href="https://www.facebook.com/groups/1131595395571121" target="_blank">Facebook Group</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Pendleton Flea Market — All rights reserved</p>
+  </footer>
+
+  <!-- ✅ Popup -->
+  <div id="popupOverlay">
+    <div id="popupBox">
+      <h2>Join Our Community!</h2>
+      <p>Stay updated with the latest events and news — follow us on Facebook.</p>
+      <a href="https://www.facebook.com/61580265342650/" target="_blank">
+        <button>Follow on Facebook</button>
+      </a>
+      <center><button id="closePopup">No Thanks</button></center>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', function() {
+      const overlay = document.getElementById('popupOverlay');
+      const closeBtn = document.getElementById('closePopup');
+
+      // Check if popup was already closed before
+      if (!localStorage.getItem('popupClosed')) {
+        setTimeout(() => {
+          overlay.style.display = 'flex';
+        }, 500);
+      }
+
+      // Close popup
+      closeBtn.addEventListener('click', () => {
+        overlay.style.display = 'none';
+        localStorage.setItem('popupClosed', 'true');
+      });
+
+      // Close if clicking outside the popup box
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          overlay.style.display = 'none';
+          localStorage.setItem('popupClosed', 'true');
+        }
+      });
+
+      localStorage.clear();
+    });
+  </script>
+</body>
+</html>
