@@ -3,140 +3,232 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bytecelium | Simple Websites for Local Businesses</title>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap" rel="stylesheet" />
+<title>Bytecelium Creative | Modern Design for Local Business Growth</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink:#0d2235;
-    --accent:#1d6fa3;
-    --accent-light:#2196f3;
-    --bg:#f7fafc;
-    --card:#ffffff;
-    --muted:#6b7280;
-    --radius:14px;
-    --shadow:0 10px 25px rgba(0,0,0,.06);
-  }
-  *{box-sizing:border-box}
-  body {
-    margin:0; font-family:'Raleway',sans-serif; 
-    color:var(--ink); background:var(--bg);
-    line-height:1.6;
-  }
-  header {
-    background:var(--card);
-    padding:1.5rem 5%;
-    display:flex; justify-content:space-between; align-items:center;
-    box-shadow:0 2px 10px rgba(0,0,0,.05);
-  }
-  header h1 {
-    font-weight:800; color:var(--accent);
-    font-size:1.6rem; margin:0;
-  }
-  nav a {
-    text-decoration:none; margin-left:1.5rem; color:var(--ink);
-    font-weight:600;
-  }
-  .hero {
-    padding:6rem 5%;
-    background:linear-gradient(160deg,var(--accent),var(--accent-light));
-    color:white; text-align:center;
-  }
-  .hero h2 {
-    font-size:clamp(1.8rem,5vw,2.8rem);
-    margin:0 0 1rem;
-  }
-  .hero p {max-width:600px; margin:0 auto 2rem; font-size:1.1rem;}
-  .btn {
-    display:inline-block; background:white; color:var(--accent);
-    font-weight:700; padding:.9rem 2rem; border-radius:var(--radius);
-    text-decoration:none; box-shadow:var(--shadow);
-    transition:all .2s ease;
-  }
-  .btn:hover {transform:translateY(-2px); background:#f1f5f9;}
-  section {padding:5rem 5%; max-width:1100px; margin:auto;}
-  h3.section-title {
-    font-size:1.8rem; margin-bottom:2rem; text-align:center;
-    color:var(--accent);
-  }
-  .services {
-    display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  }
-  .card {
-    background:var(--card); border-radius:var(--radius);
-    box-shadow:var(--shadow); padding:2rem;
-  }
-  .card h4 {margin-top:0; color:var(--accent);}
-  .card p {color:var(--muted);}
-  .about {
-    text-align:center; max-width:800px; margin:auto;
-  }
-  .cta {
-    background:var(--accent);
-    color:white; text-align:center;
-    padding:4rem 5%;
-  }
-  .cta h3 {font-size:2rem; margin-bottom:1rem;}
-  .cta a {background:white; color:var(--accent);}
-  footer {
-    background:#0d2235; color:#d1d5db; text-align:center;
-    padding:2rem 5%;
-  }
-  footer a {color:#d1d5db; text-decoration:none; margin:0 .5rem;}
+:root {
+  --bg:#f9fafb;
+  --ink:#0d1b2a;
+  --muted:#6b7280;
+  --accent:#00bfa6;
+  --accent2:#0094ff;
+  --card:#ffffffc9;
+  --radius:18px;
+  --shadow:0 8px 28px rgba(0,0,0,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* HEADER */
+header{
+  position:sticky;top:0;z-index:10;
+  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,0.8);
+  box-shadow:0 2px 20px rgba(0,0,0,.03);
+  padding:1.2rem 6%;
+  display:flex;justify-content:space-between;align-items:center;
+}
+header h1{
+  font-weight:800;color:var(--accent);
+  font-size:1.6rem;letter-spacing:-.5px;
+}
+nav a{
+  margin-left:2rem;text-decoration:none;color:var(--ink);
+  font-weight:600;position:relative;
+}
+nav a::after{
+  content:"";position:absolute;left:0;bottom:-4px;
+  width:0%;height:2px;background:var(--accent);transition:.3s ease;
+}
+nav a:hover::after{width:100%}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:9rem 6%;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;
+}
+.hero h2{
+  font-size:clamp(2rem,5vw,3.1rem);
+  font-weight:800;margin-bottom:1rem;
+}
+.hero p{
+  max-width:640px;margin:0 auto 2rem;font-size:1.1rem;
+  color:#e5fffa;
+}
+.btn{
+  display:inline-block;background:white;color:var(--accent);
+  padding:.95rem 2.4rem;border-radius:var(--radius);
+  text-decoration:none;font-weight:700;
+  box-shadow:var(--shadow);transition:.25s ease;
+}
+.btn:hover{transform:translateY(-3px);background:#f0fdfb;}
+
+/* SECTIONS */
+section{padding:6rem 6%;max-width:1200px;margin:auto;}
+h3.section-title{
+  font-size:2rem;text-align:center;margin-bottom:3rem;
+  font-weight:800;color:var(--ink);
+}
+
+/* SERVICES */
+.services{
+  display:grid;gap:2rem;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+}
+.card{
+  background:var(--card);backdrop-filter:blur(10px);
+  border-radius:var(--radius);
+  padding:2.5rem 2rem;box-shadow:var(--shadow);
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+.card h4{color:var(--accent);margin-bottom:1rem;}
+.card p{color:var(--muted);}
+
+/* PORTFOLIO */
+.portfolio{
+  display:grid;gap:2rem;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+}
+.portfolio .work{
+  background:#fff;border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow);
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.portfolio .work:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+.portfolio img{
+  width:100%;height:auto;display:block;
+}
+.work-info{padding:1.5rem;}
+.work-info h5{margin:0 0 .5rem;color:var(--accent);}
+.work-info p{color:var(--muted);font-size:.95rem;}
+
+/* ABOUT */
+.about{text-align:center;max-width:800px;margin:auto;}
+.about p{margin-bottom:1.2rem;color:var(--muted);}
+.about strong{color:var(--ink);}
+
+/* CTA */
+.cta{
+  text-align:center;
+  background:linear-gradient(135deg,var(--accent2),var(--accent));
+  color:white;padding:6rem 5%;
+}
+.cta h3{
+  font-size:2.2rem;margin-bottom:1rem;font-weight:800;
+}
+.cta a{
+  background:white;color:var(--accent);
+  padding:1rem 2.6rem;border-radius:var(--radius);
+  font-weight:700;text-decoration:none;transition:.3s ease;display:inline-block;
+}
+.cta a:hover{transform:translateY(-3px);background:#f0fdfb;}
+
+/* FOOTER */
+footer{
+  background:var(--ink);color:#cbd5e1;text-align:center;
+  padding:2rem 5%;font-size:.9rem;
+}
+footer a{color:#cbd5e1;margin:0 .5rem;text-decoration:none;}
+footer a:hover{text-decoration:underline;}
 </style>
 </head>
-
 <body>
-  <header>
-    <h1>Bytecelium</h1>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <h2>Simple Websites for Local Businesses</h2>
-    <p>Get found online with a professional site that fits your business, your style, and your budget. Bytecelium builds clean, reliable websites — no tech headaches, just results.</p>
-    <a href="#contact" class="btn">Get a Free Quote</a>
-  </section>
+<header>
+  <h1>Bytecelium Creative</h1>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <section id="services">
-    <h3 class="section-title">Our Services</h3>
-    <div class="services">
-      <div class="card">
-        <h4>Website Design</h4>
-        <p>Clean, mobile-friendly websites designed for local businesses. Built for clarity, speed, and visibility — not complexity.</p>
-      </div>
-      <div class="card">
-        <h4>Hosting & Maintenance</h4>
-        <p>We handle domains, hosting, and security updates so you can focus on running your business — not your website.</p>
-      </div>
-      <div class="card">
-        <h4>Brand Setup & Support</h4>
-        <p>Need help setting up your Google Business profile, email, or logo? Bytecelium helps you look professional everywhere online.</p>
+<section class="hero">
+  <h2>Modern Design for Local Business Growth</h2>
+  <p>Bytecelium Creative helps small businesses build sleek, professional websites and brands that connect with real customers — beautifully and simply.</p>
+  <a href="#contact" class="btn">Start Your Project</a>
+</section>
+
+<section id="services">
+  <h3 class="section-title">What We Do</h3>
+  <div class="services">
+    <div class="card">
+      <h4>Website Design</h4>
+      <p>Custom, responsive websites designed for clarity, speed, and impact. Clean visuals, strong calls-to-action, and smooth user experience.</p>
+    </div>
+    <div class="card">
+      <h4>Brand Identity</h4>
+      <p>Logos, color palettes, and brand kits that reflect your business personality — modern, memorable, and ready for digital or print.</p>
+    </div>
+    <div class="card">
+      <h4>Hosting & Maintenance</h4>
+      <p>We manage domains, hosting, backups, and updates so your site stays secure, fast, and online — without you lifting a finger.</p>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <h3 class="section-title">Recent Work</h3>
+  <div class="portfolio">
+    <div class="work">
+      <img src="https://placehold.co/600x400/00bfa6/ffffff?text=Tradition+Heating+%26+Cooling" alt="Tradition Heating & Cooling Website">
+      <div class="work-info">
+        <h5>Tradition Heating & Cooling</h5>
+        <p>Clean, bold site emphasizing reliability and local service for a family-owned HVAC business.</p>
       </div>
     </div>
-  </section>
-
-  <section id="about">
-    <h3 class="section-title">About Bytecelium</h3>
-    <div class="about">
-      <p><strong>Bytecelium started with a simple goal — make technology easier for people.</strong></p>
-      <p>It began with helping homeowners fix their networks and setups. But as more small business owners asked for help online, Bytecelium evolved. Today we focus on building digital foundations — affordable websites, reliable hosting, and support you can trust.</p>
-      <p>We still believe in keeping things simple — just with a bigger purpose: helping local businesses grow and get noticed online.</p>
+    <div class="work">
+      <img src="https://placehold.co/600x400/0094ff/ffffff?text=Pinpoint+Precision+Detailing" alt="Pinpoint Precision Detailing Website">
+      <div class="work-info">
+        <h5>Pinpoint Precision Detailing</h5>
+        <p>High-contrast, automotive-inspired layout highlighting services and before-after showcase sections.</p>
+      </div>
     </div>
-  </section>
+    <div class="work">
+      <img src="https://placehold.co/600x400/0d1b2a/ffffff?text=Pendleton+Flea+Market" alt="Pendleton Flea Market Website">
+      <div class="work-info">
+        <h5>Pendleton Flea Market</h5>
+        <p>Vibrant single-page site for a community event space — news, vendors, and social integration all in one place.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <section class="cta" id="contact">
-    <h3>Ready to Be Found Online?</h3>
-    <p>Let’s build your website and get your business seen by more customers.</p>
-    <a href="mailto:hello@bytecelium.com" class="btn">Email Us to Start</a>
-  </section>
+<section id="about">
+  <h3 class="section-title">About Bytecelium Creative</h3>
+  <div class="about">
+    <p><strong>Bytecelium Creative grew from a passion for simplifying technology — and making it beautiful.</strong></p>
+    <p>We began by helping neighbors untangle their tech setups. Now we help small businesses untangle their online presence — through clear design and thoughtful branding.</p>
+    <p>Our focus is on clarity, honesty, and quality craft. We don’t chase trends — we build lasting brands and websites that feel modern today and relevant tomorrow.</p>
+  </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Bytecelium. All rights reserved.</p>
-    <p><a href="#services">Services</a> · <a href="#about">About</a> · <a href="#contact">Contact</a></p>
-  </footer>
+<section id="contact" class="cta">
+  <h3>Let’s Create Something That Lasts.</h3>
+  <p>Reach out today for a free concept and see what Bytecelium Creative can design for you.</p>
+  <a href="mailto:hello@bytecelium.com">Email Us to Begin</a>
+</section>
+
+<footer>
+  <p>&copy; 2025 Bytecelium Creative. All rights reserved.</p>
+  <p><a href="#services">Services</a> · <a href="#portfolio">Work</a> · <a href="#about">About</a> · <a href="#contact">Contact</a></p>
+</footer>
+
 </body>
 </html>
