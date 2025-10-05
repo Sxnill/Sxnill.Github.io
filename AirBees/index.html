@@ -181,14 +181,27 @@ footer{
   background:#0a0d12;
   color:#9fb0c5;
   font-size:.95rem;
+  padding:2.2rem 0; /* Added breathing room */
 }
 .footer-inner{
-  display:flex;flex-wrap:wrap;gap:1rem;
-  align-items:center;justify-content:space-between;
-  padding:1.6rem 0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1220px;
+  margin:auto;
+  padding:0 6%; /* consistent with container */
 }
-footer a{color:#cfe6ff;text-decoration:none}
+footer a{
+  color:#cfe6ff;
+  text-decoration:none;
+}
 footer a:hover{text-decoration:underline}
+@media(max-width:768px){
+  footer{padding:2.6rem 0;}
+  .footer-inner{flex-direction:column;gap:.6rem;text-align:center;}
+}
 </style>
 </head>
 <body>
@@ -295,7 +308,7 @@ footer a:hover{text-decoration:underline}
 </main>
 
 <footer>
-  <div class="container footer-inner">
+  <div class="footer-inner">
     <div>&copy; 2025 Bytecelium Creative</div>
     <div>
       <a href="#services">Services</a> &middot;
