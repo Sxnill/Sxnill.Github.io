@@ -150,6 +150,26 @@ section{padding:5.5rem 0}
 }
 .work:hover{transform:translateY(-6px);border-color:rgba(74,168,255,.35)}
 .thumb{aspect-ratio:16/10;width:100%;background:linear-gradient(135deg,rgba(0,212,180,.12),rgba(74,168,255,.12))}
+.thumb {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(0,212,180,.12), rgba(74,168,255,.12));
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* fills the box, crops excess */
+  object-position: center; /* centers the focus */
+  display: block;
+}
+
 .info{padding:1.2rem 1.4rem}
 .info h4{margin:0 0 .4rem;color:var(--ink)}
 .info p{margin:0;color:var(--muted);font-size:.96rem}
@@ -256,34 +276,39 @@ footer a:hover{text-decoration:underline}
     </div>
   </section>
 
-  <section id="work">
-    <div class="container">
-      <h2 class="section-title reveal">Recent work</h2>
-      <div class="grid portfolio">
-        <article class="work reveal">
-          <div class="thumb"></div>
-          <div class="info">
-            <h4>Tradition Heating &amp; Cooling</h4>
-            <p>Concept website for a local HVAC company—bold headings and trust badges.</p>
-          </div>
-        </article>
-        <article class="work reveal delay-1">
-          <div class="thumb"></div>
-          <div class="info">
-            <h4>Pinpoint Precision Detailing</h4>
-            <p>High-contrast showcase with pricing highlights and mobile booking prompts.</p>
-          </div>
-        </article>
-        <article class="work reveal delay-2">
-          <div class="thumb"></div>
-          <div class="info">
-            <h4>Pendleton Flea Market</h4>
-            <p>Community-focused single page with announcements and vendor info.</p>
-          </div>
-        </article>
-      </div>
+<section id="work">
+  <div class="container">
+    <h2 class="section-title reveal">Recent work</h2>
+    <div class="grid portfolio">
+
+      <a href="https://bytecelium.com/tradition" target="_blank" class="work reveal" style="text-decoration:none;">
+        <div class="thumb"><img src="tradition.png"></div>
+        <div class="info">
+          <h4>Tradition Heating &amp; Cooling</h4>
+          <p>Concept website for a local HVAC company—bold headings and trust badges.</p>
+        </div>
+      </a>
+
+      <a href="https://bytecelium.com/pinpoint" target="_blank" class="work reveal delay-1" style="text-decoration:none;">
+        <div class="thumb"><img src="pinpoint.png"></div>
+        <div class="info">
+          <h4>Pinpoint Precision Detailing</h4>
+          <p>High-contrast showcase with pricing highlights and mobile booking prompts.</p>
+        </div>
+      </a>
+
+      <a href="https://bytecelium.com/pendletonfleamarket" target="_blank" class="work reveal delay-2" style="text-decoration:none;">
+        <div class="thumb"><img src="pendletonflea.png"></div>
+        <div class="info">
+          <h4>Pendleton Flea Market</h4>
+          <p>Community-focused single page with announcements and vendor info.</p>
+        </div>
+      </a>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
   <section id="about">
     <div class="container">
