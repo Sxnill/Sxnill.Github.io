@@ -384,8 +384,8 @@ nav a:hover { color: var(--accent-gold); }
 
 
   .hero-brand { gap: 0.2rem; margin-bottom: 1rem; }
-  .logo-icon { width: 260px; }
-  .logo-text { width: 320px; margin-top: -80px; }
+  .logo-icon { width: 4rem; }
+  .logo-text { width: 4.5rem; margin-top: -80px; }
 
   .cta {
     display: flex;
