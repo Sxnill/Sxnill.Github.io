@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retta’s Scoops | Dessert Reimagined</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<!-- Styles -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="overlay"></div>
+
+  <!-- Hamburger -->
+  <div class="hamburger" id="hamburger">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <!-- Nav -->
+  <nav id="nav-menu">
+    <a href="#featured">Featured</a>
+    <a href="#menu">Menu</a>
+    <a href="#about">About</a>
+    <a href="#reserve">Reserve</a>
+  </nav>
+
+  <div class="hero-content">
+    <div class="hero-brand">
+      <img src="logo.png" alt="Retta’s Scoops Cat Logo" class="logo-icon">
+      <img src="logoName.png" alt="Retta’s Scoops Wordmark" class="logo-text">
+    </div>
+    <h1>Dessert Reimagined</h1>
+    <p class="subtext">Bold, beautiful, unforgettable — where fine dining meets frozen indulgence.</p>
+    <div class="cta">
+      <a href="#menu" class="btn-outline">View Menu</a>
+      <a href="#reserve" class="btn-solid">Reserve Experience</a>
+    </div>
+  </div>
+</header>
+
+<section id="featured" class="featured">
+  <h2>Featured Desserts</h2>
+  <div class="featured-grid">
+
+    <!-- Dessert 1 -->
+    <div class="dessert-card">
+      <img src="dessert1.png" alt="Chanterelle Dessert">
+      <div class="dessert-center">
+        <h3>Chanterelle</h3>
+        <p>Gianduja, blackberry, sumac</p>
+      </div>
+      <div class="dessert-hover">
+        <p>
+          Kentucky gives us three types of chanterelles — golden, smooth, and cinnabar. With this year’s consistent rains, they are plentiful and beautiful.<br><br>
+          We poach them in pine, brown butter, and cajeta made from sheep milk. They sit on a chanterelle crèmeux with simmered blackberries and sumac. A gianduja ganache infused with shiitake and matsutake shoyu adds earthiness. Finished with a crisp of smoked benne and candy cap mushrooms.
+        </p>
+      </div>
+    </div>
+
+    <!-- Dessert 2 -->
+    <div class="dessert-card">
+      <img src="dessert2.png" alt="Peanut Dessert">
+      <div class="dessert-center">
+        <h3>Peanut</h3>
+        <p>Lemongrass, chocolate, chilies</p>
+      </div>
+      <div class="dessert-hover">
+        <p>
+          An entremet of fromage blanc, burnt ginger, lemongrass, and makrut lime. Boiled peanut ganache glazed in black cocoa, served with chili peanut brittle ice cream.
+        </p>
+      </div>
+    </div>
+
+    <!-- Dessert 3 -->
+    <div class="dessert-card">
+      <img src="dessert3.png" alt="Honey Dessert">
+      <div class="dessert-center">
+        <h3>Honey</h3>
+        <p>Buckwheat, pollen, beeswax</p>
+      </div>
+      <div class="dessert-hover">
+        <p>
+          Roasted honey and white chocolate nestled in buckwheat pâte sucrée, topped with whipped honey and beeswax ice cream — a true celebration of the hive.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="menu" class="menu">
+  <h2>The Menu, Ever-Changing</h2>
+  <p class="tagline">
+    No two visits are ever the same. Retta’s evolves with the season, the moment, and the ingredients that inspire us most.
+  </p>
+
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="menu1.png"></div>
+    <div class="gallery-item"><img src="menu2.png"></div>
+    <div class="gallery-item"><img src="menu3.png"></div>
+    <div class="gallery-item"><img src="menu4.png"></div>
+    <div class="gallery-item"><img src="menu5.png"></div>
+    <div class="gallery-item"><img src="menu6.png"></div>
+  </div>
+
+  <a href="https://www.instagram.com/rettasscoops" class="btn-outline" target="_blank">See What’s New</a>
+</section>
+
+<section id="about" class="about">
+  <div class="about-text">
+    <h2>About Retta’s Scoops</h2>
+    <p>
+      Hey, I’m Ben — founder of Retta’s Scoops.  
+      I moved from Brooklyn to Louisville in 2023 with a vision: to create a dessert bar that’s rooted in craft, care, and creativity.  
+      Every scoop is built on quality, technique, and curiosity — a balance of elegance and playfulness.  
+      This isn’t a side project — it’s the real thing. If you’re looking for a dessert experience that’s truly unique, I’d love to see you at Retta’s.
+    </p>
+  </div>
+  <div class="about-img">
+    <img src="chef.png" alt="Chef Ben in the kitchen">
+  </div>
+</section>
+
+<section id="reserve" class="experience">
+  <h2>Reserve an Experience</h2>
+  <p>
+    Join us for a six-course dessert tasting led by Chef Ben Deutsch — where each creation channels Retta’s playful spirit and love for balance, beauty, and indulgence.
+  </p>
+
+  <div id="Tock_widget_container"
+       data-tock-display-mode="Inline"
+       data-tock-color-mode="Dark"
+       data-tock-locale="en-us"
+       data-tock-offering="YOUR_OFFERING_ID"></div>
+
+  <p class="reserve-fallback">
+    <a href="https://www.exploretock.com/rettas" class="btn-solid" target="_blank" rel="noopener">
+      Reserve Now
+    </a>
+  </p>
+</section>
+
+<footer class="footer">
+  <p>© 2025 Retta’s Scoops — 1011 E Main St, Louisville, KY</p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>
