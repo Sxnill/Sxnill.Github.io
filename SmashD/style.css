@@ -1,0 +1,36 @@
+.neon-sign {
+  width: 300px;
+  display: block;
+  margin: 0 auto;
+  opacity: 0;
+  filter: brightness(0) blur(2px);
+  animation: neonOn 2.5s ease-in-out forwards;
+}
+@keyframes neonPulse {
+  0%, 100% { filter: brightness(1.8); }
+  50% { filter: brightness(2.2); }
+}
+
+.neon-sign.on {
+  animation: neonOn 2.5s ease-in-out forwards, neonPulse 3s infinite alternate ease-in-out;
+}
+
+
+@keyframes neonOn {
+  0% {
+    opacity: 0;
+    filter: brightness(0) blur(2px);
+  }
+  40% {
+    opacity: 0.6;
+    filter: brightness(1.2) blur(1px);
+  }
+  70% {
+    opacity: 0.9;
+    filter: brightness(1.6) blur(0.5px);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1.8) blur(0);
+  }
+}

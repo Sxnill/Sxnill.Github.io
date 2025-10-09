@@ -16,8 +16,8 @@
       --radius:16px;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body {
       font-family:'Poppins',sans-serif;
       background:var(--bg);
       color:var(--ink);
@@ -25,7 +25,7 @@
       overflow-x:hidden;
     }
 
-    header{
+    header {
       height:100vh;
       background:url('hero-image.png') center/cover no-repeat;
       position:relative;
@@ -35,37 +35,89 @@
       text-align:center;
     }
 
-    header::after{
+    header::after {
       content:'';
       position:absolute;
       inset:0;
-      background:rgba(0,0,0,0.55);
+      background:rgba(0,0,0,0.65);
     }
 
-    .hero-content{
+    .hero-content {
       position:relative;
       z-index:2;
       color:#fff;
     }
 
-    .hero-content img{
-      width:220px;
-      margin-bottom:1.5rem;
-      filter:brightness(0) invert(1); /* turns black logo to white */
-    }
+    /* ===============================
+       NEON LOGO (Split Layered)
+    =============================== */
+.logo-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* space between burger and text */
+  width: clamp(250px, 45vw, 400px);
+  margin: 0 auto 2rem;
+}
 
-    .hero-content h1{
+.neon-logo {
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  transition: transform 0.4s ease;
+}
+
+/* Burger logo slightly smaller */
+.neon-logo.burger {
+  width: 85%; /* make burger smaller */
+  filter:
+    drop-shadow(0 0 5px #ff6600)
+    drop-shadow(0 0 12px #ff3300)
+    drop-shadow(0 0 25px #ff3300);
+  animation: flicker 3s infinite;
+
+}
+
+/* Text logo stays full width */
+.neon-logo.text {
+  width: 85%;
+  filter:
+    drop-shadow(0 0 4px #ffffff)
+    drop-shadow(0 0 10px #ffffff)
+    drop-shadow(0 0 18px #ffffff);
+  animation: flicker 3s infinite;
+  margin-top: -2rem;
+}
+
+/* Gentle flicker, never goes opaque */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  40% { opacity: 0.95; }
+  45% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+.logo-wrapper:hover .neon-logo {
+  transform: scale(1.02);
+}
+
+
+    /* =============================== */
+
+    .hero-content h1 {
       font-size:3rem;
       font-weight:800;
     }
 
-    .hero-content p{
+    .hero-content p {
       font-size:1.2rem;
       margin:1rem auto 2rem;
       max-width:600px;
     }
 
-    .btn{
+    .btn {
       background:var(--cta);
       color:#fff;
       padding:0.9rem 2rem;
@@ -76,29 +128,36 @@
       transition:background 0.3s;
     }
 
-    .btn:hover{background:#8d2e1b;}
+    .btn:hover { background:#8d2e1b; }
 
-    section{
+    section {
       padding:5rem 10%;
       text-align:center;
     }
 
-    #menu{
-      background:#fff;
+    #menu-wrap {
+      width: 100%;
+       background:#fff;
     }
 
-    #menu h2{
+    #menu {
+     
+      margin: 0 auto;  
+      max-width: 1600px;
+    }
+
+    #menu h2 {
       font-size:2.5rem;
       margin-bottom:2rem;
     }
 
-    .menu-items{
+    .menu-items {
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
       gap:2rem;
     }
 
-    .menu-card{
+    .menu-card {
       background:var(--bg);
       border-radius:var(--radius);
       padding:1.5rem;
@@ -106,50 +165,50 @@
       transition:transform 0.3s;
     }
 
-    .menu-card:hover{transform:translateY(-6px);}
+    .menu-card:hover { transform:translateY(-6px); }
 
-    .menu-card img{
+    .menu-card img {
       width:100%;
       border-radius:var(--radius);
       margin-bottom:1rem;
     }
 
-    .menu-card h3{font-size:1.3rem;margin-bottom:0.5rem;}
+    .menu-card h3 { font-size:1.3rem; margin-bottom:0.5rem; }
 
-    #testimonials{
+    #testimonials {
       background:var(--ink);
       color:#fff;
     }
 
-    .testimonial{
+    .testimonial {
       max-width:700px;
       margin:auto;
       font-size:1.2rem;
       font-style:italic;
     }
 
-    #about{
+    #about {
       background:#fffaf4;
     }
 
-    #about p{
+    #about p {
       max-width:700px;
       margin:auto;
       font-size:1.1rem;
     }
 
-    #location{
+    #location {
       background:#fff;
     }
 
-    iframe{
+    iframe {
       width:100%;
       height:400px;
       border:0;
       border-radius:var(--radius);
     }
 
-    footer{
+    footer {
       background:var(--ink);
       color:#fff;
       text-align:center;
@@ -162,10 +221,16 @@
 
   <header>
     <div class="hero-content">
-      <img src="logo.png" alt="SmashD Logo">
-      <h1>SmashD on Frankfort</h1>
+      <!-- Layered neon logo -->
+      <div class="logo-wrapper">
+  <img src="logo-burger.png" alt="Burger Logo" class="neon-logo burger">
+  <img src="logo-text.png" alt="Text Logo" class="neon-logo text">
+</div>
       <p>Smash-style burgers made fresh, fast, and full of flavor in the heart of Frankfort Avenue.</p>
-      <button class="btn">Order Online</button>
+      <button class="btn" onclick="window.open('https://www.doordash.com/en/store/smashd-on-frankfort-louisville-34121785/66037747/?srsltid=AfmBOopsek0rkvgiMWrtZLdRjkY9cfxneK-lj3qKnMy52ygf3kcLkroa', '_blank')">
+  Order Online
+</button>
+
     </div>
   </header>
 
@@ -173,19 +238,49 @@
     <h2>Our Menu</h2>
     <div class="menu-items">
       <div class="menu-card">
-        <img src="burger1.png" alt="Classic Smash Burger">
-        <h3>Classic Smash Burger</h3>
-        <p>Perfectly seared patty with melty cheese, onions, and signature sauce.</p>
+        <img src="burger1.png" alt="Double SmashD Burger">
+        <h3>Double SmashD Burger</h3>
+        <p>Angus beef patties topped with American cheese, yellow mustard, Ketchup, Raw onions and pickles on Martins potato bun</p>
       </div>
       <div class="menu-card">
-        <img src="burger2.png" alt="Bacon Smash Burger">
-        <h3>Bacon Smash Burger</h3>
-        <p>Smoked bacon, sharp cheddar, and grilled onions for the ultimate bite.</p>
+        <img src="burger2.png" alt="Double SaucD Burger">
+        <h3>Double SaucD Burger</h3>
+        <p>Angus beef patties smashed with onions, topped with American cheese, house burger sauce and diced onions served on a Martins potato bun.</p>
       </div>
       <div class="menu-card">
-        <img src="burger3.png" alt="Mushroom Swiss Burger">
-        <h3>Mushroom Swiss Burger</h3>
-        <p>Loaded with sautéed mushrooms and melted Swiss cheese goodness.</p>
+        <img src="burger3.png" alt="Happy Hour Special">
+        <h3>Happy Hour Special</h3>
+        <p>Single Smashd Burger with a side of French Fries and drink</p>
+      </div>
+      <div class="menu-card">
+        <img src="tots.png" alt="Tater Tots">
+        <h3>Tator Tots</h3>
+        <p>Tots perfectly cooked with a crunch exterior and a soft inside topped with our house seasoning.</p>
+      </div>
+      <div class="menu-card">
+        <img src="fries.png" alt="French Fries">
+        <h3>French Fries</h3>
+        <p>Shoestring fries cooked to perfection topped with our house seasoning</p>
+      </div>
+      <div class="menu-card">
+        <img src="onionrings.png" alt="Onion Rings">
+        <h3>Onion Rings</h3>
+        <p>Panko bread crumb coated rings topped with our house seasoning, served with a citrus mustard house sauce.</p>
+      </div>
+      <div class="menu-card">
+        <img src="CShake.png" alt="Chocolate Milk Shake">
+        <h3>Chocolate Milk Shake</h3>
+        <p>Chocolate milk shake topped with whipped cream and chocolate syrup</p>
+      </div>
+      <div class="menu-card">
+        <img src="VShake.png" alt="Vanilla Milk Shake">
+        <h3>Vanilla Milk Shake</h3>
+        <p>Hand dipped and Hand spun Vanilla milkshake.</p>
+      </div>
+      <div class="menu-card">
+        <img src="SShake.png" alt="Strawberry Milk Shake">
+        <h3>Strawberry Milk Shake</h3>
+        <p>Hand dipped and Hand spun Strawberry milkshake.</p>
       </div>
     </div>
   </section>
@@ -212,4 +307,3 @@
 
 </body>
 </html>
-
