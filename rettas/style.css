@@ -148,10 +148,18 @@ nav a:hover { color: var(--accent-gold); }
 }
 
 /* ===== FEATURED SECTION ===== */
+
+.featured-wrap{
+  width: 100%;
+  background: var(--bg-dark);
+}
+
 .featured {
   padding: 6rem 2rem;
+  margin: 0 auto;    
   background: var(--bg-dark);
   text-align: center;
+  max-width: 1600px;
 }
 .featured h2 {
   font-family: 'Playfair Display', serif;
