@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mortimer Bibb's Public House | Frankfort's Irish Pub</title>
+  <style>
+    :root {
+      --background-color: #3c2415;
+      --surface-color: #533a2f;
+      --accent-color: #b87333;
+      --highlight-color: #d4af37;
+      --text-color: #f5f5f5;
+      --muted-color: #cfc7b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+    	scroll-padding-top: 100px;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--highlight-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover { color: var(--accent-color); }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: rgba(43, 22, 11, 0.85);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      z-index: 1000;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr; /* left links, logo, right links */
+      align-items: center;
+      justify-items: center;
+      padding: 0 4rem;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+
+    }
+    .nav-left { justify-self: end; padding-right: 20px; }
+    .nav-right { justify-self: start; padding-left: 20px; }
+
+    nav ul a {
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      position: relative;
+      padding-bottom: 4px;
+      margin-left: 20px;
+      margin-right: 20px; 
+
+    }
+
+    nav ul a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: var(--highlight-color);
+      transition: width 0.3s ease;
+    }
+    nav ul a:hover::after { width: 100%; }
+
+    /* centered circular logo plaque */
+    .logo-container {
+      height: 150px;
+      width: 150px;
+      background: rgba(43, 22, 11, 0.85);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      transform: translateY(40px);
+      margin-top:-30px;
+
+    }
+    .logo-container img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6));
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 1rem;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('bar.png') center/cover no-repeat;
+      z-index: -2;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+      z-index: -1;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      text-shadow: 0 0 8px rgba(0,0,0,0.7);
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 4rem 1rem;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--highlight-color);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    p { color: var(--muted-color); }
+
+    /* ===== MENU ===== */
+    .menu-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .menu-item {
+      flex: 1 1 45%;
+      background: var(--surface-color);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+      height: 350px;
+    }
+
+    .menu-item img {
+    	width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .menu-item h3 {
+      color: var(--highlight-color);
+      margin-bottom: 0.5rem;
+    }
+    .menu-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+    }
+
+    .about {
+    	line-height: 35px;
+    }
+
+    /* ===== EVENTS ===== */
+    .events-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .event-card {
+      background: var(--surface-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+    .event-card:hover { transform: translateY(-6px); }
+    .event-card h3 { color: var(--highlight-color); }
+
+    /* ===== REVIEWS ===== */
+    .reviews .review {
+      background: var(--surface-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+    .reviews .review:hover { transform: translateY(-6px); }
+    .reviews .review h4 { color: var(--highlight-color); }
+    .reviews .review span {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: #f4d35e;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+    .contact-info div { flex: 1 1 45%; }
+    .contact-info h3 { color: var(--highlight-color); margin-bottom: 0.5rem; }
+
+    .map-container iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+/* ===== FLOATING REVIEW POPUP ===== */
+.review-popup {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(83, 58, 47, 0.9);
+  color: var(--text-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  padding: 1rem 1.25rem;
+  max-width: 320px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  z-index: 2000;
+  backdrop-filter: blur(6px);
+  transition: opacity 0.6s ease;
+}
+
+.review-popup::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: 40px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: rgba(83, 58, 47, 0.9) transparent transparent transparent;
+}
+
+.review-message {
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+
+
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #2b1c11;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted-color);
+    }
+    footer a { color: var(--highlight-color); margin: 0 .25rem; }
+    footer a:hover { color: var(--accent-color); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav {
+        grid-template-columns: 1fr auto 1fr;
+        padding: 0 1rem;
+      }
+      nav ul { gap: 1rem; }
+      .logo-container {
+        height: 100px;
+        width: 100px;
+        transform: translateY(30px);
+      }
+      .logo-container img {
+        width: 80px;
+        height: 80px;
+      }
+      .menu-item { flex: 1 1 100%; }
+      .contact-info div { flex: 1 1 100%; }
+    }
+  </style>
+</head>
+
+<body>
+<!-- ===== FLOATING REVIEW CHAT ===== -->
+<div class="review-popup" id="reviewPopup" style="opacity: 0;">
+  <div class="review-message" id="reviewMessage"></div>
+</div>
+
+<script>
+  const reviews = [
+    {
+      text: "“Charming and friendly” – Laura D. ★★★★★<br>The atmosphere is charming, the owners are friendly, and the pretzels and soups are excellent."
+    },
+    {
+      text: "“Great beer selection” – Sowmya L. ★★★★★<br>Ten beers on tap; the Guinness is creamy and the blueberry-lavender lemonade cocktail is a treat."
+    },
+    {
+      text: "“Authentic feel” – Hannah B. ★★★★★<br>Feels authentically Irish – a relaxing spot to meet a friend for dinner and drinks."
+    },
+    {
+      text: "“Perfect pint of Guinness” – Mark T. ★★★★★<br>Best pour in Kentucky. Great people and true Irish atmosphere."
+    }
+  ];
+
+  const popup = document.getElementById('reviewPopup');
+  const message = document.getElementById('reviewMessage');
+
+  // Randomly select a review
+  function showRandomReview() {
+    const randomIndex = Math.floor(Math.random() * reviews.length);
+    message.innerHTML = reviews[randomIndex].text;
+    popup.style.opacity = 1;
+
+    // Stay visible for 6 seconds, then fade out
+    setTimeout(() => {
+      popup.style.opacity = 0;
+      // Schedule next random popup after random delay (8–20 seconds)
+      const nextDelay = Math.floor(Math.random() * (20000 - 8000)) + 8000;
+      setTimeout(showRandomReview, nextDelay);
+    }, 9000);
+  }
+
+  // First popup after 4 seconds
+  window.addEventListener('load', () => {
+    setTimeout(showRandomReview, 4000);
+  });
+</script>
+
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav>
+    <ul class="nav-left">
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu &amp; Drinks</a></li>
+    </ul>
+    <div class="logo-container">
+      <img src="logo.png" alt="Mortimer Bibb's Logo" />
+    </div>
+    <ul class="nav-right">
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <h1>Mortimer Bibb's Public House</h1>
+
+    <p>Frankfort’s favorite Irish pub – a place to gather, relax and enjoy great drinks, live music and good company.</p>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <img src="bibb.png" style="width: 300px; opacity: 0.4; float: right;">
+      <p>Located in the historic former M.A. Selbert’s jewelry store at 330 St. Clair Street in downtown Frankfort, Mortimer Bibb’s Public House opened in November 2020. Co-owners Karl Lawrence and Kevin Newton modeled the pub on traditional Irish public houses, complete with a 28-foot oak bar, copper-plated bar top, and a chandelier made from Jameson whiskey bottles.</p>
+      <p>The name honors 19th-century Kentucky senator George Mortimer Bibb, and the pub occupies the old Selbert building that once housed a jewelry store. Guests enjoy a warm, cozy atmosphere with vintage décor, hardwood floors and flags of America, Kentucky and Ireland.</p>
+      <p>Mortimer Bibb’s is the only bar in downtown Frankfort serving Guinness on tap. The menu features simple yet satisfying fare – pretzels with beer cheese, scones, soups, salads and sandwiches – plus seasonal specials like Shepherd’s Pie, Guinness stew and the Ploughman’s plate. The pub also stocks a variety of draft beers, Irish whiskeys, bourbons and cocktails.</p>
+    </div>
+  </section>
+
+  <!-- ===== MENU ===== -->
+  <section id="menu" class="menu">
+    <div class="container">
+      <h2>Menu & Drinks</h2>
+      <div class="menu-list">
+        <div class="menu-item">
+        	<img src="soup.png">
+          <h3>Pub Classics</h3>
+          <p>Pretzels with beer cheese, scones and house-made soups.</p>
+        </div>
+        <div class="menu-item">
+        	<img src="salmich.png">
+          <h3>Sandwiches & Salads</h3>
+          <p>Grilled pimento cheese, chicken salad sandwiches and seasonal salads; try the Ploughman’s plate with ham, cheddar, Havarti, egg and Guinness brown bread.</p>
+        </div>
+        <div class="menu-item">
+        	<img src="soup2.png">
+          <h3>Irish Specials</h3>
+          <p>Enjoy occasional specialties such as Shepherd’s Pie and Guinness beef stew.</p>
+        </div>
+        <div class="menu-item">
+        	<img src="drinks.png">
+          <h3>Drinks</h3>
+          <p>Choose from a rotating selection of draft beers, Irish whiskeys, bourbons, cocktails and seasonal drinks. Guinness on tap is a house favorite.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REVIEWS ===== -->
+  <section id="reviews" class="reviews">
+    <div class="container">
+      <h2>What People Are Saying</h2>
+      <div class="review">
+        <h4>“Charming and friendly” – Laura D.</h4>
+        <span>★★★★★</span>
+        <p>The atmosphere is charming, the owners are friendly, and the pretzels and soups are excellent – it feels like sitting by a fire in a real Irish pub.</p>
+      </div>
+      <div class="review">
+        <h4>“Great beer selection” – Sowmya L.</h4>
+        <span>★★★★★</span>
+        <p>Ten beers on tap; the Guinness is creamy and the blueberry-lavender lemonade cocktail is a treat. The ambience and downtown location are perfect.</p>
+      </div>
+      <div class="review">
+        <h4>“Authentic feel” – Hannah B.</h4>
+        <span>★★★★★</span>
+        <p>Feels authentically Irish – a relaxing spot to meet a friend for dinner and drinks. Homemade soups and scones are highlights.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact & Hours</h2>
+      <div class="contact-info">
+        <div>
+          <h3>Address</h3>
+          <p>330 St Clair Street<br>Frankfort, KY 40601</p>
+        </div>
+        <div>
+          <h3>Phone</h3>
+          <p><a href="tel:+15026992830">(502) 699-2830</a></p>
+        </div>
+        <div>
+          <h3>Hours</h3>
+          <p>Tue–Thu: 4 PM – 9 PM<br>Fri–Sat: 4 PM – 10 PM<br>Sun–Mon: Closed</p>
+          <br>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <p>Follow us on <a href="https://www.facebook.com">Facebook</a> and <a href="https://www.instagram.com">Instagram</a> for updates.</p>
+        </div>
+      </div>
+      <div class="map-container">
+        <iframe loading="lazy" allowfullscreen
+          src="https://www.google.com/maps?q=Mortimer+Bibb%27s+Public+House,330+St+Clair+St+Frankfort+KY+40601&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2025 Mortimer Bibb's Public House · Designed for demonstration purposes.</p>
+    <div class="social-links">
+      <a href="#home">Home</a> ·
+      <a href="#about">About</a> ·
+      <a href="#menu">Menu</a> ·
+      <a href="#reviews">Reviews</a> ·
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>

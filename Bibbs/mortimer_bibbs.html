@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<!--
+  Mortimer Bibb's Public House website
+  This single‑page site was built using publicly available information about
+  Mortimer Bibb's Public House in Frankfort, Kentucky.  The site uses HTML5
+  and CSS3 and relies on two assets provided by the user: `logo.png` and
+  `bar.jpg`.  A hero image illustrating a cozy Irish pub interior has been
+  generated and saved alongside this file.
+  
+  Sections include:
+    • A hero section with the pub's logo and a brief tagline.
+    • An About section describing the establishment's history and ambience.
+    • A Menu & Drinks section summarising popular food and beverage offerings.
+    • An Events section highlighting upcoming and recurring events.
+    • A Reviews section featuring excerpts from customer feedback.
+    • A Contact section with address, phone, hours and an embedded map.
+    • A footer with social links.
+  
+  The design is responsive and adapts for smaller screens.  The logo is
+  displayed at 400×400 px on desktop and scales down on mobile.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF‑8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mortimer Bibb's Public House | Frankfort's Irish Pub</title>
+  <style>
+    /* Reset some default browser styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #f5f5f5;
+      background: #1a1a1a;
+    }
+
+    a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Navigation bar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 1rem;
+    }
+    nav li {
+      margin: 0 1rem;
+    }
+    nav a {
+      font-weight: bold;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* Hero section */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 80vh;
+      background-image: url('b21481a0-a85b-4af9-a48e-27ee085f31cc.png'), linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    .hero img.logo {
+      width: 400px;
+      height: 400px;
+      max-width: 80vw;
+      max-height: 80vw;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      text-shadow: 0 0 8px rgba(0,0,0,0.7);
+    }
+
+    /* Section styling */
+    section {
+      padding: 4rem 1rem;
+    }
+    section:nth-of-type(even) {
+      background: #2a2a2a;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      color: #d4af37;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .about p,
+    .menu p,
+    .events p,
+    .reviews p,
+    .contact p {
+      margin-bottom: 1rem;
+    }
+
+    /* Menu list */
+    .menu-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .menu-item {
+      width: 45%;
+      margin-bottom: 1.5rem;
+      background: rgba(0,0,0,0.5);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .menu-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #d4af37;
+    }
+    .menu-item p {
+      font-size: 0.95rem;
+    }
+
+    /* Events list */
+    .events-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .event-card {
+      background: rgba(0,0,0,0.6);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .event-card h3 {
+      margin-bottom: 0.5rem;
+      color: #d4af37;
+    }
+    .event-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+    .event-card .date {
+      font-weight: bold;
+    }
+
+    /* Reviews */
+    .reviews .review {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: rgba(0,0,0,0.5);
+      border-radius: 8px;
+    }
+    .reviews .review h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #d4af37;
+    }
+    .reviews .review span {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+      color: #cccccc;
+    }
+
+    /* Contact */
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .contact-info div {
+      flex: 1 1 45%;
+      margin-bottom: 1.5rem;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    /* Footer */
+    footer {
+      background: #101010;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .social-links a {
+      margin: 0 0.5rem;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      .menu-item {
+        width: 100%;
+      }
+      .contact-info div {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu & Drinks</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <img src="logo.png" alt="Mortimer Bibb's Public House Logo" class="logo" />
+    <h1>Mortimer Bibb's Public House</h1>
+    <p>Frankfort’s favorite Irish pub – a place to gather, relax and enjoy great drinks, live music and good company.</p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>
+        Located in the historic former M.A. Selbert’s jewelry store at 330 St. Clair Street in downtown
+        Frankfort, Mortimer Bibb’s Public House opened in November 2020.  Co‑owners
+        Karl Lawrence and Kevin Newton modeled the pub on traditional Irish public houses, complete with a
+        28‑foot oak bar, copper‑plated bar top and a chandelier made from Jameson whiskey bottles【770389524826419†L73-L118】.
+        The name honors
+        19th‑century Kentucky senator George Mortimer Bibb, and the pub occupies the old
+        Selbert building that once housed a jewelry store【770389524826419†L73-L99】.  Guests enjoy a warm,
+        cozy atmosphere with vintage décor, hardwood floors and flags of America, Kentucky and Ireland【770389524826419†L112-L137】.
+      </p>
+      <p>
+        Mortimer Bibb’s is the only bar in downtown Frankfort serving Guinness on tap【770389524826419†L140-L147】.  The menu features
+        simple yet satisfying fare: pretzels with beer cheese, scones, soups, salads and sandwiches.  Seasonal specials include
+        Shepherd’s Pie, Guinness stew and a Ploughman’s plate – a traditional Irish salad with ham, cheeses, egg and Guinness brown bread【770389524826419†L132-L138】.
+        The pub stocks a variety of draft beers, Irish whiskeys, bourbons and cocktails【892412821412815†L95-L110】.
+      </p>
+      <p>
+        With its welcoming staff, fast service and LGBTQ+ friendly vibe【892412821412815†L136-L144】, Mortimer Bibb’s has become a
+        beloved community gathering place.  It offers dine‑in seating, free Wi‑Fi, wheelchair‑accessible facilities and live
+        performances【892412821412815†L115-L144】【551319087577789†L548-L567】.
+      </p>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="menu">
+    <div class="container">
+      <h2>Menu & Drinks</h2>
+      <div class="menu-list">
+        <div class="menu-item">
+          <h3>Pub Classics</h3>
+          <p>Pretzels with beer cheese, scones and house‑made soups【651089707244652†L87-L95】.【651089707244652†L108-L115】</p>
+        </div>
+        <div class="menu-item">
+          <h3>Sandwiches & Salads</h3>
+          <p>Grilled pimento cheese, chicken salad sandwiches and seasonal salads; try the Ploughman’s plate with ham, cheddar, Havarti, egg and Guinness brown bread【770389524826419†L132-L138】.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Irish Specials</h3>
+          <p>Enjoy occasional specialties such as Shepherd’s Pie and Guinness beef stew【770389524826419†L132-L138】.</p>
+        </div>
+        <div class="menu-item">
+          <h3>Drinks</h3>
+          <p>Choose from a rotating selection of draft beers, Irish whiskeys, bourbons, cocktails and seasonal drinks【892412821412815†L95-L110】.  Guinness on tap is a house favourite【770389524826419†L140-L147】.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section id="events" class="events">
+    <div class="container">
+      <h2>Upcoming & Recent Events</h2>
+      <div class="events-list">
+        <div class="event-card">
+          <h3>Capital Pride Festival 2025</h3>
+          <p class="date">Saturday, Oct 11, 2025 · 11:00 AM – 5:00 PM</p>
+          <p>Join Frankfort’s LGBTQ+ community outside Mortimer Bibb’s for the Kentucky Capital Pride Festival 2025【573599897550279†L22-L29】.  Expect music, food and a celebration of diversity and inclusion.</p>
+        </div>
+        <div class="event-card">
+          <h3>Mad Dogs & Women: Jeri Katherine Howell & Grace Rogers</h3>
+          <p class="date">Thursday, Oct 30, 2025 · 7:00 PM – 9:00 PM</p>
+          <p>Singer‑songwriters Jeri Katherine Howell and Grace Rogers perform songs from their new releases “Woman” and “Mad Dogs”【764653018590596†L24-L29】.  Tickets are $10【764653018590596†L24-L29】.</p>
+        </div>
+        <div class="event-card">
+          <h3>Pridefest with Tall Dark & Handsome & Sam Gleaves</h3>
+          <p class="date">Saturday, Jun 21, 2025 · 6:00 PM – 9:00 PM</p>
+          <p>Bev, Karen and George of Tall Dark & Handsome join Sam Gleaves to celebrate Pride Month.  Enjoy quiche, chicken‑salad sandwiches and summer drinks while supporting the LGBTQ community【507344750766685†L18-L24】.</p>
+        </div>
+        <div class="event-card">
+          <h3>Monthly Live Music Nights</h3>
+          <p class="date">Last Wednesday of every month</p>
+          <p>Mortimer Bibb’s hosts live music evenings featuring local musicians – come unwind with friends and enjoy the tunes【892412821412815†L104-L110】.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews" class="reviews">
+    <div class="container">
+      <h2>What People Are Saying</h2>
+      <p>Mortimer Bibb’s enjoys strong reviews: 4.7/5 stars from 53 reviewers【551319087577789†L468-L507】 and a 4.0/5 rating based on eight reviews【651089707244652†L11-L14】.  Here are a few excerpts from customer feedback:</p>
+      <div class="review">
+        <h4>“Charming and friendly” – Laura D. (Dec 2020)</h4>
+        <span>★★★★★</span>
+        <p>The atmosphere is charming, the owners are friendly and there’s a range of light bites like pretzels, beer cheese and soups.  It feels like sitting by a fire in a real Irish pub【651089707244652†L87-L95】.</p>
+      </div>
+      <div class="review">
+        <h4>“Great beer selection” – Sowmya L. (Jun 2021)</h4>
+        <span>★★★★★</span>
+        <p>There are around ten beers on tap; the Guinness is creamy and the blueberry‑lavender lemonade cocktail tastes great, though small for the price.  The ambience and downtown location are perfect【651089707244652†L108-L115】.</p>
+      </div>
+      <div class="review">
+        <h4>“Authentic feel” – Hannah B. (Feb 2021)</h4>
+        <span>★★★★★</span>
+        <p>The pub feels authentically Irish and is a relaxing place to meet a friend for dinner and drinks.  Homemade soups and scones are highlights【651089707244652†L147-L149】.</p>
+      </div>
+      <div class="review">
+        <h4>“Service could improve” – Faith G. (Jan 2021)</h4>
+        <span>★☆☆☆☆</span>
+        <p>A few reviewers reported slow or inattentive service, noting limited menu options and issues like small soup spoons【651089707244652†L124-L136】.  Opinions vary, but most visitors appreciate the atmosphere and drinks.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact & Hours</h2>
+      <div class="contact-info">
+        <div>
+          <h3>Address</h3>
+          <p>330 St Clair Street<br />Frankfort, KY 40601</p>
+        </div>
+        <div>
+          <h3>Phone</h3>
+          <p><a href="tel:+15026992830">(502) 699‑2830</a></p>
+        </div>
+        <div>
+          <h3>Hours</h3>
+          <p>Tuesday–Thursday: 4:00 PM – 9:00 PM<br />
+             Friday–Saturday: 4:00 PM – 10:00 PM<br />
+             Sunday–Monday: Closed【837238290034243†L70-L93】</p>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <p>Follow us on <a href="https://www.facebook.com">Facebook</a> and <a href="https://www.instagram.com">Instagram</a> for updates and live event announcements.</p>
+        </div>
+      </div>
+      <div class="map-container">
+        <!-- Google Maps embed using the pub's address -->
+        <iframe loading="lazy" allowfullscreen
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD&utm_source=mortimerbibbs&amp;q=Mortimer+Bibb's+Public+House,330+St+Clair+St+Frankfort+KY+40601">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mortimer Bibb's Public House · Designed for demonstration purposes.</p>
+    <div class="social-links">
+      <a href="#home">Home</a> · 
+      <a href="#about">About</a> · 
+      <a href="#menu">Menu</a> · 
+      <a href="#events">Events</a> · 
+      <a href="#reviews">Reviews</a> · 
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>
