@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bell House Restaurant | Shelbyville, KY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header class="hero">
+  <div class="overlay"></div>
+  <div class="hamburger" id="hamburger">
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+  </div>
+  <nav id="nav-menu">
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#events">Events</a>
+    <a href="#catering">Catering</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="hero-content">
+    <div class="hero-brand">
+      <img src="logo.png" alt="Bell House Logo" class="logo-icon">
+      <h1>Bell House Restaurant</h1>
+    </div>
+    <p class="subtext">Historic charm. Modern dining. Shelbyville’s premier restaurant experience.</p>
+    <div class="cta">
+      <a href="#menu" class="btn-outline">View Menu</a>
+      <a href="#reserve" class="btn-solid">Reserve Table</a>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="about">
+  <div class="about-text">
+    <h2>About The Bell House</h2>
+    <p>Established in a lovingly restored 1902 home, The Bell House offers locally inspired cuisine and a warm Southern atmosphere. Led by Chef Brent and Pastry Chef Ashton, every dish celebrates Kentucky’s heritage with a refined touch.</p>
+  </div>
+  <div class="about-img"><img src="about.jpg" alt="Bell House Interior"></div>
+</section>
+
+<section id="menu" class="menu">
+  <h2>Our Menu</h2>
+  <p class="tagline">Experience classic Southern dishes re-imagined for the modern palate.</p>
+  <div class="menu-tabs">
+    <button class="tab" data-target="lunch">Lunch</button>
+    <button class="tab" data-target="dinner">Dinner</button>
+    <button class="tab" data-target="brunch">Saturday Brunch</button>
+    <button class="tab" data-target="dessert">Dessert</button>
+    <button class="tab" data-target="tea">Hot Tea</button>
+    <button class="tab" data-target="wine">Wine & Spirits</button>
+  </div>
+</section>
+
+<div id="menu-modal" class="menu-modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<section id="events" class="events">
+  <h2>Upcoming Events</h2>
+  <div class="event-list">
+    <div class="event-item">
+      <h3>Valentine’s Dinner</h3>
+      <p>February 14 | 6 PM – 10 PM | Romantic prix-fixe menu crafted with love.</p>
+    </div>
+    <div class="event-item">
+      <h3>Farm-to-Table Night</h3>
+      <p>June 22 | 5 PM – 9 PM | Celebrating Kentucky’s local farms and ingredients.</p>
+    </div>
+  </div>
+</section>
+
+<section id="catering" class="catering-section">
+  <div class="catering-content">
+    <div class="catering-text">
+      <h2>Catering & Private Events</h2>
+      <p>From intimate gatherings to large celebrations, Bell House offers on-site and off-site catering with fully customized menus and expert coordination.</p>
+      <button class="tab" data-target="catering">Download Catering Menu</button>
+    </div>
+    <div class="catering-image"><img src="catering.png" alt="Catering charcuterie board at The Bell House"></div>
+  </div>
+</section>
+
+<!-- ===== SPECIAL EVENTS SECTION ===== -->
+<section id="special-events" class="special-events">
+  <div class="special-events-content">
+    <div class="special-events-text">
+      <h2>Special Events & In-House Catering</h2>
+      <p>Planning a special occasion — wedding reception, anniversary, birthday, or business luncheon? Bell House offers custom menus, private dining, and full-service catering designed to make every moment memorable.</p>
+
+      <h3>Our Special Dining Services</h3>
+      <p>Whether you’re celebrating at home, hosting a corporate gathering, or planning your big day, our team creates personalized experiences with locally inspired cuisine and elegant presentation.</p>
+
+      <h3>In-House Events</h3>
+      <p>The Bell House offers intimate in-house dining for rehearsal dinners, showers, and private parties — historic charm meets fine dining and Southern hospitality.</p>
+
+      <h3>Afternoon Tea</h3>
+      <p>Enjoy our signature Afternoon Tea with fine teas, scones, finger sandwiches, and desserts served with timeless elegance.</p>
+
+      <a href="https://www.bellhousewebsite.com/cateringspecialevents" class="btn-solid">Learn More</a>
+    </div>
+    <div class="special-events-image">
+      <img src="specialevents.jpg" alt="Elegant event setup at The Bell House">
+    </div>
+  </div>
+</section>
+
+<section id="reserve" class="reservation">
+  <h2>Reserve a Table</h2>
+  <p>Call <a href="tel:5024375678">(502) 437-5678</a> or use the form below to reserve your table.</p>
+  <form class="booking-form">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Email" required>
+    <input type="tel" placeholder="Phone" required>
+    <input type="date" required>
+    <select required>
+      <option value="">Party Size</option>
+      <option>2 Guests</option><option>4 Guests</option><option>6 Guests</option><option>8+ Guests</option>
+    </select>
+    <button type="submit" class="btn-solid">Submit Reservation</button>
+  </form>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact & Location</h2>
+  <div class="split">
+    <div>
+      <p><strong>Address:</strong><br>721 Main Street, Shelbyville, KY 40065</p>
+      <p><strong>Phone:</strong> <a href="tel:5024375678">(502) 437-5678</a></p>
+      <p><strong>Email:</strong> info@bellhouse.com</p>
+      <p><strong>Hours:</strong><br>Tue–Fri 11-9 | Sat 10-9 | Sun–Mon Closed</p>
+    </div>
+    <iframe src="https://www.google.com/maps?q=721+Main+St,+Shelbyville,+KY&output=embed" width="100%" height="300" style="border:0;border-radius:12px;"></iframe>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2025 Bell House Restaurant | Designed by Bytecelium Creative</p>
+  <p><a href="https://facebook.com/bellhouseky">Facebook</a> · <a href="https://instagram.com/bellhouseky">Instagram</a></p>
+</footer>
+
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  const navLinks = document.querySelectorAll('#nav-menu a');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      navMenu.classList.add('fade-out');
+      hamburger.classList.remove('active');
+      setTimeout(() => {
+        navMenu.classList.remove('active', 'fade-out');
+        window.location = link.getAttribute('href');
+      }, 300);
+    });
+  });
+
+const modal = document.getElementById('menu-modal');
+const modalBody = document.getElementById('modal-body');
+const closeBtn = document.querySelector('.close-btn');
+
+// Data for each menu popup
+const menuData = {
+  lunch: `
+<div class="menu-section">
+  <div class="menu-header">
+    <h2>Lunch Menu</h2>
+    <p><strong>Tuesday–Friday</strong> 11 AM – 2 PM<br>
+    <strong>Saturday Brunch</strong> 10 AM – 2:30 PM</p>
+  </div>
+
+  <hr>
+
+  <div class="menu-category">
+    <h3>Soup & Salad Combos</h3>
+    <div class="menu-item">
+      <h4>Soup & Salad Combo <span>$11.99</span></h4>
+      <p>Cup of soup and Bell House salad.<br>
+      Substitute: Caesar Salad (+$3) or Goat Cheese Salad (+$4)</p>
+    </div>
+
+    <div class="menu-item">
+      <h4>Half Sandwich & Bell House Salad Combo <span>$10.99</span></h4>
+      <p>Choose Chicken Salad, Pimento Cheese, or BLT. Served with one traditional side.<br>
+      Substitute Caesar Salad (+$2) or Goat Cheese Salad (+$4). Premium Side (+$1.50)</p>
+    </div>
+
+    <div class="menu-item">
+      <h4>Half Sandwich & Soup Combo <span>$10.49</span></h4>
+      <p>Choose Chicken Salad, Pimento Cheese, or BLT.<br>
+      Choose Tomato Basil or Soup Du Jour.<br>
+      Served with one traditional side. Premium Side (+$1.50)</p>
+    </div>
+  </div>
+
+  <div class="menu-category">
+    <h3>Soups</h3>
+    <p>Creamy Tomato Basil or Soup Du Jour — Cup $4.50 / Bowl $6.50</p>
+  </div>
+
+  <div class="menu-category">
+    <h3>Salads</h3>
+    <p><strong>Dressings:</strong> Ranch, Blue Cheese, Tomato Vinaigrette, Balsamic, Caesar, FF Raspberry, Honey Mustard, Italian, Thousand Island.<br>
+    Add to any salad: Chicken $5 | Shrimp $5–$7 | Salmon $8</p>
+
+    <div class="menu-item">
+      <h4>Bell House Salad <span>$6.50</span></h4>
+      <p>Romaine, carrots, tomatoes, cucumbers, and homemade croutons. Choice of dressing.</p>
+    </div>
+
+    <div class="menu-item">
+      <h4>Goat Cheese Salad <span>$10</span></h4>
+      <p>Mixed greens, pan-seared panko-crusted goat cheese, cranberries, mandarin oranges, red onions, and candied pecans.</p>
+    </div>
+
+    <div class="menu-item">
+      <h4>Caesar Salad <span>$8</span></h4>
+      <p>Romaine, parmesan, herb-roasted croutons, red onions, and Caesar dressing.</p>
+    </div>
+
+    <div class="menu-item">
+      <h4>Chicken Salad Plate <span>$11.49</span></h4>
+      <p>Pasture-raised chicken, cranberries, apples, celery, and walnuts tossed in mayo. Served with one traditional side.</p>
+    </div>
+  </div>
+
+  <div class="menu-category">
+    <h3>Bell House Favorites</h3>
+
+    <div class="menu-item"><h4>Traditional Meat Lasagna <span>$14.99</span></h4>
+      <p>Homemade marinara, Purnell’s Italian sausage, Angus ground beef, and three cheeses baked to perfection.</p></div>
+
+    <div class="menu-item"><h4>Hot Brown <span>$12.99</span></h4>
+      <p>Turkey on toast with Mornay sauce, topped with bacon and tomato, baked until golden.</p></div>
+
+    <div class="menu-item"><h4>Garden Quiche <span>$9.49</span></h4>
+      <p>Broccoli, mushrooms, peppers, onions, and cheddar in pie crust. Served with one traditional side.</p></div>
+
+    <div class="menu-item"><h4>Cherry Bourbon Brisket <span>$15.99</span></h4>
+      <p>Smoked brisket coated in cherry bourbon BBQ sauce on brioche bun. Served with one side.</p></div>
+  </div>
+
+  <div class="menu-category">
+    <h3>Grilled Flats & Sandwiches</h3>
+    <p>Served with one traditional side. Substitute premium side (+$1.50). Gluten-free bread available (+$1.50).</p>
+
+    <div class="menu-item"><h4>Bell House Steak Flat <span>$16.99</span></h4><p>Prime rib, pimento cheese, caramelized onions on flatbread.</p></div>
+    <div class="menu-item"><h4>Asiago Turkey Flat <span>$12.99</span></h4><p>Turkey, spinach, apple, bacon, asiago mayo on grilled flatbread.</p></div>
+    <div class="menu-item"><h4>Tuscan Grilled Veggie Flat <span>$9.99</span></h4><p>Spinach, artichokes, brie, mushrooms, jack & parmesan cheeses. Add bacon +$2.</p></div>
+    <div class="menu-item"><h4>French Dip <span>$15.99</span></h4><p>Prime rib, horseradish, provolone on baguette, served with au jus.</p></div>
+    <div class="menu-item"><h4>Reuben <span>$13.99</span></h4><p>Corned beef, thousand island, sauerkraut, Swiss on rye.</p></div>
+    <div class="menu-item"><h4>Classic Turkey & Ham <span>$14.99</span></h4><p>Turkey, ham, bacon, tomato, provolone, pesto mayo on toast.</p></div>
+    <div class="menu-item"><h4>Bob’s Burger <span>$11.99</span></h4><p>½ lb Angus beef, caramelized onions, cheese of choice, lettuce, tomato, pickle.</p></div>
+    <div class="menu-item"><h4>BLT Sandwich <span>$11.99</span></h4><p>Bacon, lettuce, tomato, pesto mayo on white, wheat, or rye.</p></div>
+    <div class="menu-item"><h4>Pimento Cheese <span>$9.99</span></h4><p>House blend of three cheeses, grilled or cold. Add bacon or apples +$2.</p></div>
+    <div class="menu-item"><h4>Chicken Salad Sandwich <span>$12.49</span></h4><p>Chicken, cranberries, apples, celery, walnuts on bread of choice.</p></div>
+  </div>
+
+  <div class="menu-category">
+    <h3>Beverages</h3>
+    <p>Soft Drinks: Coke, Diet Coke, Cherry Coke, Sprite, Pink Lemonade — $2.99<br>
+    Cold Brew Tea: Sweet or Unsweetened — $2.99<br>
+    Flavored Iced Tea — $4<br>
+    Coffee — $4<br>
+    Hot Tea Pot — $6<br>
+    Cocktails, Bourbon, Wine, Beer, and other fine spirits available.</p>
+  </div>
+
+  <div class="menu-category">
+    <h3>Traditional Sides</h3>
+    <p>Additional Sides +$1.50<br>Seasonal Fresh Fruit, Kettle Cooked Chips, Baked Potato Chips</p>
+  </div>
+
+  <div class="menu-category">
+    <h3>Premium Sides</h3>
+    <p>Additional Sides +$3<br>Southern Grape Salad, Creamy Baked Potato Salad, Fried Green Tomatoes</p>
+  </div>
+</div>
+
+
+  `,
+  dinner: `<section id="dinner" class="menu">
+  <h2>Dinner Menu</h2>
+  <p class="tagline">Elevated Southern cuisine crafted with care and local flavor.</p>
+
+  <!-- Appetizers -->
+  <div class="menu-category">
+    <h3>Appetizers</h3>
+
+    <div class="menu-item"><h4>Creamy Tomato Basil Soup <span>Cup $5 / Bowl $7</span></h4><p>Garnished with shredded Parmesan cheese and parsley.</p></div>
+    <div class="menu-item"><h4>Seared Sea Scallops <span>$13</span></h4><p>Served with lemon beurre blanc and fresh local greens.</p></div>
+    <div class="menu-item"><h4>Spinach Artichoke Crostini <span>$8</span></h4><p>Blend of spinach, artichokes, brie, Monterey Jack, and Parmesan served on five crostinis.</p></div>
+    <div class="menu-item"><h4>Pimento Risotto Cakes <span>$8</span></h4><p>Homemade pimento cheese, risotto, and panko bread crumbs with pesto aioli.</p></div>
+    <div class="menu-item"><h4>Bruschetta <span>$8</span></h4><p>Roma tomatoes, red onion, basil, balsamic, garlic, and Parmesan over six crostinis.</p></div>
+    <div class="menu-item"><h4>Fried Green Tomatoes <span>$9</span></h4><p>Served with ranch horseradish sauce.</p></div>
+    <div class="menu-item"><h4>Blackberry Brie Tarts <span>$9</span></h4><p>Flaky tarts filled with creamy brie and blackberry sauce, topped with sliced almonds.</p></div>
+    <div class="menu-item"><h4>Seafood Cakes <span>$10</span></h4><p>Pan-fried shrimp and crab cakes served with cocktail sauce and remoulade.</p></div>
+  </div>
+
+  <!-- Salads -->
+  <div class="menu-category">
+    <h3>Salads</h3>
+    <p><strong>Dressings:</strong> Ranch, Bleu Cheese, Balsamic, Tomato Vinaigrette, Caesar, FF Raspberry, Italian, Thousand Island, Honey Mustard</p>
+
+    <div class="menu-item"><h4>Goat Cheese Salad <span>$10</span></h4><p>Mixed greens, panko-crusted goat cheese, cranberries, onions, mandarin oranges, and candied pecans.</p></div>
+    <div class="menu-item"><h4>Blue Cheese Wedge <span>$9</span></h4><p>Iceberg wedge with bleu cheese dressing, tomatoes, cucumbers, onions, crumbles, and bacon.</p></div>
+    <div class="menu-item"><h4>Caesar Salad <span>$8</span></h4><p>Romaine with Caesar dressing, red onions, Parmesan, and croutons.</p></div>
+    <div class="menu-item"><h4>Bell House Salad <span>$6.50</span></h4><p>Romaine, tomatoes, cucumbers, carrots, and homemade croutons.</p></div>
+  </div>
+
+  <!-- Steaks -->
+  <div class="menu-category">
+    <h3>Bell House Steaks</h3>
+    <p>Each entrée served with your choice of two side items.</p>
+
+    <div class="menu-item"><h4>Blue Cheese & Bacon Filet Mignon <span>$48</span></h4><p>Pan-seared 7oz filet topped with bleu cheese and applewood bacon.</p></div>
+    <div class="menu-item"><h4>Prime Rib <span>$40</span></h4><p>10oz Certified Angus Beef prime rib, served with horseradish cream sauce and au jus.</p></div>
+    <div class="menu-item"><h4>Ribeye Steaks <span>10oz $38 / 12oz $42 / 16oz $50</span></h4><p>Certified Angus Beef, Choice Plus quality.</p></div>
+    <div class="menu-item"><h4>Filet Mignon Beef Tips <span>$32</span></h4><p>Tender filet tips in a savory mushroom demi-glace.</p></div>
+  </div>
+
+  <!-- Signature Items -->
+  <div class="menu-category">
+    <h3>Bell House Signature Items</h3>
+    <p>Each entrée served with your choice of two side items.</p>
+
+    <div class="menu-item"><h4>Blackberry Feta Pork Tenderloin <span>$21</span></h4><p>Pork tenderloin glazed with blackberry sauce and topped with feta.</p></div>
+    <div class="menu-item"><h4>Henry Bain Pork <span>$20</span></h4><p>Pan-seared pork tenderloin glazed with zesty Henry Bain sauce.</p></div>
+    <div class="menu-item"><h4>Chilean Sea Bass <span>$42</span></h4><p>Lightly breaded, pan-seared, and baked with lemon garlic beurre blanc.</p></div>
+    <div class="menu-item"><h4>Cedar Plank Salmon <span>$24</span></h4><p>Wild-caught salmon roasted on cedar plank with maple pineapple glaze.</p></div>
+    <div class="menu-item"><h4>Crispy Rosemary Chicken <span>$20</span></h4><p>Rosemary-Parmesan crusted chicken with creamy lemon rosemary sauce.</p></div>
+    <div class="menu-item"><h4>Pecan Encrusted Chicken <span>$24</span></h4><p>Pecan-panko crusted chicken topped with mango chutney.</p></div>
+  </div>
+
+  <!-- Favorites & Pasta -->
+  <div class="menu-category">
+    <h3>Bell House Favorites & Pasta</h3>
+    <p>Each entrée served with your choice of one side item.</p>
+
+    <div class="menu-item"><h4>Cherry Bourbon Brisket <span>$24</span></h4><p>8oz sliced brisket coated in cherry bourbon BBQ sauce.</p></div>
+    <div class="menu-item"><h4>Creamy Cajun Pasta <span>Shrimp $24 / Chicken $22</span></h4><p>Cajun cream sauce with peppers, onions, garlic, and linguine, topped with grilled shrimp or chicken.</p></div>
+    <div class="menu-item"><h4>Chicken Parmesan <span>$20</span></h4><p>Panko-breaded chicken breast with mozzarella, marinara, and Parmesan.</p></div>
+    <div class="menu-item"><h4>Traditional Meat Lasagna <span>$19</span></h4><p>Homemade marinara, beef, sausage, and three cheeses layered and baked.</p></div>
+    <div class="menu-item"><h4>Classic Kentucky Hot Brown <span>$18</span></h4><p>Smoked turkey on toast, topped with Mornay sauce, bacon, and tomato.</p></div>
+    <div class="menu-item"><h4>Angel Hair Marinara <span>$13</span></h4><p>Angel hair pasta in marinara sauce. Add meatball +$1.50 each.</p></div>
+    <div class="menu-item"><h4>Bob’s Burger <span>$15</span></h4><p>½ lb Angus burger with caramelized onions and choice of cheese. Served with herb potatoes.</p></div>
+  </div>
+
+  <!-- Kids Menu -->
+  <div class="menu-category">
+    <h3>Lil’ Bell Ringers Menu <span>$6.99</span></h3>
+    <p>Ages 12 and under. Served with chips or fruit. Add a drink +$1.</p>
+    <p>Options: Grilled Cheese, Pasta Marinara, Pasta Parmesan, or Cheesey Pizza ($8.49)</p>
+  </div>
+
+  <!-- Sides -->
+  <div class="menu-category">
+    <h3>Side Items</h3>
+    <p>Each side $5 if added à la carte.</p>
+    <ul>
+      <li>Marinated Mushrooms</li>
+      <li>Steamed Asparagus</li>
+      <li>Glazed Carrots</li>
+      <li>Steamed Broccoli</li>
+      <li>Twice Baked Potato</li>
+      <li>Yukon Herb Roasted Potato</li>
+      <li>Bell House Salad</li>
+      <li>Side of the Evening</li>
+    </ul>
+  </div>
+
+  <!-- Beverages -->
+  <div class="menu-category">
+    <h3>Beverages</h3>
+    <p>
+      <strong>Soft Drinks:</strong> Coke, Diet Coke, Cherry Coke, Sprite, Pink Lemonade — $2.99<br>
+      <strong>Cold Brew Tea:</strong> Sweet or Unsweetened — $2.99<br>
+      <strong>Flavored Iced Tea:</strong> $4<br>
+      <strong>Coffee:</strong> $4<br>
+      <strong>Hot Tea Pot:</strong> $6<br><br>
+      We also offer a fine selection of <strong>cocktails, bourbon, whiskey, wine, beer</strong>, and other spirits.
+    </p>
+  </div>
+</section>
+`,
+  brunch: `<section id="brunch" class="menu">
+  <h2>Saturday Brunch</h2>
+  <p class="tagline">Served every Saturday, 10 AM – 2:30 PM. A Southern-inspired brunch made with local ingredients and comfort in mind.</p>
+
+  <!-- Brunch / Lunch Entrees -->
+  <div class="menu-category">
+    <h3>Brunch & Lunch Favorites</h3>
+
+    <div class="menu-item"><h4>Steak & Eggs <span>$18</span></h4><p>6oz ribeye steak with your choice of two eggs and country fried potatoes.</p></div>
+
+    <div class="menu-item"><h4>Chef’s Breakfast Plate <span>$12</span></h4><p>Two eggs, Purnell’s sausage or bacon, country fried potatoes, and toast with jam.</p></div>
+
+    <div class="menu-item"><h4>Bell House Breakfast Casserole <span>$12</span></h4><p>Eggs, sausage, potatoes, and peppers baked with Mornay sauce, topped with diced tomatoes and scallions.</p></div>
+
+    <div class="menu-item"><h4>Eggs Benedict <span>$12</span></h4><p>Two English muffins topped with cherrywood smoked ham, poached eggs, and hollandaise sauce.</p></div>
+  </div>
+
+  <!-- Combos -->
+  <div class="menu-category">
+    <h3>Brunch Combos</h3>
+
+    <div class="menu-item"><h4>Soup & Salad Combo <span>$11.99</span></h4><p>Cup of soup and Bell House salad.<br>Substitute: Caesar +$3 / Goat Cheese +$4.</p></div>
+
+    <div class="menu-item"><h4>Half Sandwich & Bell House Salad Combo <span>$10.99</span></h4><p>Choose Chicken Salad, Pimento Cheese, or BLT. Served with one traditional side.<br>Substitute: Caesar +$2 / Goat Cheese +$4 / Premium Side +$1.50.</p></div>
+
+    <div class="menu-item"><h4>Half Sandwich & Soup Combo <span>$10.49</span></h4><p>Choose Chicken Salad, Pimento Cheese, or BLT with Tomato Basil or Soup du Jour. Includes one traditional side. Premium Side +$1.50.</p></div>
+  </div>
+
+  <!-- Soups & Salads -->
+  <div class="menu-category">
+    <h3>Soups & Salads</h3>
+
+    <div class="menu-item"><h4>Tomato Basil Soup <span>Cup $4.50 / Bowl $6.50</span></h4><p>Our creamy signature soup or soup du jour.</p></div>
+
+    <div class="menu-item"><h4>Bell House Salad <span>$6.50</span></h4><p>Romaine, carrots, tomatoes, cucumbers, and croutons. Dressings: Balsamic, Ranch, Thousand Island, Honey Mustard.</p></div>
+
+    <div class="menu-item"><h4>Goat Cheese Salad <span>$10</span></h4><p>Mixed greens, panko goat cheese, cranberries, mandarins, red onions, and pecans. Pairs with Balsamic or Raspberry Vinaigrette.</p></div>
+
+    <div class="menu-item"><h4>Caesar Salad <span>$8</span></h4><p>Romaine with Parmesan, roasted croutons, and Caesar dressing.</p></div>
+
+    <div class="menu-item"><h4>Chicken Salad Plate <span>$11.49</span></h4><p>Chicken, cranberries, apples, celery, and walnuts in mayo. Served with one traditional side.</p></div>
+  </div>
+
+  <!-- Bell House Favorites -->
+  <div class="menu-category">
+    <h3>Bell House Favorites</h3>
+
+    <div class="menu-item"><h4>Traditional Meat Lasagna <span>$14.99</span></h4><p>Layers of noodles, marinara, sausage, beef, and three cheeses baked to perfection.</p></div>
+
+    <div class="menu-item"><h4>Cherry Bourbon Brisket <span>$15.99</span></h4><p>Smoked brisket coated in cherry bourbon BBQ sauce on a grilled brioche bun. Served with one traditional side.</p></div>
+
+    <div class="menu-item"><h4>Hot Brown <span>$12.99</span></h4><p>Sliced turkey on toast points, covered in Mornay sauce, topped with bacon and tomato, baked golden brown.</p></div>
+
+    <div class="menu-item"><h4>Garden Quiche <span>$9.49</span></h4><p>Broccoli, mushrooms, peppers, onions, and cheddar in a homemade crust. Includes one traditional side.</p></div>
+  </div>
+
+  <!-- Grilled Flats & Sandwiches -->
+  <div class="menu-category">
+    <h3>Grilled Flats & Sandwiches</h3>
+    <p>Served with one traditional side. Substitute premium side +$1.50. Gluten-free bread +$1.50.</p>
+
+    <div class="menu-item"><h4>Bell House Steak Flat <span>$16.99</span></h4><p>Prime rib, homemade pimento cheese, and caramelized onions on flatbread.</p></div>
+
+    <div class="menu-item"><h4>Asiago Turkey Flat <span>$12.99</span></h4><p>Honey-roasted turkey, spinach, apples, bacon, and asiago mayo on grilled flatbread.</p></div>
+
+    <div class="menu-item"><h4>Tuscan Grilled Veggie Flat <span>$9.99</span></h4><p>Spinach, artichokes, brie, jack, and parmesan on flatbread. Add bacon +$2.</p></div>
+
+    <div class="menu-item"><h4>French Dip <span>$15.99</span></h4><p>Prime rib, horseradish sauce, provolone, and au jus on a French baguette.</p></div>
+
+    <div class="menu-item"><h4>Reuben <span>$13.99</span></h4><p>Corned beef, thousand island, sauerkraut, and Swiss on grilled rye.</p></div>
+
+    <div class="menu-item"><h4>Classic Turkey & Ham <span>$14.99</span></h4><p>Turkey, ham, bacon, lettuce, tomato, provolone, and pesto mayo on your choice of toast.</p></div>
+
+    <div class="menu-item"><h4>Bob’s Burger <span>$11.99</span></h4><p>½ lb Angus chuck burger with caramelized onions and choice of cheese. Lettuce, tomato, pickle upon request.</p></div>
+
+    <div class="menu-item"><h4>BLT Sandwich <span>$11.99</span></h4><p>Bacon, lettuce, and tomato with pesto mayo on toasted white, wheat, or rye.</p></div>
+
+    <div class="menu-item"><h4>Pimento Cheese <span>$9.99</span></h4><p>Granny Andriot’s recipe of blended cheeses, grilled or cold on your choice of bread. Add bacon or apples +$2.</p></div>
+
+    <div class="menu-item"><h4>Chicken Salad Sandwich <span>$12.49</span></h4><p>Chicken, cranberries, apples, celery, and walnuts in mayo, with lettuce on your choice of bread.</p></div>
+  </div>
+
+  <!-- Breakfast Sides -->
+  <div class="menu-category">
+    <h3>Breakfast Sides</h3>
+    <ul>
+      <li>Applewood Smoked Bacon — $4</li>
+      <li>Purnell’s Sausage Patties — $4</li>
+      <li>Fresh Eggs — $1.50 each</li>
+      <li>Country Fried Potatoes — $1.50</li>
+      <li>Toast or English Muffin — $2</li>
+    </ul>
+  </div>
+
+  <!-- Traditional Sides -->
+  <div class="menu-category">
+    <h3>Traditional Sides</h3>
+    <p>(Additional Sides +$1.50)</p>
+    <ul>
+      <li>Seasonal Fresh Fruit</li>
+      <li>Kettle Cooked Chips</li>
+      <li>Baked Potato Chips</li>
+    </ul>
+  </div>
+
+  <!-- Premium Sides -->
+  <div class="menu-category">
+    <h3>Premium Sides</h3>
+    <p>(Additional Sides +$3)</p>
+    <ul>
+      <li>Southern Grape Salad</li>
+      <li>Creamy Baked Potato Salad</li>
+      <li>Fried Green Tomatoes</li>
+    </ul>
+  </div>
+
+  <!-- Beverages -->
+  <div class="menu-category">
+    <h3>Beverages</h3>
+    <p>(Free refills not included with juice or milk.)</p>
+    <p>
+      <strong>Orange Juice or Milk:</strong> $3<br>
+      <strong>Freshly Ground Coffee:</strong> $4<br>
+      <strong>Mimosa:</strong> $8<br>
+      <strong>Bloody Mary:</strong> $8<br><br>
+
+      <strong>Soft Drinks:</strong> Coke, Diet Coke, Cherry Coke, Sprite, Pink Lemonade — $2.99<br>
+      <strong>Cold Brew Tea:</strong> Sweet or Unsweetened — $2.99<br>
+      <strong>Flavored Iced Tea:</strong> $4<br>
+      <strong>Hot Tea Pot:</strong> $6<br><br>
+
+      We also offer a fine selection of <strong>cocktails, bourbon, whiskey, wine, beer</strong>, and other spirits.
+    </p>
+  </div>
+</section>
+`,
+  dessert: `<section id="desserts" class="menu">
+  <h2>Desserts</h2>
+  <p class="tagline">Sweet endings crafted with Southern warmth and indulgent flavor.</p>
+
+  <div class="menu-category">
+    <div class="menu-item"><h4>Chocolate Amaretto Cake <span>$7.50</span></h4></div>
+
+    <div class="menu-item"><h4>Coconut Cream Pie <span>$6.50</span></h4></div>
+
+    <div class="menu-item"><h4>Crème Brûlée <span>$6.00</span></h4></div>
+
+    <div class="menu-item"><h4>Petite Praline Cheesecake <span>$3.00</span></h4></div>
+
+    <div class="menu-item">
+      <h4>Brownie with Vanilla Ice Cream & Chocolate Syrup <span>$6.00</span></h4>
+      <p>Add Caramel or Salted Caramel +$0.50</p>
+    </div>
+
+    <div class="menu-item"><h4>Apple Cake with Homemade Caramel <span>$6.50</span></h4></div>
+
+    <div class="menu-item"><h4>Urban Sundae <span>$7.00</span></h4></div>
+
+    <div class="menu-item"><h4>Seasonal Dessert <span>Ask Your Server</span></h4>
+      <p>Rotating selection of house-made desserts based on seasonal ingredients.</p>
+    </div>
+  </div>
+</section>
+`,
+  tea: `<section id="hot-tea" class="menu">
+  <h2>Hot Tea Menu</h2>
+  <p class="tagline">A curated selection of fine teas — each pot makes two cups. $6.00 per pot.</p>
+
+  <div class="menu-category">
+
+    <div class="menu-item">
+      <h4>Moon Over Madagascar</h4>
+      <p>A blend of black teas infused with bourbon vanilla from Madagascar. Unique, sweet, and satisfying.</p>
+    </div>
+
+    <div class="menu-item">
+      <h4>Bob’s Blend</h4>
+      <p>Black, red berries, and peach tea — a refreshing blend of fruits and flowers.</p>
+    </div>
+
+    <div class="menu-item">
+      <h4>English Breakfast</h4>
+      <p>The classic, full-bodied blend of Assam and Ceylon teas.</p>
+    </div>
+
+    <div class="menu-item">
+      <h4>Machu Peachu</h4>
+      <p>White tea composed of thick silver needles scented with jasmine blossoms and hints of peach.</p>
+    </div>
+
+    <div class="menu-item">
+      <h4>Candy Apple White</h4>
+      <p>Tangy, sweet, and light white tea with notes of apple and lemongrass.</p>
+    </div>
+
+    <div class="menu-item">
+      <h4>Earl Grey</h4>
+      <p>Fine black tea with white tips and high-quality oil of bergamot.</p>
+    </div>
+
+    <div class="menu-item">
+      <h4>Green Tea with Pomegranate</h4>
+      <p>Lovely sencha green tea — light, sweet, and fruity with just enough tartness from pomegranate.</p>
+    </div>
+
+    <div class="menu-item">
+      <h4>Red Berries <span>(Caffeine Free)</span></h4>
+      <p>Herbal tea with sweet fruit berry flavors and a tart note. Includes apples, elderberries, currants, rose hips, blackberries, raspberries, hibiscus, and sour cherry.</p>
+    </div>
+
+    <div class="menu-item">
+      <h4>Cranberry Spice <span>(Caffeine Free)</span></h4>
+      <p>Sweet, tart, bright, and invigorating herbal blend with the taste of cranberries and warm spice notes.</p>
+    </div>
+
+    <div class="menu-item">
+      <h4>Evening in Missoula <span>(Caffeine Free)</span></h4>
+      <p>Absolutely fabulous herbal blend with soothing, minty flavors.</p>
+    </div>
+
+    <div class="menu-item">
+      <h4>Toothless Tiger Chai <span>(Caffeine Free)</span></h4>
+      <p>Cinnamon and spice herbal tea that’s vibrant, aromatic, and entirely caffeine free.</p>
+    </div>
+  </div>
+</section>
+`,
+  wine: `<section id="wine-spirits" class="menu">
+  <h2>Wine & Spirits</h2>
+  <p class="tagline">A curated collection of wines, handcrafted cocktails, and fine spirits — perfect for every occasion.</p>
+
+  <!-- White Wines -->
+  <div class="menu-category">
+    <h3>White Wines</h3>
+    <div class="menu-item"><h4>House Wine — Cono Sur Organic Chardonnay, Chile <span>$8 / $24</span></h4></div>
+    <div class="menu-item"><h4>La Crema, Chardonnay, Monterey, California <span>$15 / $45</span></h4></div>
+    <div class="menu-item"><h4>Chateau Ste. Michelle, Riesling, Columbia Valley, Washington <span>$9.50 / $28.50</span></h4></div>
+    <div class="menu-item"><h4>Oyster Bay, Sauvignon Blanc, Marlborough, New Zealand <span>$9.50 / $27.50</span></h4></div>
+    <div class="menu-item"><h4>Mirassou, Moscato, California <span>$9 / $27</span></h4></div>
+    <div class="menu-item"><h4>Ecco Domani, Pinot Grigio, Delle Venezie, Italy <span>$9.50 / $26</span></h4></div>
+  </div>
+
+  <!-- Rosé Wine --><br>
+  <div class="menu-category">
+    <h3>Rosé Wine</h3>
+    <div class="menu-item"><h4>Whispering Angel, Rosé, Provence, France <span>$19.50 / $58</span></h4></div>
+  </div>
+
+  <!-- Red Wines --><br>
+  <div class="menu-category">
+    <h3>Red Wines</h3>
+    <div class="menu-item"><h4>House Wine — BV Coastal Estates, Cabernet <span>$8 / $24</span></h4></div>
+    <div class="menu-item"><h4>The Prisoner, Cabernet, Napa Valley, California <span>$110 Bottle</span></h4></div>
+    <div class="menu-item"><h4>St. Francis, Cabernet, Sonoma County, California <span>$18.50 / $55</span></h4></div>
+    <div class="menu-item"><h4>La Crema, Pinot Noir, Monterey, California <span>$16 / $50</span></h4></div>
+    <div class="menu-item"><h4>Gascon, Malbec, Mendoza, Argentina <span>$11.50 / $35</span></h4></div>
+    <div class="menu-item"><h4>Murphy Goode, Merlot, California <span>$9.50 / $29</span></h4></div>
+    <div class="menu-item"><h4>Bogle, Petite Sirah, California <span>$8 / $24</span></h4></div>
+  </div>
+
+  <!-- Sparkling --><br>
+  <div class="menu-category">
+    <h3>Sparkling</h3>
+    <div class="menu-item"><h4>Korbel, Brut, California <span>$12 / $40</span></h4></div>
+    <div class="menu-item"><h4>La Marca, Prosecco, Italy <span>$12.50 Glass / $25 Split / $45 Bottle</span></h4></div>
+  </div>
+
+  <!-- Cocktails --><br>
+  <div class="menu-category">
+    <h3>Cocktails</h3>
+    <ul>
+      <li><strong>Manhattan</strong> — Four Roses Bourbon, Vermouth, Bitters, Cherry Garnish</li>
+      <li><strong>Shelby Mule</strong> — Tito’s Vodka, Ginger Beer & Lime</li>
+      <li><strong>Kentucky Mule</strong> — Straight Bourbon, Ginger Beer & Lime</li>
+      <li><strong>Cape Cod</strong> — Tito’s Vodka, Cranberry Juice & Lime</li>
+      <li><strong>Tom Collins</strong> — Castle & Key Gin, Club Soda, Lemon Juice & Simple Syrup</li>
+      <li><strong>Martini</strong> — Tito’s Vodka or Castle & Key Gin, Club Soda, Simple Syrup & Lemon Juice</li>
+      <li><strong>Old Fashioned</strong> — Old Forester Bourbon, Bitters, Sugar, Garnished with Orange</li>
+      <li><strong>Bourbon Coffee</strong> — Buffalo Trace Bourbon Cream</li>
+    </ul>
+  </div>
+
+  <!-- Morning Cocktails --><br>
+  <div class="menu-category">
+    <h3>Morning Cocktails</h3>
+    <p>(Prices vary upon selection)</p>
+    <ul>
+      <li><strong>Bloody Mary</strong> — Tito’s Vodka & 5 Pepper Bloody Mary Mix</li>
+      <li><strong>Mimosa</strong> — Korbel Brut & Orange Juice</li>
+    </ul>
+  </div>
+
+  <!-- Spirits --><br>
+  <div class="menu-category">
+    <h3>Spirits</h3>
+
+    <h4>Bourbon, Whiskey & More</h4>
+    <ul>
+      <li>Basil Hayden, Clermont/Frankfort, KY — $14</li>
+      <li>Woodford Reserve, Versailles, KY — $13</li>
+      <li>1792, Bardstown, KY — $11</li>
+      <li>Maker’s Mark, Loretto, KY — $10</li>
+      <li>Bulleit Bourbon, Louisville, KY — $9</li>
+      <li>Bulleit Rye, Louisville, KY — $9</li>
+      <li>Four Roses, Lawrenceburg, KY — $8</li>
+      <li>Old Forester, Louisville, KY — $7</li>
+    </ul>
+
+    <h4>Gin</h4>
+    <ul>
+      <li>Castle & Key, Frankfort, KY — $10</li>
+    </ul>
+
+    <h4>Vodka</h4>
+    <ul>
+      <li>Grey Goose, France — $11</li>
+      <li>Jeptha Creed, Shelby County, KY — $9.50</li>
+      <li>Tito’s Handmade, Austin, TX — $9</li>
+    </ul>
+  </div>
+
+  <!-- Beer -->
+  <div class="menu-category">
+    <h3>Beer</h3>
+    <p>$5.50 Each</p>
+    <ul>
+      <li>Blue Moon — Golden, Colorado</li>
+      <li>Newcastle Brown Ale — United Kingdom</li>
+      <li>Peroni Nastro Azzurro — Italy</li>
+      <li>Heineken & Heineken 0.0 — Holland</li>
+      <li>Samuel Adams Boston Lager — Boston, MA</li>
+      <li>Coors Light — Golden, Colorado</li>
+      <li>Miller Lite — Milwaukee, Wisconsin</li>
+    </ul>
+
+    <p>$6.00</p>
+    <ul>
+      <li>IPA Sixth Brewing — India Pale Ale</li>
+    </ul>
+  </div>
+
+  <!-- Coffee Liqueurs -->
+  <div class="menu-category">
+    <h3>Coffee Liqueurs</h3>
+    <p>(Prices vary upon selection)</p>
+    <ul>
+      <li>Buffalo Trace Bourbon Cream</li>
+      <li>Bailey’s Irish Cream</li>
+      <li>Francesca (Hazelnut)</li>
+      <li>Frangelico (Hazelnut)</li>
+    </ul>
+  </div>
+</section>
+`,
+catering:`<section id="catering-menu" class="menu">
+  <h2>Catering Menu & Pricing</h2>
+  <p class="tagline">Want Bell House to cater your next event? Call Chef Brent Evans at <strong>270-855-1155</strong><br>
+  We’d love to talk about the details and send you an estimate!</p>
+  <p>Bell House can cater a wide variety of events — from business meetings to wedding receptions, boxed lunches to gourmet plated dinners. Please don’t hesitate to ask.</p>
+
+  <div class="menu-category">
+    <h3>Additional Pricing Details</h3>
+    <ul>
+      <li>Utensils, chafing dishes, and setup fees are not included in food prices.</li>
+      <li>Prices listed are for a minimum of 50 people. Fewer than 50 add $2 to main dish prices.</li>
+      <li>All pricing subject to change.</li>
+    </ul>
+  </div>
+
+  <div class="menu-category">
+    <h3>Main Entrées</h3>
+    <p class="note">All main dishes served with your choice of bread: Italian Garlic Cheese Bread, Brioche Buns, Yeast Rolls, or Sliced French Baguettes.</p>
+
+    <h4>$7 per Item</h4>
+    <ul>
+      <li>Angel Hair Marinara with Meat Sauce</li>
+      <li>Chicken & Rice Casserole</li>
+      <li>Bell House Pot Roast with Gravy</li>
+      <li>BBQ Pulled Chicken or Pork</li>
+      <li>Chicken Tetrazzini</li>
+      <li>Sliced Turkey Breast</li>
+      <li>Spiral Glazed Ham</li>
+    </ul>
+
+    <h4>$9 per Item</h4>
+    <ul>
+      <li>Homemade Meatloaf</li>
+      <li>Lasagna (Meat or Vegetarian)</li>
+      <li>Smothered Chicken (Honey Mustard, Mushrooms, Bacon & Cheeses)</li>
+      <li>Roast Pork Loin with Dijon Cream Sauce</li>
+      <li>Tilapia with Shrimp Scampi</li>
+      <li>Chicken or Shrimp Alfredo Florentine</li>
+    </ul>
+
+    <h4>$16 per Item</h4>
+    <ul>
+      <li>Salmon with Maple Pineapple Glaze</li>
+      <li>Beef Tenderloin Tips with Demi Glaze</li>
+      <li>Creamy Cajun Linguine with Shrimp</li>
+      <li>Blackberry Feta Pork Tenderloin</li>
+    </ul>
+  </div>
+
+  <div class="menu-category">
+    <h3>Appetizers</h3>
+    <p>(Prices listed per person for 20 or more. Fewer than 20 add $0.50 to each portion.)</p>
+    <ul>
+      <li>Bruschetta (2 crostinis) — $2.50</li>
+      <li>Blackberry Brie Tarts (2 tarts) — $3</li>
+      <li>Cheese & Cracker Platter — $3.50</li>
+      <li>Fruit Platter — $3</li>
+      <li>Vegetable Platter — $3</li>
+      <li>Charcuterie Board (No Meat) — $5</li>
+      <li>Charcuterie Board with Meat — $7</li>
+    </ul>
+  </div>
+
+  <div class="menu-category">
+    <h3>Side Choices</h3>
+    <p>All side dishes are served hot unless otherwise noted (cold).</p>
+
+    <h4>$2 per Item</h4>
+    <ul>
+      <li>Herb Roasted Potatoes</li>
+      <li>Yukon Gold Smashed Potatoes</li>
+      <li>Rice (White or Brown)</li>
+      <li>Baked Beans</li>
+      <li>Country Style Green Beans</li>
+      <li>Homemade Stuffing</li>
+      <li>Italian Pasta Salad (Cold)</li>
+    </ul>
+
+    <h4>$3 per Item</h4>
+    <ul>
+      <li>Sautéed Haricot Verts (French Green Beans)</li>
+      <li>Glazed Carrots</li>
+      <li>Baked Potato Salad (Cold)</li>
+      <li>Broccoli</li>
+      <li>Wild Rice (or other specialty rice)</li>
+      <li>Macaroni and Cheese</li>
+      <li>Au Gratin Potatoes</li>
+      <li>Sweet Potato Casserole with Streusel</li>
+    </ul>
+
+    <h4>$4 per Item</h4>
+    <ul>
+      <li>Twice Baked Potatoes</li>
+      <li>Asparagus</li>
+      <li>Bell House Salad (Cold)</li>
+      <li>Mixed Greens Salad (Cold)</li>
+    </ul>
+  </div>
+
+  <div class="menu-category">
+    <h3>Desserts</h3>
+    <p>(Prices listed per person for 20 or more. Fewer than 20 add $1 per portion.)</p>
+    <ul>
+      <li>Brownie Triangle — $3</li>
+      <li>Lemon Cake — $4</li>
+      <li>Red Velvet Cake — $5</li>
+      <li>New York Style Cheesecake — $5</li>
+      <li>Blueberry Peach Cobbler — $5</li>
+    </ul>
+  </div>
+
+  <div class="menu-category">
+    <h3>Boxed Lunch Options</h3>
+    <p><strong>Regular $12</strong> — Sandwich, One Side & One Cookie<br>
+       <strong>Plus $14</strong> — Sandwich, Two Sides & One Cookie</p>
+
+    <h4>Choice of Sandwiches</h4>
+    <ul>
+      <li>Chicken Salad with Lettuce (Locally Raised Chicken) <span>+ $2</span></li>
+      <li>Turkey, Lettuce, Tomato, Pesto Mayo</li>
+      <li>Ham, Lettuce, Tomato, Chipotle Mayo</li>
+      <li>Homemade Pimento Cheese</li>
+      <li>BLT with Pesto Mayo</li>
+      <li>Classic Turkey & Ham with Provolone, Bacon, Lettuce, Tomato & Pesto Mayo <span>+ $4</span></li>
+    </ul>
+
+    <h4>Sides</h4>
+    <ul>
+      <li>Chips</li>
+      <li>Fruit</li>
+      <li>Potato Salad</li>
+      <li>Grape Salad</li>
+    </ul>
+
+    <h4>Bread Choices</h4>
+    <ul>
+      <li>White, Wheat, or Rye</li>
+      <li><strong>Gluten Free</strong> <span>+ $0.75</span></li>
+    </ul>
+  </div>
+</section>
+`
+};
+
+// Tab click opens modal
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.target;
+    modalBody.innerHTML = menuData[target] || '<p>Menu not available yet.</p>';
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+// Close modal
+closeBtn.addEventListener('click', () => {
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+});
+
+// Click outside modal to close
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+});
+
+</script>
+
+
+</body>
+</html>
