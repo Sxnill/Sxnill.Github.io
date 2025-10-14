@@ -79,12 +79,7 @@ img{max-width:100%;display:block}
 /* Responsive: drop the stack into flow and widen the grid a bit if needed */
 @media (max-width:1100px){
   .hero-side{position:static;margin:0 auto;align-items:stretch;text-align:left;padding:0 1rem;max-width:600px;text-align: center;}
-  .hero-side h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.1rem,4.8vw,3.8rem);line-height:1.1;
-  text-shadow:0 3px 10px rgba(0,0,0,.6);
-  max-width:600px,92vw;
-}
+
 }
 @media (max-width:520px){
   .brand-name{display:none}
@@ -285,6 +280,7 @@ h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.2rem);color
     <div class="special-events-text">
       <h2>Special Events & In-House Catering</h2>
       <p>Planning a special occasion — wedding reception, anniversary, birthday, or business luncheon? Bell House offers custom menus, private dining, and full-service catering designed to make every moment memorable.</p>
+      <br>
       <a href="#contact" class="btn-solid">Contact Us</a>
     </div>
     <div class="special-events-image"><img src="specialevents.jpg" alt="Elegant event setup at The Bell House"></div>
@@ -380,8 +376,10 @@ navLinks.forEach(link=>{link.addEventListener('click',e=>{e.preventDefault();nav
   <div class="menu-category"><h3>Traditional Sides</h3><p>Additional Sides +$1.50<br>Seasonal Fresh Fruit, Kettle Cooked Chips, Baked Potato Chips</p></div>
   <div class="menu-category"><h3>Premium Sides</h3><p>Additional Sides +$3<br>Southern Grape Salad, Creamy Baked Potato Salad, Fried Green Tomatoes</p></div>
 </div>
+    </div>
     `,
-    dinner: `<section id="dinner" class="menu">
+    dinner: `<center><div class="menu-section">
+  <div class="menu-header">
   <h2>Dinner Menu</h2>
   <p class="tagline">Elevated Southern cuisine crafted with care and local flavor.</p>
   <div class="menu-category"><h3>Appetizers</h3>
@@ -442,7 +440,8 @@ navLinks.forEach(link=>{link.addEventListener('click',e=>{e.preventDefault();nav
     We also offer a fine selection of <strong>cocktails, bourbon, whiskey, wine, beer</strong>, and other spirits.</p>
   </div>
 </section></center>`,
-    brunch: `<section id="brunch" class="menu">
+    brunch: `<center><div class="menu-section">
+  <div class="menu-header">
   <h2>Saturday Brunch</h2>
   <p class="tagline">Served every Saturday, 10 AM – 2:30 PM. A Southern-inspired brunch made with local ingredients and comfort in mind.</p>
   <div class="menu-category"><h3>Brunch & Lunch Favorites</h3>
@@ -500,8 +499,9 @@ navLinks.forEach(link=>{link.addEventListener('click',e=>{e.preventDefault();nav
     <strong>Hot Tea Pot:</strong> $6<br><br>
     We also offer a fine selection of <strong>cocktails, bourbon, whiskey, wine, beer</strong>, and other spirits.</p>
   </div>
-</section>`,
-    dessert: `<section id="desserts" class="menu">
+</section></center>`,
+    dessert: `<center><div class="menu-section">
+  <div class="menu-header">
   <h2>Desserts</h2>
   <p class="tagline">Sweet endings crafted with Southern warmth and indulgent flavor.</p>
   <div class="menu-category">
@@ -514,8 +514,9 @@ navLinks.forEach(link=>{link.addEventListener('click',e=>{e.preventDefault();nav
     <div class="menu-item"><h4>Urban Sundae <span>$7.00</span></h4></div>
     <div class="menu-item"><h4>Seasonal Dessert <span>Ask Your Server</span></h4><p>Rotating selection of house-made desserts based on seasonal ingredients.</p></div>
   </div>
-</section>`,
-    tea: `<section id="hot-tea" class="menu">
+</section></center>`,
+    tea: `<center><div class="menu-section">
+  <div class="menu-header">
   <h2>Hot Tea Menu</h2>
   <p class="tagline">A curated selection of fine teas — each pot makes two cups. $6.00 per pot.</p>
   <div class="menu-category">
@@ -531,8 +532,9 @@ navLinks.forEach(link=>{link.addEventListener('click',e=>{e.preventDefault();nav
     <div class="menu-item"><h4>Evening in Missoula <span>(Caffeine Free)</span></h4><p>Absolutely fabulous herbal blend with soothing, minty flavors.</p></div>
     <div class="menu-item"><h4>Toothless Tiger Chai <span>(Caffeine Free)</span></h4><p>Cinnamon and spice herbal tea that’s vibrant, aromatic, and entirely caffeine free.</p></div>
   </div>
-</section>`,
-    wine: `<section id="wine-spirits" class="menu">
+</section></center>`,
+    wine: `<center><div class="menu-section">
+  <div class="menu-header">
   <h2>Wine & Spirits</h2>
   <p class="tagline">A curated collection of wines, handcrafted cocktails, and fine spirits — perfect for every occasion.</p>
   <div class="menu-category"><h3>White Wines</h3>
@@ -613,8 +615,9 @@ navLinks.forEach(link=>{link.addEventListener('click',e=>{e.preventDefault();nav
     <p>(Prices vary upon selection)</p>
     <ul><li>Buffalo Trace Bourbon Cream</li><li>Bailey’s Irish Cream</li><li>Francesca (Hazelnut)</li><li>Frangelico (Hazelnut)</li></ul>
   </div>
-</section>`,
-    catering: `<section id="catering-menu" class="menu">
+</section></center>`,
+    catering: `<center><div class="menu-section">
+  <div class="menu-header">
   <h2>Catering Menu & Pricing</h2>
   <p class="tagline">Want Bell House to cater your next event? Call Chef Brent Evans at <strong>270-855-1155</strong><br>
   We’d love to talk about the details and send you an estimate!</p>
@@ -697,7 +700,7 @@ navLinks.forEach(link=>{link.addEventListener('click',e=>{e.preventDefault();nav
     <h4>Bread Choices</h4>
     <ul><li>White, Wheat, or Rye</li><li><strong>Gluten Free</strong> <span>+ $0.75</span></li></ul>
   </div>
-</section>`
+</section></center>`
   };
 
   // open modal on tab click
