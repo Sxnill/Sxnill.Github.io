@@ -148,7 +148,8 @@ img{max-width:100%;display:block}
 
 /* Responsive: drop the stack into flow and widen the grid a bit if needed */
 @media (max-width:1100px){
-  .hero-side{position:static;margin:0 auto;align-items:stretch;text-align:left;padding:0 1rem;max-width:600px;text-align: center;z-index: 3;}
+  .hero-side{position:static;margin:0 auto;align-items:stretch;text-align:left;padding:0 1rem;max-width:600px;z-index: 3;}
+  .hero-side h1 {text-align: center;}
   .hero-side .brand-mark{align-self: center;}
 
 }
@@ -204,7 +205,7 @@ h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.2rem);color
 /* Mobile menu + small layout */
 @media (max-width:900px){
   .hamburger{display:flex}
-  #nav-menu{position:absolute;top:0;left:0;right:0;padding:3.8rem 1rem 1rem;flex-direction:column;gap:1rem;background:rgba(232,169,160,.96);backdrop-filter:blur(6px);display:none;border-bottom-left-radius:12px;border-bottom-right-radius:12px}
+  #nav-menu{position:absolute;top:0;left:0;right:0;padding:1.8rem 1rem 1rem;flex-direction:column;gap:1rem;background:rgba(232,169,160,.96);backdrop-filter:blur(6px);display:none;border-bottom-left-radius:12px;border-bottom-right-radius:12px}
   #nav-menu.active{display:flex}
   .about,.catering-content,.special-events-content,.contact .split,.booking-form{grid-template-columns:1fr}
   .hero{padding:6.2rem 0 12vh;margin-top:56px color:#fff;}
@@ -236,7 +237,7 @@ h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.2rem);color
 
   <div class="hero-side hero-side--formonly"><br>
     <img src="logo.png" alt="Bell House Logo" class="brand-mark">
-    <h1 style="color:#fff; max-width:600px;">Historic charm. Modern dining.</h1>
+    <h1 style="color:#fff; max-width:600px;">Historic charm.<br>Modern dining.</h1>
     <center><p class="subtext" style="margin-right: 20px;">Shelbyville’s premier restaurant experience inside a lovingly restored 1902 home.</p></center>
     <div class="cta">
       
