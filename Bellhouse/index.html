@@ -15,12 +15,16 @@
 body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial,sans-serif;color:#2c2c2c;background:var(--trim-white);line-height:1.7;overflow-x:hidden}
 img{max-width:100%;display:block}
 
+ul {
+    list-style-type: none;
+}
+
 /* ===== NAV / HEADER (updated only) ===== */
 .site-header{
   position:fixed; inset:0 0 auto 0; z-index:1000;
   display:flex; align-items:center; justify-content:space-between;
-  padding:.6rem 1rem; height:78px;
-  background:rgba(232,169,160,.86);
+  padding:.6rem 1rem; height:48px;
+  background:rgb(179, 94, 75,0.85);
   -webkit-backdrop-filter:blur(10px) saturate(130%);
   backdrop-filter:blur(10px) saturate(130%);
   border-bottom:1px solid rgba(255,255,255,.25);
@@ -34,8 +38,8 @@ img{max-width:100%;display:block}
 }
 
 .brand{display:flex;align-items:center;gap:.65rem}
-.hero-side .brand-mark{width:184px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.25));transition:height .25s ease;}
-.site-header.scrolled .brand-mark{height:72px}
+.hero-side .brand-mark{width:200px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.25));transition:height .25s ease;}
+.site-header.scrolled .brand-mark{height:82px}
 .brand-name{font-family:'Playfair Display',serif;font-weight:900;color:#fff;font-size:1.8em}
 
 /* inline nav */
@@ -68,7 +72,7 @@ img{max-width:100%;display:block}
 
 @media (min-width:1000px){
 
-.hero-side .brand-mark{width:184px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.25));transition:height .25s ease;margin-right: 8.5rem;}
+.hero-side .brand-mark{width:200px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.25));transition:height .25s ease;margin-right: 8rem;}
 
 }
 
@@ -179,11 +183,89 @@ h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.2rem);color
 .modal-content{background:var(--trim-white);color:var(--text-deep);width:92%;max-width:980px;max-height:85vh;overflow-y:auto;border-radius:14px;box-shadow:var(--shadow-strong);padding:2rem;position:relative}
 .close-btn{position:absolute;top:.75rem;right:1rem;font-size:2rem;color:var(--accent-terracotta);cursor:pointer}
 
-/* EVENTS */
-.events{text-align:center;background:#fffaf5;border-top:1px solid rgba(0,0,0,.05);border-bottom:1px solid rgba(0,0,0,.05)}
-.event-list{margin-top:1.25rem;display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-.event-item{background:var(--trim-white);border-radius:var(--radius);box-shadow:var(--shadow-soft);padding:1.5rem;text-align:left;border:1px solid rgba(0,0,0,.06)}
-.event-item h3{color:var(--accent-terracotta);margin-bottom:.35rem;font-family:'Poppins',sans-serif;font-weight:700}
+/* ---- Event Card with Bottom Banner ---- */
+.event-item {
+  position: relative;
+  background: var(--surface-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  height: 350px;
+  width: 550px;
+  transition: transform .3s ease, box-shadow .3s ease;
+  cursor: pointer;
+  align-items: center;
+}
+.event-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.event-info {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  padding: 1rem 1.25rem;
+  font-family: 'Inter', sans-serif;
+  backdrop-filter: blur(4px);
+}
+.event-info h3 {
+  margin: 0 0 .25rem;
+  font-size: 1.25rem;
+  font-family: 'Poppins', sans-serif;
+  color: var(--accent-gold);
+}
+.event-info p {
+  margin: 0;
+  font-size: .95rem;
+  line-height: 1.35;
+}
+.event-item:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,.35); }
+
+/* Keep detailed content hidden in the card */
+.event-details { display: none; }
+
+/* ---- Modal ---- */
+.event-modal {
+  position: fixed; inset: 0;
+  display: none;
+  align-items: center; justify-content: center;
+  background: rgba(0,0,0,.65);
+  z-index: 1000;
+}
+.event-modal.open { display: flex; animation: fadeIn .18s ease-out; }
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+
+.event-modal-dialog {
+  width: min(600px, 92vw);
+  background: #fffaf5;
+  color: #2c2c2c;
+  border-radius: 14px;
+  box-shadow: 0 18px 48px rgba(0,0,0,.35);
+  overflow: hidden;
+}
+.event-modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: #fff2e0;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.event-modal-title {
+  margin: 0;
+  font: 700 1.25rem 'Poppins', sans-serif;
+  color: var(--accent-terracotta);
+}
+.event-modal-close {
+  appearance: none; border: 0; background: transparent;
+  font-size: 1.5rem; line-height: 1; cursor: pointer;
+}
+.event-modal-body { padding: 1.25rem; font: 400 1rem/1.6 'Inter', sans-serif; }
+.event-modal-body p { margin: 0 0 .75rem; }
+.event-modal-body .meta { color: #5a4e45; font-size: .95rem; }
+
+
 
 /* CATERING / SPECIAL EVENTS */
 .catering-section,.special-events{background:#fefaf6}
@@ -315,23 +397,69 @@ h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.2rem);color
 <section id="events" class="events">
   <h2>Upcoming Events</h2>
   <div class="event-list">
-    <div class="event-item">
-      <h3>Valentine’s Dinner</h3>
-      <p>February 14 | 6 PM – 10 PM | Romantic prix-fixe menu crafted with love.</p>
-    </div>
-    <div class="event-item">
-      <h3>Farm-to-Table Night</h3>
-      <p>June 22 | 5 PM – 9 PM | Celebrating Kentucky’s local farms and ingredients.</p>
-    </div>
+    <!-- Event 1 -->
+    <article class="event-item" data-title="Murder At The Monster Bash">
+      <img src="event.png" alt="Murder At The Monster Bash">
+      <div class="event-info">
+        <h3>Murder Mystery Dinner</h3>
+        <p>Tuesday, October 28th, 2025</p>
+      </div>
+      <!-- Hidden full details for the modal -->
+      <div class="event-details">
+        <p class="meta"><strong>Date:</strong>Tuesday, October 28th, 2025</p>
+        <p class="meta"><strong>Time:</strong>Doors Open 5:45PM, Show Starts 6:30 PM</p>
+        <p>By Paula Hilton <br> Ivana Crump is throwing an Honoring Our Warriors Association (HOWSA) fundraiser. It's a costume party, and we are all invited! Just know Ivana's half-sisters, Iona and Isabella, her ex-husband Connor and her current husband, Clark, will also be there.
+
+Oh, from the look on your face, I can tell you don't know. There is some marital drama in the Crump clan. See, Connor, Ivana's ex-husband, is also Iona's ex-husband. He is now married to Isabella. Let's hope the third time is the charm. Connor is also Clark's brother, Clark, who is married to Ivana. Yeah, I get a little confused too. Best to just smile and nod when they make introductions. 
+
+As you might suspect, the party doesn't go as planned, money goes missing, and someone dies before the night ends! But don't let a little murder spoil your evening. There is still dinner and drinks as we try to figure out who the killer is.<br><br>
+
+
+Dinner and Show inside the Bell House Restaurant
+<br><br>
+ <strong>$80 per person. </strong>  Price includes 3 Course Meal, Actors Performance, Non-Alcoholic Beverage, Tax and Gratuity
+<br><br>
+Performed by Bluegrass Mystery Theatre</p>
+        <p><strong>Reservations:</strong> Call (502) 437-5678</p>
+      </div>
+    </article>
+
+    <!-- Duplicate structure for more events -->
+    <!--
+    <article class="event-item" data-title="Trivia Night">
+      <img src="trivia.jpg" alt="Trivia Night">
+      <div class="event-info">
+        <h3>Trivia Night</h3>
+        <p>Every Thu • 7 PM</p>
+      </div>
+      <div class="event-details"> ... </div>
+    </article>
+    -->
   </div>
 </section>
+
+<!-- Modal (single instance) -->
+<div class="event-modal" id="eventModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="event-modal-dialog">
+    <div class="event-modal-header">
+      <h3 class="event-modal-title" id="eventModalTitle"></h3>
+      <button class="event-modal-close" type="button" aria-label="Close">&times;</button>
+    </div>
+    <div class="event-modal-body" id="eventModalBody"></div>
+  </div>
+</div>
+
+
+</section>
+
+
 <!-- ABOUT -->
 <section id="about" class="about">
   <div class="about-text">
     <h2>About The Bell House</h2>
     <p>Established in a lovingly restored 1902 home, The Bell House offers locally inspired cuisine and a warm Southern atmosphere. Led by Chef Brent and Pastry Chef Ashton, every dish celebrates Kentucky’s heritage with a refined touch.</p>
   </div>
-  <div class="about-img"><img src="about.jpg" alt="Bell House Interior"></div>
+  <div class="about-img"><img src="about.png" alt="Bell House Interior"></div>
 </section>
 
 
@@ -799,6 +927,40 @@ navLinks.forEach(link=>{link.addEventListener('click',e=>{e.preventDefault();nav
       document.body.style.overflow='';
     }
   });
+
+
+(() => {
+  const modal = document.getElementById('eventModal');
+  const titleEl = document.getElementById('eventModalTitle');
+  const bodyEl  = document.getElementById('eventModalBody');
+  const closeBtn = modal.querySelector('.event-modal-close');
+
+  // Open modal from any event card
+  document.addEventListener('click', (e) => {
+    const card = e.target.closest('.event-item');
+    if (!card) return;
+
+    const title = card.dataset.title || card.querySelector('.event-info h3')?.textContent || 'Event';
+    const details = card.querySelector('.event-details')?.innerHTML || '<p>Details coming soon.</p>';
+
+    titleEl.textContent = title;
+    bodyEl.innerHTML = details;
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    closeBtn.focus();
+  });
+
+  // Close handlers: X button, overlay click, ESC
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+})();
+
 </script>
 </body>
 </html>
