@@ -66,7 +66,7 @@ nav a:hover::after{width:100%}
 }
 .hero-inner{
   display:grid;
-  grid-template-columns: minmax(0,1fr) minmax(0,1fr); /* base 50/50; adjusted on desktop below */
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
   gap:3.6rem;
   align-items:center;
 }
@@ -93,9 +93,9 @@ nav a:hover::after{width:100%}
   animation-delay: calc(var(--base-delay, 0s) + var(--i)*var(--stagger, .06s));
 }
 @keyframes word-in{to{opacity:1;transform:translateY(0)}}
-.wq{--stagger:.06s;--base-delay:.1s}        /* question first (left) */
-.wr{--stagger:.045s;--base-delay:.9s}       /* resolution after that */
-.wrhead{--stagger:.055s;--base-delay:.55s}  /* used for card title */
+.wq{--stagger:.06s;--base-delay:.1s}
+.wr{--stagger:.045s;--base-delay:.9s}
+.wrhead{--stagger:.055s;--base-delay:.55s}
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce){
@@ -142,16 +142,15 @@ nav a:hover::after{width:100%}
 .proof li{display:flex;gap:.6rem;align-items:flex-start;color:#c9d7e7;font-size:.98rem}
 .proof .dot{width:10px;height:10px;border-radius:50%;
   background:radial-gradient(circle at 30% 30%, var(--accent), var(--accent-2))}
-.proof .thumb-wrap{display:none} /* hidden until you add an image */
+.proof .thumb-wrap{display:none}
 
 /* ===== Desktop balance tweaks ===== */
 @media (min-width: 1100px){
   .hero-inner{
-    grid-template-columns: 1.2fr .8fr;     /* more weight left */
+    grid-template-columns: 1.2fr .8fr;
     gap: 3.8rem;
     position: relative;
   }
-  /* subtle vertical divider for eye flow */
   .hero-inner::before{
     content:"";
     position:absolute; top:6px; bottom:6px;
@@ -174,7 +173,6 @@ nav a:hover::after{width:100%}
     max-width: 540px;
     box-shadow: 0 18px 50px rgba(0,0,0,.32);
   }
-  /* soft glow behind the right column group */
   .hero-visual::after{
     content:"";
     position:absolute;
@@ -193,7 +191,83 @@ nav a:hover::after{width:100%}
   .hero .lead{ max-width: 700px; }
 }
 
-/* SECTIONS */
+/* === Enhanced, CONSISTENT Services section === */
+.services-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap: 1.6rem;
+  align-items:stretch;
+}
+.svc-card{
+  position:relative;
+  display:flex; flex-direction:column; height:100%;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.6rem 1.4rem;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  box-shadow: 0 10px 28px rgba(0,0,0,.18);
+}
+.svc-card:hover{
+  transform: translateY(-4px);
+  border-color: rgba(0,212,180,.35);
+  box-shadow: 0 18px 48px rgba(0,0,0,.28);
+}
+.svc-badge{
+  position:absolute; top:-10px; left:14px;
+  font-size:.78rem; font-weight:700; letter-spacing:.02em;
+  color:#021018; padding:.28rem .55rem; border-radius:999px;
+  background: linear-gradient(90deg,var(--accent),var(--accent-2));
+  box-shadow: 0 8px 18px rgba(74,168,255,.28);
+}
+.svc-head{
+  display:grid;grid-template-columns:auto 1fr;gap:.8rem 1rem;align-items:center;margin-bottom:.6rem
+}
+.svc-icon{
+  width:40px;height:40px;border-radius:12px;
+  display:grid;place-items:center;
+  color:#021018;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 10px 26px rgba(0,212,180,.25);
+}
+.svc-head h3{margin:0;font-size:1.18rem;color:var(--ink)}
+/* Keep each lead to ~2 lines for uniform height */
+.svc-lead{
+  grid-column:1/-1;margin:.35rem 0 0;color:var(--muted);
+  font-size:1rem; line-height:1.45; min-height:2.9em;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+.svc-outcomes{
+  list-style:none;display:grid;gap:.55rem;margin:1rem 0; padding-bottom:1rem;
+  border-bottom:1px dashed rgba(148,164,183,.25);
+}
+.svc-outcomes li{display:flex;gap:.55rem;align-items:flex-start;color:#d6e3f2;font-size:.98rem}
+.tick{
+  flex:0 0 12px; height:12px; border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, var(--accent), var(--accent-2));
+  box-shadow: 0 0 0 2px rgba(0,212,180,.15);
+  margin-top:.26rem;
+}
+.svc-meta{
+  display:grid;gap:.35rem;
+  color:#aebcd1;font-size:.95rem;
+  padding-top:.3rem;margin-bottom:1rem;
+}
+.svc-footer{margin-top:auto}
+.svc-cta{width:100%; text-align:center}
+
+/* Add-ons */
+.svc-addons{
+  display:flex;align-items:center;gap:.8rem;
+  margin-top:1.6rem;flex-wrap:wrap;color:#cfe0f5;font-size:.95rem;
+}
+.svc-addons ul{display:flex;gap:.6rem;list-style:none;flex-wrap:wrap;margin:0;padding:0}
+.svc-addons li{
+  padding:.32rem .6rem;border-radius:999px;
+  border:1px solid var(--line); background:rgba(14,20,27,.55);
+}
+
+/* SECTIONS (legacy styles used by other sections) */
 section{padding:5.5rem 0}
 .section-title{text-align:center;margin-bottom:2.6rem;font-size:1.9rem;font-weight:800}
 .services{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
@@ -244,7 +318,7 @@ footer a{color:#cfe6ff;text-decoration:none} footer a:hover{text-decoration:unde
         <!-- Big Question -->
         <h1 class="question w-split wq" data-words="No website or just a Facebook page?"></h1>
 
-        <!-- Resolution line: highlighted intro + animated rest -->
+        <!-- Resolution line -->
         <p class="resolution">
           <span class="highlight reveal delay-1"><br>Ready to get it going?</span>
           <span class="w-split wr" data-words="See a free concept—then launch a clean, fast site that looks credible and drives action."></span>
@@ -274,14 +348,101 @@ footer a{color:#cfe6ff;text-decoration:none} footer a:hover{text-decoration:unde
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- SERVICES (consistent layout + bottom-aligned CTAs) -->
   <section id="services">
     <div class="container">
       <h2 class="section-title reveal">What we do</h2>
-      <div class="grid services">
-        <article class="card reveal"><h3>Website Design</h3><p>Custom, responsive sites designed for clarity, speed, and conversion.</p></article>
-        <article class="card reveal delay-1"><h3>Brand Identity</h3><p>Logos, color systems, and brand kits that scale from social to signage.</p></article>
-        <article class="card reveal delay-2"><h3>Hosting & Care</h3><p>Domains, hosting, backups, and updates handled for you. Secure and simple.</p></article>
+
+      <div class="services-grid">
+        <!-- Website Design -->
+        <article class="svc-card reveal">
+          <div class="svc-badge">Most popular</div>
+          <header class="svc-head">
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M3 4h18a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-7v2h3a1 1 0 1 1 0 2H7a1 1 0 1 1 0-2h3v-2H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v8h16V6H4Z"/></svg>
+            </div>
+            <h3>Website Design</h3>
+            <p class="svc-lead">Custom, responsive sites that load fast, look credible, and drive action.</p>
+          </header>
+
+          <ul class="svc-outcomes">
+            <li><span class="tick"></span> Clear calls-to-action (call, text, book, directions)</li>
+            <li><span class="tick"></span> Mobile-first speed & accessibility</li>
+            <li><span class="tick"></span> Copy & layout that guide customers</li>
+          </ul>
+
+          <div class="svc-meta">
+            <div><strong>Timeline:</strong> 2–3 weeks</div>
+            <div><strong>Includes:</strong> 1–5 pages, hero concept, contact form, analytics</div>
+          </div>
+
+          <div class="svc-footer">
+            <a href="#contact" class="btn svc-cta">Start your project</a>
+          </div>
+        </article>
+
+        <!-- Brand Identity -->
+        <article class="svc-card reveal delay-1">
+          <header class="svc-head">
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M3 3h8v8H3V3Zm10 0h8v8h-8V3ZM3 13h8v8H3v-8Zm12 4h6v4h-6v-4Z"/></svg>
+            </div>
+            <h3>Brand Identity</h3>
+            <p class="svc-lead">Logos, color systems, and brand kits that scale from social to signage.</p>
+          </header>
+
+          <ul class="svc-outcomes">
+            <li><span class="tick"></span> Primary logo + lockups + favicon</li>
+            <li><span class="tick"></span> Color, type, and usage guide</li>
+            <li><span class="tick"></span> Social avatar & cover templates</li>
+          </ul>
+
+          <div class="svc-meta">
+            <div><strong>Timeline:</strong> 1–2 weeks</div>
+            <div><strong>Includes:</strong> SVG/PNG assets and a mini brand sheet</div>
+          </div>
+
+          <div class="svc-footer">
+            <a href="#contact" class="btn svc-cta">Request a free concept</a>
+          </div>
+        </article>
+
+        <!-- Hosting & Care -->
+        <article class="svc-card reveal delay-2">
+          <header class="svc-head">
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Zm0 2.2L18 6v5c0 4.1-2.7 7.9-6 9-3.3-1.1-6-4.9-6-9V6l6-1.8Z"/></svg>
+            </div>
+            <h3>Hosting & Care</h3>
+            <p class="svc-lead">Domains, hosting, backups, and updates handled for you — secure and simple.</p>
+          </header>
+
+          <ul class="svc-outcomes">
+            <li><span class="tick"></span> Managed hosting & SSL</li>
+            <li><span class="tick"></span> Backups & uptime monitoring</li>
+            <li><span class="tick"></span> Content updates & small changes</li>
+          </ul>
+
+          <div class="svc-meta">
+            <div><strong>Timeline:</strong> ongoing</div>
+            <div><strong>Includes:</strong> hosting, SSL, backups, monitoring, small updates</div>
+          </div>
+
+          <div class="svc-footer">
+            <a href="#contact" class="btn svc-cta">Ask about care plans</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Add-ons (chips) -->
+      <div class="svc-addons reveal">
+        <span>Popular add-ons:</span>
+        <ul>
+          <li>Google Business Profile polish</li>
+          <li>On-page SEO setup</li>
+          <li>Review capture link & QR</li>
+          <li>Photo tuning</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -323,7 +484,7 @@ footer a{color:#cfe6ff;text-decoration:none} footer a:hover{text-decoration:unde
   <section id="about">
     <div class="container">
       <h2 class="section-title reveal">About Bytecelium Creative</h2>
-    <div class="about reveal delay-1">
+      <div class="about reveal delay-1">
         <p><strong>We started by making technology feel simple.</strong></p>
         <p>That evolved into thoughtful web and brand design for small businesses.</p>
         <p>We craft clean, durable design that works—fast, accessible, and easy to maintain.</p>
@@ -376,7 +537,7 @@ function splitWords(el){
     const span = document.createElement('span');
     span.className = 'word';
     span.style.setProperty('--i', i);
-    span.textContent = w; // spacing via CSS margin-right
+    span.textContent = w;
     el.appendChild(span);
   });
 }
