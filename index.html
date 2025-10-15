@@ -211,6 +211,18 @@ section{padding:5.5rem 0}
 .cta{position:relative;text-align:center;padding:5.5rem 0;background:radial-gradient(1000px 600px at 10% 40%,rgba(0,212,180,.16) 0%,rgba(0,212,180,0) 80%),radial-gradient(1000px 600px at 90% 60%,rgba(74,168,255,.16) 0%,rgba(74,168,255,0) 85%);border-top:1px solid var(--line)}
 .cta h3{font-size:2rem;margin-bottom:.8rem}.cta p{color:var(--muted);margin-bottom:1.6rem}
 
+/* ABOUT */
+.about ul, .about ol{ 
+  text-align:left; 
+  margin: .6rem 0 1.2rem; 
+  padding-left: 1.1rem; 
+  color: var(--muted);
+}
+.about-list li + li,
+.about-steps li + li{ margin-top:.35rem; }
+.about li strong,
+.about ol li strong{ color: var(--ink); }
+
 /* FOOTER */
 footer{border-top:1px solid var(--line);background:#0a0d12;color:#9fb0c5;font-size:.95rem;padding:2.2rem 0}
 .footer-inner{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;max-width:1220px;margin:auto;padding:0 6%}
@@ -377,16 +389,36 @@ footer a:hover{text-decoration:underline}
   </section>
 
   <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title reveal">About Bytecelium Creative</h2>
-      <div class="about reveal delay-1">
-        <p><strong>We started by making technology feel simple.</strong></p>
-        <p>That evolved into thoughtful web and brand design for small businesses.</p>
-        <p>We craft clean, durable design that works—fast, accessible, and easy to maintain.</p>
-      </div>
+<section id="about">
+  <div class="container">
+    <h2 class="section-title reveal">About Bytecelium Creative</h2>
+
+    <div class="about reveal delay-1">
+      <p><strong>We help local businesses look credible online—fast.</strong></p>
+      <p>Bytecelium Creative started by making technology feel simple for owners who already have a lot on their plate. That turned into a focus on clean, high-performing websites and brand systems that win trust, drive action, and are effortless to keep up.</p>
+
+      <p><strong>What makes us different</strong></p>
+      <ul class="about-list">
+        <li><strong>Concept first, no risk:</strong> we show a free, tailored concept so you can see your brand in a modern layout before you decide.</li>
+        <li><strong>Built for action:</strong> mobile-first pages with clear “call, text, book, directions” buttons—so visitors know the next step.</li>
+        <li><strong>Local visibility:</strong> simple on-page SEO and Google Business Profile polish that helps customers find you.</li>
+        <li><strong>Care that keeps you moving:</strong> hosting, SSL, backups, and small updates handled so your site stays fast and secure.</li>
+        <li><strong>Plain-English process:</strong> no mystery jargon—just friendly guidance and practical options.</li>
+      </ul>
+
+      <p><strong>How we work</strong></p>
+      <ol class="about-steps">
+        <li><strong>Chat:</strong> a quick call/text about your goals and customers.</li>
+        <li><strong>Free concept:</strong> we design a focused hero and key sections to show direction.</li>
+        <li><strong>Build:</strong> fast, accessible pages with copy that guides customers.</li>
+        <li><strong>Launch & care:</strong> we handle hosting and updates; you get a site that performs.</li>
+      </ol>
+
+      <p>Whether you’re opening your first location or leveling up from a Facebook page, we’ll make your business look as good online as it does in person.</p>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- CTA -->
   <section id="contact" class="cta">
