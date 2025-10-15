@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Turner Remodeling | Custom Kitchens, Baths & Home Renovations</title>
+  <meta name="description" content="Turner Remodeling — custom kitchens, bathrooms, tile, flooring, stonework, decks, windows, steel work, fireplaces, fencing, conversions and more. Licensed & insured. 19+ years of experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo-white.png" />
+
+  <style>
+    :root{
+      --bg:#0e0f12;           /* charcoal */
+      --panel:#16181d;        /* dark panel */
+      --ink:#e9ecf1;          /* near-white text */
+      --muted:#a9b0bc;        /* muted text */
+      --accent:#f1b24b;       /* amber */
+      --accent-2:#7cc5ff;     /* subtle blue for hover */
+      --success:#4cd97b;      /* green badge */
+      --danger:#ff6b6b;
+      --radius:14px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --maxw:1200px;
+
+      /* HERO IMAGE — replace hero.jpg or paste a full URL */
+      --hero-img:url('hero.png');
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%;height:auto}
+
+    /* Header */
+    .wrap{max-width:var(--maxw);margin:auto;padding:0 20px}
+    header{
+      position:sticky;top:0;z-index:20;background:rgba(14,15,18,.7);backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand-logo{height:60px;width:auto;image-rendering:auto}
+    .brand h1{font:700 20px/1 Playfair Display,serif;letter-spacing:.2px}
+    .brand small{display:block;font:600 11px/1 Inter,system-ui;color:var(--muted);letter-spacing:.6px}
+
+    .cta-group{display:flex;align-items:center;gap:10px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.12);transition:.25s;
+      font-weight:700}
+    .btn-primary{background:var(--accent);color:#1b1206;border:none}
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+    .btn-ghost{background:transparent}
+    .btn-ghost:hover{border-color:rgba(255,255,255,.3);color:#fff}
+    .phone{white-space:nowrap}
+
+    /* Hero (now with full-span background image + overlay) */
+    .hero{
+      position:relative;isolation:isolate;
+      background-image:
+        radial-gradient(1200px 600px at 50% 10%, rgba(0,0,0,.35), rgba(0,0,0,.55)),
+        var(--hero-img);
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+    .hero::before{ /* subtle top vignette to keep header/eyebrow readable */
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(to bottom, rgba(14,15,18,.55), rgba(14,15,18,.15) 30%, rgba(14,15,18,.55));
+      pointer-events:none;
+      z-index:0;
+    }
+    .hero .wrap{
+      position:relative;z-index:1;
+      display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;
+      padding:84px 20px 72px; /* a bit more top space over the image */
+    }
+    /* More transparent, glassy hero card */
+    .hero-card{
+      background:rgba(22,24,29,.62);            /* lowered opacity */
+      border:1px solid rgba(255,255,255,.14);   /* a touch brighter edge */
+      border-radius:20px;padding:30px;box-shadow:var(--shadow);
+      backdrop-filter:saturate(110%) blur(6px); /* glass effect */
+    }
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:#111;background:linear-gradient(135deg,var(--accent),#ffd789);padding:6px 10px;border-radius:999px;font:800 11px/1 Inter;letter-spacing:.6px;text-transform:uppercase}
+    .hero h2{font:700 clamp(28px,3.4vw,44px)/1.15 Playfair Display,serif;margin:14px 0}
+    .hero p{color:var(--muted);font-size:16px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+
+    .hero-aside{position:relative}
+    .hero-aside .panel{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:18px;backdrop-filter:blur(4px)}
+    .badges{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .badge{background:#101317;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px}
+    .badge b{display:block;font-size:13px}
+    .badge span{color:var(--muted);font-size:12px}
+
+    /* Trust bar */
+    .trust{border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);background:#0f1216}
+    .trust .row{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding:18px 0}
+    .chip{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(255,255,255,.12);padding:8px 12px;border-radius:999px;font-size:13px;color:var(--muted)}
+    .chip i{width:8px;height:8px;border-radius:999px;background:var(--success)}
+
+    /* Sections */
+    section{padding:64px 0}
+    h3{font:700 24px/1.2 Playfair Display,serif;margin:0 0 10px}
+    .lead{color:var(--muted);max-width:800px}
+
+    /* Services grid */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:28px}
+    .card{grid-column:span 4;background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px;transition:transform .2s}
+    .card:hover{transform:translateY(-3px)}
+    .card h4{margin:6px 0 6px;font:700 16px/1.25 Inter}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:22px}
+    .gallery a{display:block;aspect-ratio:4/3;background:#0d0f12;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;position:relative}
+    .gallery a span{position:absolute;inset:auto 8px 8px 8px;background:rgba(0,0,0,.45);backdrop-filter:blur(4px);padding:6px 8px;border-radius:10px;font-size:12px}
+
+    /* Modal */
+    dialog{border:none;border-radius:16px;padding:0;background:#0e1116;color:var(--ink);box-shadow:var(--shadow);width:min(900px,96vw)}
+    dialog::backdrop{background:rgba(0,0,0,.6)}
+    .modal-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .modal-body{padding:12px}
+
+    /* About */
+    .about{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+    .about .pane{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr .9fr;gap:24px}
+    .stack{display:grid;gap:12px}
+    input,textarea{width:100%;padding:14px 14px;border-radius:12px;background:#0f1216;border:1px solid rgba(255,255,255,.12);color:#fff}
+    label{font-size:13px;color:var(--muted)}
+    .policy{font-size:12px;color:var(--muted)}
+
+    footer{border-top:1px solid rgba(255,255,255,.06);color:var(--muted)}
+    footer .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:22px 0;gap:12px}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero .wrap{grid-template-columns:1fr}
+      .about,.contact{grid-template-columns:1fr}
+      .card{grid-column:span 6}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+    }
+    @media (max-width:640px){
+      .brand-logo{height:48px}
+      .card{grid-column:span 12}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .trust .row{justify-content:center}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Turner Remodeling",
+    "description": "Custom kitchens, bathrooms, and home renovations by a licensed, insured craftsman.",
+    "areaServed": ["Oregon","California","Washington"],
+    "founder": {"@type":"Person","name":"Ty Turner"},
+    "foundingDate": "2006",
+    "image": "",
+    "telephone": "",
+    "url": "",
+    "knowsAbout": ["Kitchens","Bathrooms","Tile","Flooring","Stonework","Decks","Windows","Steel Work","Fireplaces","Fencing","Garage Conversion","Patio Conversion","Stair Lift","Custom Fabrication"],
+    "identifier": [
+      {"@type":"PropertyValue","name":"OR CCB","value":"225342"},
+      {"@type":"PropertyValue","name":"Residential Electrician","value":"1023LR"},
+      {"@type":"PropertyValue","name":"CA","value":"807788"},
+      {"@type":"PropertyValue","name":"WA","value":"TURNER*816JC"}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Turner Remodeling home">
+        <img class="brand-logo" src="logo-white.png" alt="Turner Remodeling logo" width="240" height="60" />
+        <span>
+          <small>Custom Kitchens • Baths • Renovations</small>
+        </span>
+      </a>
+      <div class="cta-group">
+        <a class="btn btn-ghost" href="#contact">Free Estimate</a>
+        <a class="btn btn-primary phone" href="tel:+1-000-000-0000">Call Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-card">
+          <span class="eyebrow">Licensed • Insured • Veteran-owned</span>
+          <h2>Custom Kitchens, Baths & Remodels — Built by One Craftsman</h2>
+          <p>Work directly with <b>Ty Turner</b>, a sole proprietor with <b>19+ years</b> of experience. From design through final trim, your project is completed by the same expert hands — no strangers in your home.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:+1-000-000-0000">Call for a Quote</a>
+            <a class="btn btn-ghost" href="#contact">Send Project Details</a>
+          </div>
+        </div>
+        <aside class="hero-aside">
+          <div class="panel">
+            <div class="badges">
+              <div class="badge"><b>OR CCB</b><span>225342</span></div>
+              <div class="badge"><b>Residential Electrician</b><span>1023LR</span></div>
+              <div class="badge"><b>CA License</b><span>807788</span></div>
+              <div class="badge"><b>WA License</b><span>TURNER*816JC</span></div>
+              <div class="badge"><b>Insured</b><span>Liability on file</span></div>
+              <div class="badge"><b>Registered</b><span>Oregon SOS</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <div class="trust">
+      <div class="wrap row">
+        <span class="chip"><i></i> 19+ years experience</span>
+        <span class="chip"><i></i> One point of contact — start to finish</span>
+        <span class="chip"><i></i> Schedule aligned to your timeline</span>
+        <span class="chip"><i></i> Quality materials & precise finishes</span>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="wrap">
+        <h3>What I Build</h3>
+        <p class="lead">From full kitchen and bath remodels to custom fabrication, you get craftsmanship, clear communication, and a clean jobsite.</p>
+        <div class="grid">
+          <div class="card"><h4>Kitchens</h4><p>Cabinetry, islands, lighting, tile, and layout updates that elevate daily life.</p></div>
+          <div class="card"><h4>Bathrooms</h4><p>Showers, tile surrounds, vanities, waterproofing, and heated floors.</p></div>
+          <div class="card"><h4>Tile & Backsplashes</h4><p>Precise layout, clean lines, durable setting materials.</p></div>
+          <div class="card"><h4>Flooring</h4><p>Hardwood, LVP, tile — expertly prepped subfloors and tight transitions.</p></div>
+          <div class="card"><h4>Stonework</h4><p>Natural & engineered stone details for hearths, kitchens, and outdoor spaces.</p></div>
+          <div class="card"><h4>Decks & Patios</h4><p>Framing, surfacing, and custom railings built to last.</p></div>
+          <div class="card"><h4>Windows & Doors</h4><p>Energy-efficient installs with proper flashing and trim.</p></div>
+          <div class="card"><h4>Steel Work</h4><p>Custom metal accents, brackets, and structural details.</p></div>
+          <div class="card"><h4>Fireplaces</h4><p>Modern surrounds, mantels, and stone or tile facings.</p></div>
+          <div class="card"><h4>Fencing</h4><p>Privacy, decorative, and mixed-material solutions.</p></div>
+          <div class="card"><h4>Garage & Patio Conversions</h4><p>Add livable space with insulation, windows, and finishes.</p></div>
+          <div class="card"><h4>Custom Projects</h4><p>Unique builds, specialty finishes, and problem-solving fabrications.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY / RECENT WORK (placeholder images) -->
+    <section id="work">
+      <div class="wrap">
+        <h3>Recent Work</h3>
+        <p class="lead">A few examples. Tap to view larger.</p>
+        <div class="gallery" id="gallery">
+          <a href="#"><img alt="Kitchen remodel" src="kitchen.jpg"><span>Kitchen</span></a>
+          <a href="#" data-full="https://picsum.photos/seed/bath1/1600/1000"><img alt="Bathroom remodel" src="https://picsum.photos/seed/bath1/600/400"><span>Bathroom</span></a>
+          <a href="#" data-full="https://picsum.photos/seed/tile1/1600/1000"><img alt="Tile backsplash" src="https://picsum.photos/seed/tile1/600/400"><span>Tile</span></a>
+          <a href="#" data-full="https://picsum.photos/seed/deck1/1600/1000"><img alt="Deck build" src="https://picsum.photos/seed/deck1/600/400"><span>Deck</span></a>
+          <a href="#" data-full="https://picsum.photos/seed/stone1/1600/1000"><img alt="Stonework" src="https://picsum.photos/seed/stone1/600/400"><span>Stonework</span></a>
+          <a href="#" data-full="https://picsum.photos/seed/fireplace1/1600/1000"><img alt="Fireplace" src="https://picsum.photos/seed/fireplace1/600/400"><span>Fireplace</span></a>
+        </div>
+      </div>
+    </section>
+
+    <dialog id="lightbox">
+      <div class="modal-head">
+        <strong>Project Photo</strong>
+        <button class="btn btn-ghost" onclick="closeLightbox()">Close</button>
+      </div>
+      <div class="modal-body">
+        <img id="lightboxImg" src="" alt="Project photo" />
+      </div>
+    </dialog>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap about">
+        <div class="pane">
+          <h3>Meet Ty Turner</h3>
+          <p class="lead">Sole proprietor, Navy veteran, and lifelong builder dedicated to listening first and delivering precise, beautiful results.</p>
+          <p>I've worked as a shop foreman, lead fabricator, and welder, and even built sets for motion pictures, stage plays, TV, and infomercials. That range of experience brings design sense and artistry that most remodels never see. I do the work myself, so you always know who’s in your home and who’s accountable for the details.</p>
+        </div>
+        <div class="pane">
+          <h3>Why Homeowners Choose Me</h3>
+          <ul>
+            <li>Direct, honest communication — one point of contact.</li>
+            <li>Craftsmanship you can feel: tight lines, level runs, clean caulk.</li>
+            <li>Reliable scheduling and tidy jobsite.</li>
+            <li>Licensed and insured across multiple states.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap contact">
+        <div class="pane">
+          <h3>Request a Free Estimate</h3>
+          <p class="lead">Tell me a bit about your project and I’ll follow up to schedule a visit.</p>
+          <form class="stack" name="contact" method="post" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact" />
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" placeholder="Jane Homeowner" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div>
+              <label for="phone">Phone (optional)</label>
+              <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" />
+            </div>
+            <div>
+              <label for="msg">Project details</label>
+              <textarea id="msg" name="message" rows="5" placeholder="Kitchen update, new tile, convert garage to office…" required></textarea>
+            </div>
+            <div class="policy">By submitting, you agree to be contacted about your project.</div>
+            <div>
+              <button class="btn btn-primary" type="submit">Send Request</button>
+              <a class="btn btn-ghost phone" href="tel:+1-000-000-0000">Or call now</a>
+            </div>
+          </form>
+        </div>
+        <div class="pane">
+          <h3>Licensing & Coverage</h3>
+          <div class="grid" style="margin-top:12px">
+            <div class="card" style="grid-column:span 6"><h4>Oregon CCB</h4><p>225342</p></div>
+            <div class="card" style="grid-column:span 6"><h4>Residential Electrician</h4><p>1023LR</p></div>
+            <div class="card" style="grid-column:span 6"><h4>California</h4><p>807788</p></div>
+            <div class="card" style="grid-column:span 6"><h4>Washington</h4><p>TURNER*816JC</p></div>
+            <div class="card" style="grid-column:span 12"><h4>Insurance</h4><p>Liability insurance on file</p></div>
+            <div class="card" style="grid-column:span 12"><h4>Registration</h4><p>Registered with Oregon Secretary of State</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap row">
+      <div>© <span id="year"></span> Turner Remodeling • All rights reserved</div>
+      <div>Veteran-owned • Licensed & Insured</div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    document.getElementById('gallery').addEventListener('click', (e)=>{
+      const a = e.target.closest('a');
+      if(!a) return;
+      e.preventDefault();
+      lightboxImg.src = a.dataset.full || a.querySelector('img').src;
+      lightbox.showModal();
+    });
+    function closeLightbox(){ lightbox.close(); }
+    window.closeLightbox = closeLightbox;
+  </script>
+</body>
+</html>
