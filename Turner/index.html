@@ -41,7 +41,7 @@
       position:sticky;top:0;z-index:20;background:rgba(14,15,18,.7);backdrop-filter:blur(8px);
       border-bottom:1px solid rgba(255,255,255,.06)
     }
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 10px}
     .brand{display:flex;align-items:center;gap:14px}
     .brand-logo{height:60px;width:auto;image-rendering:auto}
     .brand h1{font:700 20px/1 Playfair Display,serif;letter-spacing:.2px}
@@ -260,19 +260,19 @@
         <p class="lead">A few examples. Tap to view larger.</p>
         <div class="gallery" id="gallery">
           <a href="#"><img alt="Kitchen remodel" src="kitchen.jpg"><span>Kitchen</span></a>
-          <a href="#" data-full="https://picsum.photos/seed/bath1/1600/1000"><img alt="Bathroom remodel" src="https://picsum.photos/seed/bath1/600/400"><span>Bathroom</span></a>
-          <a href="#" data-full="https://picsum.photos/seed/tile1/1600/1000"><img alt="Tile backsplash" src="https://picsum.photos/seed/tile1/600/400"><span>Tile</span></a>
-          <a href="#" data-full="https://picsum.photos/seed/deck1/1600/1000"><img alt="Deck build" src="https://picsum.photos/seed/deck1/600/400"><span>Deck</span></a>
-          <a href="#" data-full="https://picsum.photos/seed/stone1/1600/1000"><img alt="Stonework" src="https://picsum.photos/seed/stone1/600/400"><span>Stonework</span></a>
-          <a href="#" data-full="https://picsum.photos/seed/fireplace1/1600/1000"><img alt="Fireplace" src="https://picsum.photos/seed/fireplace1/600/400"><span>Fireplace</span></a>
+          <a href="#"><img alt="Bathroom remodel" src="bathroom.jpg"><span>Bathroom</span></a>
+          <a href="#"><img alt="Tile backsplash" src="tile.jpg"><span>Tile</span></a>
+          <a href="#"><img alt="Deck build" src="deck.jpg"><span>Deck</span></a>
+          <a href="#"><img alt="Stonework" src="stone.jpg"><span>Stonework</span></a>
+          <a href="#"><img alt="Fireplace" src="fireplace.jpg"><span>Fireplace</span></a>
         </div>
       </div>
     </section>
 
     <dialog id="lightbox">
       <div class="modal-head">
-        <strong>Project Photo</strong>
-        <button class="btn btn-ghost" onclick="closeLightbox()">Close</button>
+        
+        <button class="btn btn-ghost" onclick="closeLightbox()"><p style="color:#fff">Close</p></button>
       </div>
       <div class="modal-body">
         <img id="lightboxImg" src="" alt="Project photo" />
