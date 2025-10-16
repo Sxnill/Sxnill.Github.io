@@ -10,7 +10,7 @@
   --bg:#0b0f14; --bg-2:#0e141b; --ink:#e6eef6; --muted:#95a3b3;
   --accent:#00d4b4; --accent-2:#4aa8ff; --line:#1a2230; --glass:rgba(14,20,27,.6);
   --radius:18px; --shadow:0 12px 40px rgba(0,0,0,.35);
-  --nav-offset:78px; /* sticky header height for anchor offset */
+  --nav-offset:78px;
 }
 
 /* RESET / BASE */
@@ -19,8 +19,7 @@ html{min-height:100%; scroll-behavior:smooth; scroll-padding-top:var(--nav-offse
 @media(max-width:768px){ :root{ --nav-offset:92px } }
 body{
   min-height:100%;
-  overflow-y:auto;       /* allow page to scroll */
-  overflow-x:hidden;
+  overflow-y:auto; overflow-x:hidden;
   font-family:'Inter',sans-serif;color:var(--ink);line-height:1.65;
   background:
     radial-gradient(1600px 900px at 15% -20%, rgba(0,212,180,.14) 0%, rgba(0,212,180,0) 75%),
@@ -46,13 +45,10 @@ header{
 .navbar{height:70px;display:flex;align-items:center;justify-content:space-between}
 .brand img{height:55px;width:auto;display:block}
 
-/* NAV LINKS */
+/* NAV */
 nav{display:flex;align-items:center}
 nav a{color:var(--ink);text-decoration:none;font-weight:600;margin-left:2rem;position:relative}
-nav a::after{
-  content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0%;
-  background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:.25s ease
-}
+nav a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:.25s ease}
 nav a:hover::after{width:100%}
 
 /* HAMBURGER */
@@ -67,30 +63,30 @@ nav a:hover::after{width:100%}
     flex-direction:column;align-items:flex-start;padding:1.2rem 6%;border-top:1px solid var(--line);
     max-height:0;overflow:hidden;transition:max-height .35s ease
   }
-  nav.open{max-height:240px; padding:10px;}
+  nav.open{max-height:320px; padding:10px;}
   nav a{margin:1rem 0;display:block;width:100%}
   .hamburger{display:flex}
 }
 
 /* HERO */
 .hero{
-  padding:7.2rem 0 5.6rem;position:relative;
+  padding:7.2rem 0 3rem;position:relative;
   background:
     radial-gradient(1000px 600px at 50% -20%, rgba(0,212,180,.20) 0%, rgba(0,212,180,0) 80%),
     radial-gradient(900px 600px at 50% 120%, rgba(74,168,255,.18) 0%, rgba(74,168,255,0) 85%)
 }
+/* Make trust-strip span the full hero grid */
+.hero-inner .trust-strip{
+  grid-column: 1 / -1;
+  margin-top: 1.8rem;
+}
 .hero-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3.6rem;align-items:center}
 @media(max-width:980px){.hero-inner{grid-template-columns:1fr}}
 
-/* Left column */
 .hero-copy{max-width:640px}
+.question{font-size:clamp(2.6rem,6vw,4rem);font-weight:800;line-height:1.02;letter-spacing:-.018em;margin:0 0 .7rem}
 
-/* Big QUESTION */
-.question{
-  font-size:clamp(2.6rem,6vw,4rem);font-weight:800;line-height:1.02;letter-spacing:-.018em;margin:0 0 .7rem
-}
-
-/* Word-by-word animation */
+/* Word animation */
 .w-split .word{display:inline-block;opacity:0;transform:translateY(14px);margin-right:.28em}
 .w-split .word:last-child{margin-right:0}
 .w-split.play .word{animation:word-in .7s cubic-bezier(.22,.61,.36,1) forwards;animation-delay:calc(var(--base-delay,0s) + var(--i)*var(--stagger,.06s))}
@@ -100,12 +96,8 @@ nav a:hover::after{width:100%}
 .wrhead{--stagger:.055s;--base-delay:.55s}
 @media (prefers-reduced-motion: reduce){.w-split .word{opacity:1;transform:none;animation:none}}
 
-/* Resolution line */
 .resolution{margin:.5rem 0 1rem;max-width:820px}
-.highlight{
-  font-weight:800;background:linear-gradient(90deg,var(--accent),var(--accent-2));
-  -webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap
-}
+.highlight{font-weight:800;background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
 .resolution .w-split{margin-left:.35rem}
 .hero .lead{max-width:780px;color:var(--muted);font-size:1.075rem;margin:.6rem 0 1.8rem}
 
@@ -120,35 +112,45 @@ nav a:hover::after{width:100%}
 .btn.ghost:hover{border-color:var(--accent);opacity:.9}
 @media (max-width:560px){.hero .btn{width:100%;margin:.5rem 0}.hero .btn.ghost{margin-left:0}}
 
-/* Right column “proof” card */
+/* Proof card */
 .hero-visual{align-self:center;position:relative}
 .proof{
   background:var(--glass);border:1px solid var(--line);border-radius:16px;
   padding:1.6rem 1.6rem 1.4rem;box-shadow:var(--shadow);
   transform:translateY(6px);max-width:560px
 }
-.proof .card-title{
-  font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:800;line-height:1.06;letter-spacing:-.012em;margin:0 0 1rem;color:var(--ink);text-wrap:balance
-}
+.proof .card-title{font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:800;line-height:1.06;letter-spacing:-.012em;margin:0 0 1rem;color:var(--ink);text-wrap:balance}
 .proof ul{list-style:none;display:grid;gap:.6rem}
 .proof li{display:flex;gap:.6rem;align-items:flex-start;color:#c9d7e7;font-size:.98rem}
 .proof .dot{width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 30% 30%, var(--accent), var(--accent-2))}
 .proof .thumb-wrap{display:none}
 
+/* Trust strip under hero */
+.trust-strip{
+  margin:2.4rem auto 0; display:grid; gap:.8rem; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); padding: 20px;
+}
+.trust-chip{
+  display:flex;align-items:center;gap:.6rem;
+  background:rgba(14,20,27,.55); border:1px solid var(--line);
+  padding:.7rem .9rem; border-radius:12px; color:#cfe0f5; font-size:.95rem;
+}
+.trust-chip .dot{width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 30% 30%, var(--accent), var(--accent-2))}
+
 /* Desktop polish */
 @media (min-width:1100px){
   .hero-inner{grid-template-columns:1.2fr .8fr;gap:3.8rem;position:relative}
   .hero-inner::before{content:"";position:absolute;top:6px;bottom:6px;left:calc(50% - .5px);width:1px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02) 40%,rgba(255,255,255,0) 100%);pointer-events:none}
+  .hero-inner::before{ content:none !important; display:none !important; }
   .hero-copy{max-width:620px}
   .question{margin-bottom:.9rem}
   .resolution{margin:.45rem 0 .9rem}
   .hero-visual{align-self:start}
   .hero-visual .proof{margin-top:.2rem;padding:1.7rem 1.7rem 1.5rem;max-width:540px;box-shadow:0 18px 50px rgba(0,0,0,.32)}
-  .hero-visual::after{content:"";position:absolute;right:-6%;top:-6%;width:42vw;max-width:640px;aspect-ratio:1/1;background:radial-gradient(closest-side,rgba(74,168,255,.10),rgba(0,0,0,0) 70%);filter:blur(8px);pointer-events:none;z-index:-1}
 }
-@media (min-width:1360px){.question{font-size:clamp(2.8rem,4.8vw,3.6rem);text-wrap:balance}.hero .lead{max-width:700px}}
 
 /* SERVICES */
+section{padding:5.5rem 0}
+.section-title{text-align:center;margin-bottom:2.6rem;font-size:1.9rem;font-weight:800}
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.6rem;align-items:stretch}
 .svc-card{position:relative;display:flex;flex-direction:column;height:100%;background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem 1.6rem 1.4rem;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;box-shadow:0 10px 28px rgba(0,0,0,.18)}
 .svc-card:hover{transform:translateY(-4px);border-color:rgba(0,212,180,.35);box-shadow:0 18px 48px rgba(0,0,0,.28)}
@@ -165,17 +167,10 @@ nav a:hover::after{width:100%}
 .services-grid .svc-card:first-child h3{color:#eef6ff}
 .services-grid .svc-card:first-child .svc-lead{color:#cfe0f5}
 .services-grid .svc-card:first-child .svc-outcomes li{color:#dfe9f7}
-.svc-card.is-featured{border:1px solid transparent;background:linear-gradient(var(--glass),var(--glass)) padding-box,linear-gradient(90deg,var(--accent),var(--accent-2)) border-box}
 .svc-badge{position:absolute;top:-10px;left:14px;font-size:.78rem;font-weight:700;letter-spacing:.02em;color:#021018;padding:.28rem .55rem;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 8px 18px rgba(74,168,255,.28)}
 
-/* Header inside cards (NOT sticky; no clipping) */
-.svc-head{
-  display:grid;grid-template-columns:46px 1fr;gap:.8rem 1rem;align-items:center;margin-bottom:.6rem;
-  position:static;background:transparent;border:none;backdrop-filter:none
-}
-.svc-icon{
-  width:40px;height:40px;min-width:40px;min-height:40px;border-radius:12px;display:grid;place-items:center;overflow:visible;color:#021018;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 10px 26px rgba(0,212,180,.25)
-}
+.svc-head{display:grid;grid-template-columns:46px 1fr;gap:.8rem 1rem;align-items:center;margin-bottom:.6rem;position:static;background:transparent;border:none;backdrop-filter:none}
+.svc-icon{width:40px;height:40px;min-width:40px;min-height:40px;border-radius:12px;display:grid;place-items:center;overflow:visible;color:#021018;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 10px 26px rgba(0,212,180,.25)}
 .svc-head h3{margin:0;font-size:1.18rem;color:var(--ink);line-height:1.2}
 .svc-lead{grid-column:1/-1;margin:.35rem 0 0;color:var(--muted);font-size:1rem;line-height:1.45}
 .svc-outcomes{list-style:none;display:grid;gap:.55rem;margin:1rem 0;padding-bottom:1rem;border-bottom:1px dashed rgba(148,164,183,.25)}
@@ -185,49 +180,60 @@ nav a:hover::after{width:100%}
 .svc-footer{margin-top:auto}
 .svc-cta{width:100%;text-align:center}
 
-/* Add-ons */
+/* Add-ons CHIPS (fixed – no bullets) */
 .svc-addons{display:flex;align-items:center;gap:.8rem;justify-content:center;margin-top:1.6rem;flex-wrap:wrap;color:#cfe0f5;font-size:.95rem}
-.svc-addons ul{display:flex;gap:.6rem;list-style:none;flex-wrap:wrap;margin:0;padding:0}
+.svc-addons ul{display:flex;gap:.6rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
 .svc-addons li{padding:.32rem .6rem;border-radius:999px;border:1px solid var(--line);background:rgba(14,20,27,.55)}
 
-/* SECTIONS */
-section{padding:5.5rem 0}
-.section-title{text-align:center;margin-bottom:2.6rem;font-size:1.9rem;font-weight:800}
 
-/* WORK & MISC */
-.services{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-.card{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);padding:2rem;transition:transform .25s ease,border-color .25s ease}
-.card:hover{transform:translateY(-4px);border-color:rgba(0,212,180,.35)}
-.card h3{color:var(--accent);margin-bottom:.6rem}
-.card p{color:var(--muted)}
-.portfolio{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-.work{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .25s ease,border-color .25s ease}
+/* PROCESS */
+.process{
+  display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+.step{
+  background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.3rem;
+}
+.step .icon{
+  width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#021018;margin-bottom:.6rem;
+}
+.step h4{margin:0 0 .2rem;font-size:1.02rem}
+.step p{margin:0;color:var(--muted);font-size:.95rem}
+
+/* FAQ (native details/summary) */
+.faq{max-width:900px;margin:0 auto;display:grid;gap:.8rem}
+.faq details{
+  background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:.9rem 1.1rem;
+}
+.faq summary{
+  cursor:pointer;list-style:none;font-weight:700;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq p{margin:.6rem 0 0;color:var(--muted)}
+
+/* WORK & ABOUT */
+.portfolio{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+.work{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .25s ease,border-color .25s ease;text-decoration:none}
 .work:hover{transform:translateY(-6px);border-color:rgba(74,168,255,.35)}
 .thumb{position:relative;aspect-ratio:16/10;width:100%;overflow:hidden;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(0,212,180,.12),rgba(74,168,255,.12))}
 .thumb img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .info{padding:1.2rem 1.4rem}.info h4{margin:0 0 .4rem;color:var(--ink)}.info p{margin:0;color:var(--muted);font-size:.96rem}
+
 .about{max-width:820px;margin:auto;text-align:center;background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);padding:2.2rem}
 .about p{color:var(--muted);margin-bottom:1rem}.about strong{color:var(--ink)}
+.about ul, .about ol{ text-align:left; margin:.6rem 0 1.2rem; padding-left:1.1rem; color:var(--muted); }
+.about-list li + li, .about-steps li + li{ margin-top:.35rem; }
+.about li strong, .about ol li strong{ color: var(--ink); }
+
+/* CTA */
 .cta{position:relative;text-align:center;padding:5.5rem 0;background:radial-gradient(1000px 600px at 10% 40%,rgba(0,212,180,.16) 0%,rgba(0,212,180,0) 80%),radial-gradient(1000px 600px at 90% 60%,rgba(74,168,255,.16) 0%,rgba(74,168,255,0) 85%);border-top:1px solid var(--line)}
 .cta h3{font-size:2rem;margin-bottom:.8rem}.cta p{color:var(--muted);margin-bottom:1.6rem}
-
-/* ABOUT */
-.about ul, .about ol{ 
-  text-align:left; 
-  margin: .6rem 0 1.2rem; 
-  padding-left: 1.1rem; 
-  color: var(--muted);
-}
-.about-list li + li,
-.about-steps li + li{ margin-top:.35rem; }
-.about li strong,
-.about ol li strong{ color: var(--ink); }
+.cta .cta-actions{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
 
 /* FOOTER */
 footer{border-top:1px solid var(--line);background:#0a0d12;color:#9fb0c5;font-size:.95rem;padding:2.2rem 0}
 .footer-inner{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;max-width:1220px;margin:auto;padding:0 6%}
-footer a{color:#cfe6ff;text-decoration:none}
-footer a:hover{text-decoration:underline}
+footer a{color:#cfe6ff;text-decoration:none} footer a:hover{text-decoration:underline}
 @media(max-width:768px){footer{padding:2.6rem 0}.footer-inner{flex-direction:column;gap:.6rem;text-align:center}}
 </style>
 </head>
@@ -239,7 +245,9 @@ footer a:hover{text-decoration:underline}
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
     <nav id="nav">
       <a href="#services">Services</a>
+      <a href="#process">Process</a>
       <a href="#work">Work</a>
+      <a href="#faq">FAQ</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -261,7 +269,11 @@ footer a:hover{text-decoration:underline}
           <a href="#contact" class="btn">Start your project</a>
           <a href="#work" class="btn ghost">See recent work</a>
         </div>
+
+        <!-- Trust strip -->
+        
       </div>
+
       <aside class="hero-visual">
         <div class="proof reveal delay-1">
           <h3 class="card-title w-split wrhead" data-words="Modern design for local business growth."></h3>
@@ -274,6 +286,12 @@ footer a:hover{text-decoration:underline}
         </div>
       </aside>
     </div>
+    <div class="trust-strip reveal delay-2" style="max-width: 1100px;">
+          <div class="trust-chip"><span class="dot"></span> Typical timeline: 2–3 weeks</div>
+          <div class="trust-chip"><span class="dot"></span> Mobile-first & accessible</div>
+          <div class="trust-chip"><span class="dot"></span> Google Business polish</div>
+          <div class="trust-chip"><span class="dot"></span> Hosting, SSL & care plans</div>
+        </div>
   </section>
 
   <!-- SERVICES -->
@@ -355,32 +373,69 @@ footer a:hover{text-decoration:underline}
     </div>
   </section>
 
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <h2 class="section-title reveal">How it works</h2>
+      <div class="process">
+        <div class="step reveal">
+          <div class="icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.2 0 4-1.8 4-4S14.2 4 12 4 8 5.8 8 8s1.8 4 4 4Zm0 2c-3.3 0-10 1.7-10 5v1h20v-1c0-3.3-6.7-5-10-5Z"/></svg>
+          </div>
+          <h4>1) Quick chat</h4>
+          <p>Tell us about your business and what customers should do—call, book, visit, or buy.</p>
+        </div>
+        <div class="step reveal delay-1">
+          <div class="icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v4H4V4Zm0 6h16v10H4V10Zm2 2v6h12v-6H6Z"/></svg>
+          </div>
+          <h4>2) Free concept</h4>
+          <p>We design a focused hero + key sections so you can see your brand in a clean layout.</p>
+        </div>
+        <div class="step reveal delay-2">
+          <div class="icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11H7.8l4.6-4.6L11 4l-8 8 8 8 1.4-1.4L7.8 13H21v-2Z"/></svg>
+          </div>
+          <h4>3) Build</h4>
+          <p>Fast, accessible pages with clear CTAs, copy that guides, and simple local SEO baked in.</p>
+        </div>
+        <div class="step reveal delay-3">
+          <div class="icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Z"/></svg>
+          </div>
+          <h4>4) Launch & care</h4>
+          <p>We handle hosting, SSL, backups, and small updates so you can focus on running the business.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- WORK -->
   <section id="work">
     <div class="container">
       <h2 class="section-title reveal">Recent work</h2>
-      <div class="grid portfolio">
-        <a href="https://bytecelium.com/tradition" target="_blank" class="work reveal" style="text-decoration:none;">
+      <div class="portfolio">
+        <a href="https://bytecelium.com/tradition" target="_blank" class="work reveal">
           <div class="thumb"><img src="tradition.png" alt="Tradition Heating & Cooling concept thumbnail"></div>
           <div class="info"><h4>Tradition Heating &amp; Cooling</h4><p>Concept website for a local HVAC company—bold headings and trust badges.</p></div>
         </a>
-        <a href="https://bytecelium.com/brockmansdetailing" target="_blank" class="work reveal delay-1" style="text-decoration:none;">
+        <a href="https://bytecelium.com/brockmansdetailing" target="_blank" class="work reveal delay-1">
           <div class="thumb"><img src="brockmans.png" alt="Brockmans Detailing site thumbnail"></div>
           <div class="info"><h4>Brockmans Detailing LLC</h4><p>High-contrast showcase with pricing highlights and mobile booking prompts.</p></div>
         </a>
-        <a href="https://bytecelium.com/Turner" target="_blank" class="work reveal delay-2" style="text-decoration:none;">
+        <a href="https://bytecelium.com/Turner" target="_blank" class="work reveal delay-2">
           <div class="thumb"><img src="turner.png" alt="Turner Remodeling site thumbnail"></div>
           <div class="info"><h4>Turner Remodeling</h4><p>Clean layout with simple navigation, smooth scrolling, and strong calls to action.</p></div>
         </a>
-        <a href="https://bytecelium.com/rettas" target="_blank" class="work reveal delay-2" style="text-decoration:none;">
+        <a href="https://bytecelium.com/rettas" target="_blank" class="work reveal delay-2">
           <div class="thumb"><img src="rettas.png" alt="Retta's Scoops site thumbnail"></div>
           <div class="info"><h4>Retta's Scoops</h4><p>Modern single-page layout with quick navigation for desserts and menu.</p></div>
         </a>
-        <a href="https://bytecelium.com/Bibbs" target="_blank" class="work reveal delay-2" style="text-decoration:none;">
+        <a href="https://bytecelium.com/Bibbs" target="_blank" class="work reveal delay-2">
           <div class="thumb"><img src="Bibbs.png" alt="Mortimer Bibb's site thumbnail"></div>
           <div class="info"><h4>Mortimer Bibb's Public House</h4><p>Responsive page highlighting menu, reviews, and contact info.</p></div>
         </a>
-        <a href="https://bytecelium.com/Bellhouse" target="_blank" class="work reveal delay-2" style="text-decoration:none;">
+        <a href="https://bytecelium.com/Bellhouse" target="_blank" class="work reveal delay-2">
           <div class="thumb"><img src="bellhouse.png" alt="Bell House Restaurant site thumbnail"></div>
           <div class="info"><h4>Bell House Restaurant</h4><p>Photo-driven restaurant site with events, catering, and reservations.</p></div>
         </a>
@@ -389,44 +444,72 @@ footer a:hover{text-decoration:underline}
   </section>
 
   <!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <h2 class="section-title reveal">About Bytecelium Creative</h2>
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title reveal">About Bytecelium Creative</h2>
+      <div class="about reveal delay-1">
+        <p><strong>We help local businesses look credible online—fast.</strong></p>
+        <p>Bytecelium Creative started by making technology feel simple for owners who already have a lot on their plate. That turned into a focus on clean, high-performing websites and brand systems that win trust, drive action, and are effortless to keep up.</p>
 
-    <div class="about reveal delay-1">
-      <p><strong>We help local businesses look credible online—fast.</strong></p>
-      <p>Bytecelium Creative started by making technology feel simple for owners who already have a lot on their plate. That turned into a focus on clean, high-performing websites and brand systems that win trust, drive action, and are effortless to keep up.</p>
+        <p><strong>What makes us different</strong></p>
+        <ul class="about-list">
+          <li><strong>Concept first, no risk:</strong> see your brand in a modern layout before you decide.</li>
+          <li><strong>Built for action:</strong> mobile-first pages with clear “call, text, book, directions.”</li>
+          <li><strong>Local visibility:</strong> simple on-page SEO and Google Business Profile polish.</li>
+          <li><strong>Care that keeps you moving:</strong> hosting, SSL, backups, and small updates handled.</li>
+          <li><strong>Plain-English process:</strong> no jargon—just friendly guidance and practical options.</li>
+        </ul>
 
-      <p><strong>What makes us different</strong></p>
-      <ul class="about-list">
-        <li><strong>Concept first, no risk:</strong> we show a free, tailored concept so you can see your brand in a modern layout before you decide.</li>
-        <li><strong>Built for action:</strong> mobile-first pages with clear “call, text, book, directions” buttons—so visitors know the next step.</li>
-        <li><strong>Local visibility:</strong> simple on-page SEO and Google Business Profile polish that helps customers find you.</li>
-        <li><strong>Care that keeps you moving:</strong> hosting, SSL, backups, and small updates handled so your site stays fast and secure.</li>
-        <li><strong>Plain-English process:</strong> no mystery jargon—just friendly guidance and practical options.</li>
-      </ul>
+        <p><strong>How we work</strong></p>
+        <ol class="about-steps">
+          <li><strong>Chat:</strong> a quick call/text about your goals and customers.</li>
+          <li><strong>Free concept:</strong> a focused hero and key sections to show direction.</li>
+          <li><strong>Build:</strong> fast, accessible pages with copy that guides customers.</li>
+          <li><strong>Launch & care:</strong> we handle hosting and updates; you get a site that performs.</li>
+        </ol>
 
-      <p><strong>How we work</strong></p>
-      <ol class="about-steps">
-        <li><strong>Chat:</strong> a quick call/text about your goals and customers.</li>
-        <li><strong>Free concept:</strong> we design a focused hero and key sections to show direction.</li>
-        <li><strong>Build:</strong> fast, accessible pages with copy that guides customers.</li>
-        <li><strong>Launch & care:</strong> we handle hosting and updates; you get a site that performs.</li>
-      </ol>
-
-      <p>Whether you’re opening your first location or leveling up from a Facebook page, we’ll make your business look as good online as it does in person.</p>
+        <p>Whether you’re opening your first location or leveling up from a Facebook page, we’ll make your business look as good online as it does in person.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-title reveal">Questions we get a lot</h2>
+      <div class="faq">
+        <details class="reveal">
+          <summary>How long does a typical site take?</summary>
+          <p>Most small business sites launch in 2–3 weeks once we approve the concept and have your content (logo, photos, hours, services).</p>
+        </details>
+        <details class="reveal delay-1">
+          <summary>What do you need from me to start?</summary>
+          <p>Brand name, contact info, service list, a few photos, and what action you want customers to take (call, text, book, directions). We’ll guide you step by step.</p>
+        </details>
+        <details class="reveal delay-2">
+          <summary>Can you write the copy?</summary>
+          <p>Yes. We’ll draft concise, plain-English copy that answers common questions and drives action. You’ll review and approve before launch.</p>
+        </details>
+        <details class="reveal delay-3">
+          <summary>Do you handle domains, hosting, and security?</summary>
+          <p>Yep—domain setup, SSL, hosting, backups, and small updates can be handled through our care plans.</p>
+        </details>
+        <details class="reveal delay-3">
+          <summary>Will my site show up on Google?</summary>
+          <p>We use simple on-page SEO and polish your Google Business Profile so local customers can actually find you. Big ranking jumps depend on competition and content, but we set you up right.</p>
+        </details>
+      </div>
+    </div>
+  </section>
 
   <!-- CTA -->
   <section id="contact" class="cta">
     <div class="container">
       <h3 class="reveal">Let’s make your business look as good online as it does in person.</h3>
       <p class="reveal delay-1">Ask for a free concept—see your brand in a clean, modern layout before you commit.</p>
-      <div class="reveal delay-2">
+      <div class="cta-actions reveal delay-2">
         <a class="btn" href="sms:5024831939?&body=Hi%20I%20saw%20your%20site%20and%20want%20to%20learn%20more%20about%20your%20web%20design%20services.">Text to begin</a>
+        <a class="btn ghost" href="tel:5024831939">Call (502) 483-1939</a>
       </div>
     </div>
   </section>
@@ -437,7 +520,9 @@ footer a:hover{text-decoration:underline}
     <div>&copy; 2025 Bytecelium Creative</div>
     <div>
       <a href="#services">Services</a> &middot;
+      <a href="#process">Process</a> &middot;
       <a href="#work">Work</a> &middot;
+      <a href="#faq">FAQ</a> &middot;
       <a href="#about">About</a> &middot;
       <a href="#contact">Contact</a>
     </div>
@@ -451,12 +536,12 @@ const obs=new IntersectionObserver(entries=>{
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-/* Mobile hamburger toggle + close on link click */
+/* Mobile hamburger + close on click */
 const burger=document.getElementById('hamburger');
 const nav=document.getElementById('nav');
 burger.addEventListener('click',()=>{ burger.classList.toggle('active'); nav.classList.toggle('open'); });
 
-/* Robust anchor scroll with header offset */
+/* Anchor scroll with header offset */
 function headerH(){ return document.querySelector('header')?.offsetHeight || 0; }
 function scrollToHash(hash){
   const el=document.querySelector(hash);
